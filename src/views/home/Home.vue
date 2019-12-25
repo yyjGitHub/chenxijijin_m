@@ -1,15 +1,13 @@
 <template>
   <div class="container_box homepage_box">
-    <Header :is_1st_slide="active_slide_index"
-            class="header"></Header>
+    <Header class="header"></Header>
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 export default {
-  data () {
+  data() {
     return {};
   },
   computed: {
@@ -20,33 +18,9 @@ export default {
     //   return this.$refs.subSwiper.swiper;
     // }
   },
-  mounted () {
-    this.$nextTick(() => {
-      this.setActiveSlideIndex();
-      this.subSwiper.init();
-    });
-  },
-  methods: {
-    homeSlideChange () {
-      this.setActiveSlideIndex();
-    },
-    subSlideChange () { },
-    setActiveSlideIndex () {
-      this.active_slide_indexnum = "0" + (this.swiper.activeIndex + 1);
-      if (this.swiper.activeIndex === 0) {
-        this.active_slide_index = true;
-      } else {
-        this.active_slide_index = false;
-      }
-    },
-    subswiperNext () {
-      this.subSwiper.slideNext();
-    },
-    subswiperPrev () {
-      this.subSwiper.slidePrev();
-    }
-  },
-  components: { Footer, Header }
+  mounted() {},
+  methods: {},
+  components: { Header }
 };
 </script>
 

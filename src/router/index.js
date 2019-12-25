@@ -18,7 +18,18 @@ const mainroutes = [
   {
     path: "/home",
     name: "home",
-    component: _import("home/Home"),
+    component: Layout,
+    children: [
+      {
+        path: "",
+        name: "index",
+        component: _import("home/Home"),
+        meta: {
+          label: "关于晨曦",
+          title: "关于晨曦-晨曦基金"
+        }
+      }
+    ],
     meta: {
       label: "首页",
       title: "首页-晨曦基金"
@@ -39,48 +50,31 @@ const mainroutes = [
         }
       },
       {
-        path: "CompanyProfile",
-        name: "CompanyProfile",
-        component: _import("about/CompanyProfile"),
+        path: "QYJJ",
+        name: "DCJJ",
         meta: {
-          label: "企业简介",
-          title: "企业简介-晨曦基金"
+          label: "企业简介"
         }
       },
       {
-        path: "CorporateVision/QYYJ",
-        name: "CorporateVision",
-        component: _import("about/CorporateVision"),
+        path: "QYFC",
+        name: "QYFC",
         meta: {
-          label: "企业愿景",
-          title: "企业愿景-晨曦基金"
+          label: "企业风采"
         }
       },
       {
-        path: "CorporateVision/QYRY",
-        name: "CorporateVision",
-        component: _import("about/CorporateVision"),
+        path: "TZCL",
+        name: "TZCL",
         meta: {
-          label: "企业荣誉",
-          title: "企业荣誉-晨曦基金"
+          label: "投资策略"
         }
       },
       {
-        path: "InvestmentStrategy",
-        name: "InvestmentStrategy",
-        component: _import("about/InvestmentStrategy"),
+        path: "HZHB",
+        name: "HZHB",
         meta: {
-          label: "投资策略",
-          title: "投资策略-晨曦基金"
-        }
-      },
-      {
-        path: "CooperationPartners",
-        name: "CooperationPartners",
-        component: _import("about/CooperationPartners"),
-        meta: {
-          label: "合作伙伴",
-          title: "合作伙伴-晨曦基金"
+          label: "合作伙伴"
         }
       }
     ],
@@ -194,27 +188,6 @@ const mainroutes = [
           label: "投资者关系",
           title: "投资者关系-晨曦基金"
         }
-      },
-      {
-        path: "2016GG",
-        name: "2016GG",
-        meta: {
-          label: "2016年公告"
-        }
-      },
-      {
-        path: "2017GG",
-        name: "2017GG",
-        meta: {
-          label: "2017年公告"
-        }
-      },
-      {
-        path: "2018GG",
-        name: "2018GG",
-        meta: {
-          label: "2018年公告"
-        }
       }
     ],
     meta: {
@@ -258,7 +231,7 @@ const mainroutes = [
   }
 ];
 const routerPush = VueRouter.prototype.push;
-VueRouter.prototype.push = function push(location) {
+VueRouter.prototype.push = function push (location) {
   return routerPush.call(this, location).catch(error => error);
 };
 const router = new VueRouter({
@@ -267,7 +240,7 @@ const router = new VueRouter({
   loadingroutes: false,
   isCreateMenu: false,
   routes: [...baseroutes, ...mainroutes],
-  scrollBehavior() {
+  scrollBehavior () {
     // to, from, savedPosition
     return { x: 0, y: 0 };
   }

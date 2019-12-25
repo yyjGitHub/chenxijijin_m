@@ -8,6 +8,7 @@ import "normalize.css";
 // import "element-ui/lib/theme-chalk/index.css";
 import "./styles/app.scss";
 import VueAwesomeSwiper from "vue-awesome-swiper";
+import { Icon } from "vant";
 
 // require styles
 import "swiper/dist/css/swiper.css";
@@ -15,6 +16,7 @@ import "swiper/dist/css/swiper.css";
 Vue.use(VueAwesomeSwiper /* { default global options } */);
 
 Vue.use(VueAMap);
+Vue.use(Icon);
 
 VueAMap.initAMapApiLoader({
   key: "1787da644b789c9eb13218cc6b404a26",
@@ -29,7 +31,7 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  mounted () {
+  mounted() {
     let _this = this;
     this.resetFontsize();
     window.onresize = () => {
@@ -39,7 +41,7 @@ new Vue({
     };
   },
   methods: {
-    resetFontsize () {
+    resetFontsize() {
       let rootHtml = document.documentElement;
       let deviceWidth = rootHtml.clientWidth;
       rootHtml.style.fontSize = (deviceWidth * 100) / 750 + "px";
