@@ -2,6 +2,7 @@ html,
 body {
   background-color: #fff;
   min-width: 100%;
+  overflow-x: hidden;
 }
 
 .tran-3s {
@@ -15,138 +16,123 @@ body {
       display: block;
       width: 100%;
     }
-    ._box {
+    ._title {
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      ._title {
-        text-align: center;
-        height: px(88);
-        font-size: px(64);
-
-        color: rgba(255, 255, 255, 1);
-        line-height: px(77);
-        position: relative;
-        margin-bottom: px(42);
-        &::after {
-          content: '';
-          display: block;
-          position: absolute;
-          width: px(120);
-          height: 2px;
-          background-color: #fff;
-          bottom: px(-16);
-          left: 50%;
-          transform: translateX(-50%);
-        }
-      }
-      ._into {
-        max-width: px(600);
-        text-align: center;
-        font-size: px(16);
-
-        color: rgba(255, 255, 255, 1);
-        line-height: px(23);
-      }
+      left: px(48);
+      font-size: px(40);
+      color: rgba(255, 255, 255, 1);
+      letter-spacing: px(4);
+      font-weight: bold;
+      transform: translateY(-50%);
     }
   }
   .page_bottom_box {
-    ._c {
-      width: px(1280);
-      margin: 0 auto;
-    }
-    .__part_title {
-      .title {
-        height: px(50);
-        font-size: px(36);
-
-        color: rgba(89, 154, 229, 1);
-        line-height: px(43);
-        margin-bottom: px(10);
-      }
-      .en_title {
-        display: flex;
-        align-items: center;
-        img {
-          display: block;
-          width: px(23);
-          height: px(11);
-          margin-right: px(9);
-          position: relative;
-          top: px(-3);
+    padding-bottom: px(56);
+    .tab_box {
+      .van-tabs {
+        .van-tab {
+          font-size: px(18);
+          height: px(73);
+          line-height: px(73);
+          color: #7f7f7f;
+          &.van-tab--active {
+            color: #599ae5;
+            font-weight: bold;
+          }
         }
-        span {
-          display: block;
-          font-size: px(16);
-
-          color: #333;
-          height: px(22);
-          line-height: px(22);
+        .van-tabs__content {
+        }
+        .van-tabs__line {
+          background: #599ae5;
         }
       }
-    }
-  }
-  .layout_content_innerbox {
-    ._c {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: px(223);
-      .layout_content_title {
-        height: px(80);
-        font-size: px(80);
-
-        color: #666666;
-        line-height: px(80);
-        font-weight: bold;
-        position: relative;
-        margin-bottom: px(18);
-        z-index: 99;
-        &::before {
-          content: 'COMPANY';
-          display: block;
-          position: absolute;
-          z-index: -1;
-          left: 50%;
-          transform: translateX(-50%);
-          top: px(-103);
-          color: #f7f7f7;
-          height: px(144);
-          font-size: px(120);
-          font-family: HelveticaNeue-Bold, HelveticaNeue;
-          font-weight: bolder;
-          line-height: px(144);
+      .part {
+        .part_top_box {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: px(99);
+          padding-bottom: px(48);
+          ._top {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin-bottom: px(76);
+            ._title {
+              height: px(48);
+              font-size: px(48);
+              color: #666666;
+              line-height: px(48);
+              letter-spacing: px(3);
+              font-weight: bold;
+            }
+            ._entitle {
+              position: absolute;
+              top: px(-40);
+              left: 50%;
+              transform: translateX(-50%);
+              height: px(72);
+              font-size: px(72);
+              font-family: HelveticaNeue-Bold, HelveticaNeue;
+              font-weight: bold;
+              color: #f7f7f7;
+              line-height: px(72);
+              letter-spacing: px(5);
+              z-index: -1;
+            }
+            ._info {
+              position: absolute;
+              bottom: px(-30);
+              left: 50%;
+              transform: translateX(-50%);
+              font-size: px(18);
+              color: #888;
+              line-height: px(15);
+              text-align: center;
+              width: 100%;
+            }
+            ._line {
+              width: px(60);
+              height: 1px;
+              position: absolute;
+              bottom: px(-48);
+              left: 50%;
+              transform: translateX(-50%);
+              background-color: #999;
+            }
+          }
+          ._bottom {
+            width: px(560);
+            text-align: center;
+            font-size: px(14);
+            line-height: px(34);
+            color: #6e6e6e;
+            letter-spacing: px(1);
+          }
         }
-      }
-      .layout_content_into {
-        // height: px(30);
-        font-size: px(30);
-        color: #7f7f7f;
-        line-height: px(30);
-        letter-spacing: px(6);
-        margin-bottom: px(82);
-        position: relative;
-        &::after {
-          content: '';
-          display: block;
-          width: px(120);
-          height: 2px;
-          background-color: rgba(0, 0, 0, 0.4);
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          bottom: px(-40);
+        .part_bottom_box {
+          width: 100%;
+          box-sizing: border-box;
+          padding: 0 px(48);
+          .pagination_box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .btn-prev {
+              width: px(160);
+              .el-icon::before {
+                content: "上一页";
+              }
+            }
+            .btn-next {
+              width: px(160);
+              .el-icon::before {
+                content: "下一页";
+              }
+            }
+          }
         }
-      }
-      .layout_content_intro {
-        text-align: center;
-        width: px(665);
-        font-size: px(18);
-
-        color: #7f7f7f;
-        line-height: px(32);
-        margin-bottom: px(120);
       }
     }
   }

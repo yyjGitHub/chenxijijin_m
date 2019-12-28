@@ -4,11 +4,12 @@ import router from "./router";
 import VueAMap from "vue-amap";
 import store from "./store";
 import "normalize.css";
-// import ElementUI from "element-ui";
-// import "element-ui/lib/theme-chalk/index.css";
+import "element-ui/lib/theme-chalk/index.css";
+import { Pagination } from "element-ui";
 import "./styles/app.scss";
 import VueAwesomeSwiper from "vue-awesome-swiper";
 import { Icon } from "vant";
+import { Tab, Tabs } from "vant";
 
 // require styles
 import "swiper/dist/css/swiper.css";
@@ -17,6 +18,8 @@ Vue.use(VueAwesomeSwiper /* { default global options } */);
 
 Vue.use(VueAMap);
 Vue.use(Icon);
+Vue.use(Tab).use(Tabs);
+Vue.use(Pagination);
 
 VueAMap.initAMapApiLoader({
   key: "1787da644b789c9eb13218cc6b404a26",
@@ -36,6 +39,7 @@ new Vue({
     this.resetFontsize();
     window.onresize = () => {
       return (() => {
+        console.log(1);
         _this.resetFontsize();
       })();
     };
