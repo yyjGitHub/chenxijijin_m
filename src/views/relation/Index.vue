@@ -14,6 +14,18 @@
           <span>2019年公告</span>
           <img src="~@/assets/m/arrow_right.png" alt="" srcset="" />
         </div>
+        <div class="item" @click="showList = !showList">
+          <span>2018年公告</span>
+          <img src="~@/assets/m/arrow_right.png" alt="" srcset="" />
+        </div>
+        <div class="item" @click="showList = !showList">
+          <span>2017年公告</span>
+          <img src="~@/assets/m/arrow_right.png" alt="" srcset="" />
+        </div>
+        <div class="item" @click="showList = !showList">
+          <span>2016年公告</span>
+          <img src="~@/assets/m/arrow_right.png" alt="" srcset="" />
+        </div>
       </div>
     </div>
     <div class="page_bottom_box">
@@ -157,8 +169,10 @@ export default {
       position: absolute;
       top: 100%;
       width: calc(100% - 0.98rem);
+      background-color: #fff;
       margin: 0rem 0.48rem;
       box-sizing: border-box;
+      z-index: 99;
       left: 0;
       & > .item {
         display: flex;

@@ -10,6 +10,7 @@ import "./styles/app.scss";
 import VueAwesomeSwiper from "vue-awesome-swiper";
 import { Icon } from "vant";
 import { Tab, Tabs } from "vant";
+import { Collapse, CollapseItem } from "vant";
 
 // require styles
 import "swiper/dist/css/swiper.css";
@@ -19,6 +20,7 @@ Vue.use(VueAwesomeSwiper /* { default global options } */);
 Vue.use(VueAMap);
 Vue.use(Icon);
 Vue.use(Tab).use(Tabs);
+Vue.use(Collapse).use(CollapseItem);
 Vue.use(Pagination);
 
 VueAMap.initAMapApiLoader({
