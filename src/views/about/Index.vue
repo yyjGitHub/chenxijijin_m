@@ -1,12 +1,12 @@
 <template>
   <div class="about_index_box layout_content_box">
     <div class="page_top_box">
-      <img src="~@/assets/m/about_top_bg.png" alt="" srcset="" />
-      <div class="_title">面向未来 注重成效</div>
+      <img :src="`${$basePicUrl}${topInfo.logo}`" alt="" srcset="" />
+      <div class="_title">{{ topInfo.title }}</div>
     </div>
     <div class="page_bottom_box">
       <div class="tab_box">
-        <van-tabs v-model="activeName" animated swipeable>
+        <van-tabs v-model="activeName" @click="onClick" animated swipeable>
           <van-tab title="企业简介" name="QYJJ">
             <div class="part _part1">
               <div class="part_top_box">
@@ -18,53 +18,22 @@
                     COMPANY
                   </div>
                   <div class="_info">
-                    忠于所托 成就价值
+                    {{ QYJJ_Info.title }}
                   </div>
                   <div class="_line"></div>
                 </div>
-                <div class="_bottom">
-                  上海晨曦股权投资基金管理有限公司（以下简称“晨曦基金”），成立于2016年10月28日，注册资本1亿人民币，为上海旭辉企业发展有限公司控股的子公司，是旭辉集团一体两翼“房地产+”板块的核心成员之一。
-                </div>
+                <div class="_bottom" v-html="QYJJ_Info.content"></div>
               </div>
               <div class="part_bottom_box">
-                <div class="_item">
-                  <img src="~@/assets/m/about_qyjj_pic1.png" alt="" srcset="" />
+                <div
+                  class="_item"
+                  v-for="(item, index) in QYJJ_List"
+                  :key="index"
+                >
+                  <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
                   <div>
-                    <span class="_title">成立时间</span>
-                    <span class="_info">
-                      成立于<br />
-                      2016-10-28
-                    </span>
-                  </div>
-                </div>
-                <div class="_item">
-                  <img src="~@/assets/m/about_qyjj_pic2.png" alt="" srcset="" />
-                  <div>
-                    <span class="_title">注册资本</span>
-                    <span class="_info">
-                      注册资本<br />
-                      一亿人民币
-                    </span>
-                  </div>
-                </div>
-                <div class="_item">
-                  <img src="~@/assets/m/about_qyjj_pic3.png" alt="" srcset="" />
-                  <div>
-                    <span class="_title">公司实力</span>
-                    <span class="_info">
-                      上海旭辉企业<br />
-                      控股的子公司
-                    </span>
-                  </div>
-                </div>
-                <div class="_item">
-                  <img src="~@/assets/m/about_qyjj_pic4.png" alt="" srcset="" />
-                  <div>
-                    <span class="_title">伙伴</span>
-                    <span class="_info">
-                      旭辉“房地产+”<br />
-                      核心成员之一
-                    </span>
+                    <span class="_title">{{ item.title }}</span>
+                    <span class="_info" v-html="item.content"> </span>
                   </div>
                 </div>
               </div>
@@ -81,60 +50,36 @@
                     VISION
                   </div>
                   <div class="_info">
-                    成为中国房地产私募基金领军者
+                    {{ QYFC_Info.title }}
                   </div>
                   <div class="_line"></div>
                 </div>
-                <div class="_bottom">
-                  公司于2017年4月12日在基金业协会完成私募基金管理人备案登记，私募投资基金管理人登记号为
-                  P1062335，公司以“轻资产运营”为导向，多元发展地产基金和股权投资等多个业务板块，致力于成为集项目研判、结构化产品定制、投资运营、风险控制、资产管理于一体的房地产综合服务提供商和独具特色的股权投资机构，跻身业内一流的综合基金平台行列。
-                </div>
+                <div class="_bottom" v-html="QYFC_Info.content"></div>
               </div>
               <div class="part_bottom_box">
                 <div class="_top">
-                  <img src="~@/assets/m/about_qyyj_pic1.png" alt="" srcset="" />
+                  <img
+                    :src="`${$basePicUrl}${QYFC_List[0].logo}`"
+                    alt=""
+                    srcset=""
+                  />
                   <div class="_title">
                     晨曦基金
                   </div>
                   <div class="_subtitle">
-                    忠于所托 成就价值
+                    {{ QYFC_List[0].title }}
                   </div>
-                  <div class="_into">
-                    公司于2017年4月12日在基金业协会完成私募基金管理人备案登记，私募投资基金管理人登记号为
-                    P1062335，公司以“轻资产运营”为导向，多元发展地产基金和股权投资等多个业务板块，致力于成为集项目研判、结构化产品定制、投资运营、风险控制、资产管理于一体的房地产综合服务提供商和独具特色的股权投资机构，跻身业内一流的综合基金平台行列。
-                  </div>
+                  <div class="_into" v-html="QYFC_List[0].content"></div>
                 </div>
                 <div class="_bottom">
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/about_qyyj_pic2.png"
-                      alt=""
-                      srcset=""
-                    />
+                  <div
+                    class="_item"
+                    v-for="(item, index) in QYFCsub_List"
+                    :key="index"
+                  >
+                    <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
                     <div>
-                      <span>2018《博鳌房地产论坛》房地产基金品牌TOP10</span>
-                    </div>
-                  </div>
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/about_qyyj_pic3.png"
-                      alt=""
-                      srcset=""
-                    />
-                    <div>
-                      <span
-                        >2018《财视中国》最具市场影响力产品私募房地产基金</span
-                      >
-                    </div>
-                  </div>
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/about_qyyj_pic4.png"
-                      alt=""
-                      srcset=""
-                    />
-                    <div>
-                      <span>2017年度TOP10房地产股权投资基金</span>
+                      <span>{{ item.title }}</span>
                     </div>
                   </div>
                 </div>
@@ -152,167 +97,70 @@
                     STRATEGY
                   </div>
                   <div class="_info">
-                    灵活配置 专业投资
+                    {{ TZCL_Info.title }}
                   </div>
                   <div class="_line"></div>
                 </div>
-                <div class="_bottom">
-                  结合管理团队过去的投资和运营经验以及对未来基金发展的规划，基金的投资理念和投资方式主要是理解全球发展规律，抓住中国特色的结构性机会，坚持独立的价值投资方式并提供后续关键的服务。
-                </div>
+                <div class="_bottom" v-html="TZCL_Info.content"></div>
               </div>
               <div class="part_bottom_box">
                 <div class="_item">
                   <div class="_top">
                     <img
-                      src="~@/assets/m/about_tzcl_pic1.png"
+                      :src="`${$basePicUrl}${TZLN__Info.logo}`"
                       alt=""
                       srcset=""
                     />
-                    <span class="_title">投资理念</span>
-                    <span class="_subtitle">合法 - 可控 - 稳健</span>
+                    <span class="_title">{{ TZLN__Info.ctitle }}</span>
+                    <span class="_subtitle">{{ TZLN__Info.title }}</span>
                   </div>
                   <div class="_bottom">
-                    <div>
+                    <div v-for="(item, index) in TZLN__List" :key="index">
                       <div class="title_box">
                         <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
-                        <span>地产基金部 | Real Estate Fund department</span>
+                        <span>{{ item.title }} | {{ item.entitle }}</span>
                       </div>
-                      <div class="into_box">
-                        <span
-                          >晨曦基金地产基金部，自成立以来，以房地产投融资业务为主导，致力于成为集地产项目研判、结构化产品定制、投资运营、风险控制、资产管理于一体的房地产综合服务提供商，同时也关注房地产行业衍生业务的股权投资机会。晨曦基金积极关注和参与国内商业物业证券化市场，与高和资本一同牵头推动了领昱系列类REITs项目的储架注册和注册额度下领昱1号类REITs项目的落地。未来，晨曦基金将继续通过证券化工具打通旗下其他并购项目的资本进入和退出渠道，积极储备公募REITs项目，最终形成“REITs+并购基金”闭环滚动发展模式。</span
-                        >
-                      </div>
-                    </div>
-                    <div>
-                      <div class="title_box">
-                        <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
-                        <span>股权基金部 | Equity Fund department</span>
-                      </div>
-                      <div class="into_box">
-                        <span
-                          >1.深刻理解并遵循业务本质逻辑和全球行业发展规律；</span
-                        >
-                        <span
-                          >2.准确把握市场与行业变革的推动要素和关键时点,借助长期、结构性和力量强大的市场与行业变革机会；</span
-                        >
-                        <span
-                          >3.着重于具有长期持续的结构性竞争优势(“护城河”)、投资回报卓越的业务模式；</span
-                        >
-                        <span>4.谨慎而坚决地投资并长期持有；</span>
-                        <span
-                          >5.为被投资企业提供关键的、有助于其建立可持续竞争优势的智囊型增值服务和关键运营支撑；</span
-                        >
-                        <span>6.审慎评估风险因素,关注风险调整后的收益；</span>
-                        <span
-                          >7.基金的投资方式是坚持独立思考，深入研究，宁缺毋滥，持续提供增值服务。</span
-                        >
-                      </div>
+                      <div class="into_box" v-html="item.content"></div>
                     </div>
                   </div>
                 </div>
                 <div class="_item">
                   <div class="_top">
                     <img
-                      src="~@/assets/m/about_tzcl_pic2.png"
+                      :src="`${$basePicUrl}${TZCL__Info.logo}`"
                       alt=""
                       srcset=""
                     />
-                    <span class="_title">投资策略</span>
-                    <span class="_subtitle">专业 - 持续 - 深入</span>
+                    <span class="_title">{{ TZCL__Info.ctitle }}</span>
+                    <span class="_subtitle">{{ TZCL__Info.title }}</span>
                   </div>
                   <div class="_bottom">
-                    <div>
+                    <div v-for="(item, index) in TZCL__List" :key="index">
                       <div class="title_box">
                         <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
-                        <span>地产基金部 | Real Estate Fund department</span>
+                        <span>{{ item.title }} | {{ item.entitle }}</span>
                       </div>
-                      <div class="into_box">
-                        <span
-                          ><b>交易对手：</b
-                          >全国前百强房企、区域龙头、各区域投资上报房企；</span
-                        >
-                        <span
-                          ><b>城市选择：</b
-                          >核心一线城市、省会城市+典型二线城市、部分拓展优质三线城市；+并购基金闭环滚动发展模式。
-                        </span>
-                        <span
-                          ><b>业态选择：</b
-                          >资金需要在12个月内退现金流回正、高周转+快回本（逆向选择）、住宅比例>70%（或住宅部分覆盖借款本息）；</span
-                        >
-                        <span
-                          ><b>财务状况：</b
-                          >项目本身的财务指标（ROE>20%，EBIT>12%）、实际控制人的财务状况、关注资金回收期——ROI,IRR等动态指标，考虑货币时间价值。</span
-                        >
-                      </div>
-                    </div>
-                    <div>
-                      <div class="title_box">
-                        <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
-                        <span>股权基金部 | Equity Fund department</span>
-                      </div>
-                      <div class="into_box">
-                        <span
-                          >基金的投资策略可以总结为：价值投资、比较优势。</span
-                        >
-                        <span
-                          >晨曦的投资基金方向的选择基于对以下两大宏观环境的判断。</span
-                        ><span
-                          >首先，中国正处于经济发展的新常态，我们看到中国经济正发生的一些深刻的变化：新产品、新行业、新产业、新业态、新模式正在加速成长，新的动力正在加快孕育。具体来看，我们选择投资方向主要考虑如下几点因素：是否符合经济结构调整的方向；是否有足够大的产业发展空间；是否受益于人们生活水平的持续提高。结合管理团队过去的投资和运营经验以及对未来基金发展的规划，基金的投资理念和投资方式主要是理解全球发展规律，抓住中国独特的结构性机会，坚持独立的价值投资方式并提供后续关键的服务。</span
-                        >
-                      </div>
+                      <div class="into_box" v-html="item.content"></div>
                     </div>
                   </div>
                 </div>
                 <div class="_item">
                   <div class="_top">
                     <img
-                      src="~@/assets/m/about_tzcl_pic3.png"
+                      :src="`${$basePicUrl}${FXKZ__Info.logo}`"
                       alt=""
                       srcset=""
                     />
-                    <span class="_title">风险控制</span>
-                    <span class="_subtitle">调研 - 跟踪 - 管控</span>
+                    <span class="_title">{{ FXKZ__Info.ctitle }}</span>
+                    <span class="_subtitle">{{ FXKZ__Info.title }}</span>
                   </div>
                   <div class="_bottom">
-                    <div>
+                    <div v-for="(item, index) in FXKZ__List" :key="index">
                       <div class="title_box">
                         <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
-                        <span>地产基金部 | Real Estate Fund department</span>
+                        <span>{{ item.title }} | {{ item.entitle }}</span>
                       </div>
-                      <div class="into_box">
-                        <span
-                          ><b>合作项目针对情况：</b
-                          >小股东同股同投的资金缺口；小股东额外借款需求。</span
-                        >
-                        <span
-                          ><b>过程要点：</b
-                          ><br />1、先期谈判基金介入；2、小股东利息支付采用按自然季付息方式，避免产生利息资金成本无人承担；
-                        </span>
-                        <span
-                          >3、旭辉全程操盘、并表，掌控现金流，保障第一还款来源。</span
-                        >
-                        <span
-                          ><b>增信措施：</b
-                          ><br />1、小股东实际控制人担保；2、对项目公司实行章、证、照管控；3、小股东所持股权质押；</span
-                        >
-                        <span>4、项目现金流管控。</span>
-                        <span
-                          ><b>代建+资金提供前提：</b
-                          >土地资源优质，获取项目主要权利——财务、营销、设计操盘权；</span
-                        >
-                        <span
-                          ><b>原则：</b
-                          >借款金额不高于项目资金峰值；年回报不低于15%+后端超额分红。</span
-                        >
-                        <span>低价委贷方式投入项目，提高还款严肃性。 </span>
-                        <span><b>增信措施：</b></span>
-                        <span
-                          >1、对赌，基金下设SPV公司，将权属转让至SPV；2、股权/信托的收益权质押；3、土地抵押担保；</span
-                        >
-                        <span
-                          >4、实际控制人提供保证担保；5、印鉴、公章、证照共管。</span
-                        >
-                      </div>
+                      <div class="into_box" v-html="item.content"></div>
                     </div>
                   </div>
                 </div>
@@ -330,21 +178,15 @@
                     PARTNERS
                   </div>
                   <div class="_info">
-                    创造财富 开启未来
+                    {{ HZHB_Info.title }}
                   </div>
                   <div class="_line"></div>
                 </div>
-                <div class="_bottom">
-                  结合管理团队过去的投资和运营经验以及对未来基金发展的规划，基金的投资理念和投资方式主要是理解全球发展规律，抓住中国特色的结构性机会，坚持独立的价值投资方式并提供后续关键的服务。
-                </div>
+                <div class="_bottom" v-html="HZHB_Info.content"></div>
               </div>
               <div class="part_bottom_box">
-                <div v-for="i in 17" :key="i">
-                  <img
-                    :src="require('@/assets/m/about_hzhb_pic' + i + '.png')"
-                    alt=""
-                    srcset=""
-                  />
+                <div v-for="(item, index) in HZHB_List" :key="index">
+                  <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
                 </div>
               </div>
             </div>
@@ -359,14 +201,206 @@
 export default {
   data() {
     return {
-      activeName: "QYJJ"
+      activeName: "QYJJ",
+      topInfo: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      QYJJ_Info: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      QYJJ_List: [],
+      QYFC_Info: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      QYFC_List: [
+        {
+          title: "",
+          content: "",
+          logo: ""
+        }
+      ],
+      QYFCsub_List: [],
+      TZCL_Info: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      TZCL_List: [],
+      TZLN__Info: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      TZLN__List: [],
+      TZCL__Info: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      TZCL__List: [],
+      FXKZ__Info: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      FXKZ__List: [],
+      HZHB_Info: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      HZHB_List: []
     };
   },
-  methods: {}
+  watch: {
+    $route: {
+      handler(newVal) {
+        console.log(newVal);
+        if (newVal.query.hasOwnProperty("_")) {
+          this.activeName = newVal.query["_"];
+          this.onClick(newVal.query["_"]);
+        }
+      },
+      immediate: true,
+      deep: true
+    }
+  },
+  mounted() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      this.axios
+        .get(`${this.$baseUrl}content/id/2`)
+        .then(({ data }) => {
+          this.topInfo = data.data;
+        })
+        .catch(response => {
+          console.log(response);
+        });
+    },
+    onClick(name) {
+      console.log(name);
+      let info_url = `${this.$baseUrl}`;
+      let list_url = `${this.$baseUrl}`;
+      let listsub_url = `${this.$baseUrl}`;
+      switch (name) {
+        case "QYJJ":
+          info_url += `content/id/3`;
+          list_url += `contentext/id/3`;
+          break;
+        case "QYFC":
+          info_url += `content/id/19`;
+          list_url += `contentext/id/4`;
+          listsub_url += `contentext/id/5`;
+          break;
+        case "TZCL":
+          info_url += `content/id/6`;
+          list_url += `contentext/id/3`;
+          break;
+        case "HZHB":
+          info_url += `content/id/7`;
+          list_url += `contentext/id/7`;
+          break;
+        default:
+          break;
+      }
+      this.axios
+        .get(info_url)
+        .then(({ data }) => {
+          this.$data[`${name}_Info`] = data.data;
+        })
+        .catch(response => {
+          console.log(response);
+        });
+      this.axios
+        .get(list_url)
+        .then(({ data }) => {
+          this.$data[`${name}_List`] = data.data;
+        })
+        .catch(response => {
+          console.log(response);
+        });
+      if (name === "QYFC") {
+        this.axios
+          .get(listsub_url)
+          .then(({ data }) => {
+            this.$data[`${name}sub_List`] = data.data;
+          })
+          .catch(response => {
+            console.log(response);
+          });
+      }
+      if (name === "TZCL") {
+        this.axios
+          .get(`${this.$baseUrl}content/id/20`)
+          .then(({ data }) => {
+            this.TZLN__Info = data.data;
+          })
+          .catch(response => {
+            console.log(response);
+          });
+        this.axios
+          .get(`${this.$baseUrl}content/id/21`)
+          .then(({ data }) => {
+            this.TZCL__Info = data.data;
+          })
+          .catch(response => {
+            console.log(response);
+          });
+        this.axios
+          .get(`${this.$baseUrl}content/id/22`)
+          .then(({ data }) => {
+            this.FXKZ__Info = data.data;
+          })
+          .catch(response => {
+            console.log(response);
+          });
+        this.axios
+          .get(`${this.$baseUrl}contentext/id/20`)
+          .then(({ data }) => {
+            this.TZLN__List = data.data;
+          })
+          .catch(response => {
+            console.log(response);
+          });
+        this.axios
+          .get(`${this.$baseUrl}contentext/id/21`)
+          .then(({ data }) => {
+            this.TZCL__List = data.data;
+          })
+          .catch(response => {
+            console.log(response);
+          });
+        this.axios
+          .get(`${this.$baseUrl}contentext/id/22`)
+          .then(({ data }) => {
+            this.FXKZ__List = data.data;
+          })
+          .catch(response => {
+            console.log(response);
+          });
+      }
+    }
+  }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .about_index_box {
   .page_bottom_box {
     ._part1 {
@@ -410,7 +444,7 @@ export default {
                 font-size: px(16);
                 color: #353535;
                 text-align: center;
-                line-height: px(28);
+                line-height: px(20);
               }
             }
           }
@@ -468,7 +502,7 @@ export default {
           ._into {
             font-size: px(14);
             color: #666666;
-            line-height: px(44);
+            line-height: px(32);
           }
         }
         ._bottom {
@@ -503,7 +537,7 @@ export default {
               span {
                 display: block;
                 font-size: px(20);
-                line-height: px(34);
+                line-height: px(24);
                 text-align: center;
                 font-weight: bold;
               }
@@ -575,12 +609,12 @@ export default {
                 }
               }
               & > .into_box {
-                & > span {
+                span {
                   display: block;
                   font-size: px(14);
                   font-family: Helvetica;
                   color: #757575;
-                  line-height: px(42);
+                  line-height: px(32);
                 }
               }
             }

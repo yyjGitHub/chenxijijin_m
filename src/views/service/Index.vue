@@ -245,6 +245,18 @@ export default {
       contact: "",
       content: ""
     };
+  },
+  watch: {
+    $route: {
+      handler(newVal) {
+        console.log(newVal);
+        if (newVal.query.hasOwnProperty("_")) {
+          this.activeName = newVal.query["_"];
+        }
+      },
+      immediate: true,
+      deep: true
+    }
   }
 };
 </script>
@@ -382,6 +394,7 @@ export default {
         align-items: center;
         flex-direction: column;
         .collapse_box {
+          width: 100%;
           margin-bottom: px(48);
           .van-cell__right-icon {
             color: #599ae5;
@@ -464,11 +477,12 @@ export default {
           .van-collapse-item__content {
             padding: px(24);
             & > ._content {
+              line-height: px(17);
               & > span {
                 display: block;
-                font-size: px(16);
+                font-size: px(14);
                 color: rgba(130, 130, 130, 1);
-                line-height: px(38);
+                line-height: px(17);
               }
             }
           }

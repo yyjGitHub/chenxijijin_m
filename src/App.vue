@@ -4,6 +4,29 @@
   </div>
 </template>
 
+<script>
+export default {
+  mounted() {
+    let _this = this;
+    this.resetFontsize();
+    window.onresize = () => {
+      console.log(2);
+      return (() => {
+        console.log(1);
+        _this.resetFontsize();
+      })();
+    };
+  },
+  methods: {
+    resetFontsize() {
+      let rootHtml = document.documentElement;
+      let deviceWidth = rootHtml.clientWidth;
+      rootHtml.style.fontSize = (deviceWidth * 100) / 750 + "px";
+    }
+  }
+};
+</script>
+
 <style lang="scss">
 @import "@/styles/fun.scss";
 #app {

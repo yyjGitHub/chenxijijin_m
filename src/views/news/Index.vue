@@ -1,12 +1,12 @@
 <template>
   <div class="news_index_box layout_content_box">
     <div class="page_top_box">
-      <img src="~@/assets/m/news_top_bg.png" alt="" srcset="" />
-      <div class="_title">共享成长 互利共赢</div>
+      <img :src="`${$basePicUrl}${topInfo.logo}`" alt="" srcset="" />
+      <div class="_title">{{ topInfo.title }}</div>
     </div>
     <div class="page_bottom_box">
       <div class="tab_box">
-        <van-tabs v-model="activeName" animated swipeable>
+        <van-tabs v-model="activeName" @click="onClick" animated swipeable>
           <van-tab title="晨曦视界" name="CXSJ">
             <div class="part _part1">
               <div class="part_top_box">
@@ -18,103 +18,26 @@
                     NEWS
                   </div>
                   <div class="_info">
-                    发现价值 协同合作
+                    {{ CXSJ_Info.title }}
                   </div>
                   <div class="_line"></div>
                 </div>
-                <div class="_bottom">
-                  结合管理团队过去的投资和运营经验以及对未来基金发展的规划，基金的投资理念和投资方式只要是理解全球发展规律，抓住中国独特的结构性社会。
-                </div>
+                <div class="_bottom" v-html="CXSJ_Info.content"></div>
               </div>
               <div class="part_bottom_box">
                 <div class="_listbox">
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/news_part1_pic1.png"
-                      alt=""
-                      srcset=""
-                    />
+                  <div
+                    class="_item"
+                    v-for="(item, index) in CXSJ_List"
+                    :key="index"
+                  >
+                    <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
                     <div>
                       <span class="_title">
-                        旭辉晨曦斩获中国最佳房地产股权投资机构TOP10
+                        {{ item.title }}
                       </span>
                       <span class="_date">
-                        2019/07/18
-                      </span>
-                    </div>
-                  </div>
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/news_part1_pic2.png"
-                      alt=""
-                      srcset=""
-                    />
-                    <div>
-                      <span class="_title">
-                        秉承合作基因，旭辉晨曦与兴业银行共话未来
-                      </span>
-                      <span class="_date">
-                        2018/09/05
-                      </span>
-                    </div>
-                  </div>
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/news_part1_pic3.png"
-                      alt=""
-                      srcset=""
-                    />
-                    <div>
-                      <span class="_title">
-                        类REITs挂牌上市|旭辉晨曦资产证券化创新破冰
-                      </span>
-                      <span class="_date">
-                        2018/08/10
-                      </span>
-                    </div>
-                  </div>
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/news_part1_pic4.png"
-                      alt=""
-                      srcset=""
-                    />
-                    <div>
-                      <span class="_title">
-                        旭辉晨曦荣膺2018中国房地产基金品牌TOP10
-                      </span>
-                      <span class="_date">
-                        2018/08/03
-                      </span>
-                    </div>
-                  </div>
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/news_part1_pic5.png"
-                      alt=""
-                      srcset=""
-                    />
-                    <div>
-                      <span class="_title">
-                        秉承合作基因，旭辉晨曦与兴业银行共话未来
-                      </span>
-                      <span class="_date">
-                        2018/09/05
-                      </span>
-                    </div>
-                  </div>
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/news_part1_pic6.png"
-                      alt=""
-                      srcset=""
-                    />
-                    <div>
-                      <span class="_title">
-                        类REITs挂牌上市|旭辉晨曦资产证券化创新破冰
-                      </span>
-                      <span class="_date">
-                        2018/08/03
+                        {{ item.time.split(" ")[0] }}
                       </span>
                     </div>
                   </div>
@@ -257,8 +180,105 @@
 export default {
   data() {
     return {
-      activeName: "CEOTALK"
+      activeName: "CEOTALK",
+      topInfo: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      CXSJ_Info: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      CXSJ_List: [],
+      QYGG_Info: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      QYGG_List: [
+        {
+          title: "",
+          content: "",
+          logo: ""
+        }
+      ],
+      CEOTALK_Info: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      CEOTALK_List: []
     };
+  },
+  watch: {
+    $route: {
+      handler(newVal) {
+        console.log(newVal);
+        if (newVal.query.hasOwnProperty("_")) {
+          this.activeName = newVal.query["_"];
+          this.onClick(newVal.query["_"]);
+        }
+      },
+      immediate: true,
+      deep: true
+    }
+  },
+  mounted() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      this.axios
+        .get(`${this.$baseUrl}content/id/12`)
+        .then(({ data }) => {
+          this.topInfo = data.data;
+        })
+        .catch(response => {
+          console.log(response);
+        });
+    },
+    onClick(name) {
+      let info_url = `${this.$baseUrl}`;
+      let list_url = `${this.$baseUrl}`;
+      switch (name) {
+        case "CXSJ":
+          info_url += `content/id/23`;
+          list_url += `contentext/id/23`;
+          break;
+        case "QYGG":
+          info_url += `content/id/13`;
+          list_url += `contentext/id/13`;
+          break;
+        case "CEOTALK":
+          info_url += `content/id/14`;
+          list_url += `contentext/id/14`;
+          break;
+        default:
+          break;
+      }
+      this.axios
+        .get(info_url)
+        .then(({ data }) => {
+          this.$data[`${name}_Info`] = data.data;
+        })
+        .catch(response => {
+          console.log(response);
+        });
+      this.axios
+        .get(list_url)
+        .then(({ data }) => {
+          this.$data[`${name}_List`] = data.data;
+        })
+        .catch(response => {
+          console.log(response);
+        });
+    }
   }
 };
 </script>
@@ -288,18 +308,21 @@ export default {
               display: block;
             }
             ._title {
-              height: px(33);
-              font-size: px(28);
+              height: px(29);
+              font-size: px(24);
               color: #333;
-              line-height: px(33);
+              line-height: px(29);
               font-weight: bold;
-              margin-bottom: px(8);
+              margin-bottom: px(4);
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
             }
             ._date,
             ._into {
               font-size: px(18);
               color: #949494;
-              line-height: px(32);
+              line-height: px(24);
             }
           }
         }

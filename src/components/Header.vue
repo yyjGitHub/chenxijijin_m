@@ -100,9 +100,10 @@ export default {
     toPage(path, index, params = "") {
       if (path) {
         if (params) {
+          console.log(params);
           this.$router.push({
             path: path,
-            params: { activeDIV: params }
+            query: { _: params }
           });
         } else {
           this.$router.push(path);

@@ -221,6 +221,18 @@ export default {
     return {
       activeName: "DCJJ"
     };
+  },
+  watch: {
+    $route: {
+      handler(newVal) {
+        console.log(newVal);
+        if (newVal.query.hasOwnProperty("_")) {
+          this.activeName = newVal.query["_"];
+        }
+      },
+      immediate: true,
+      deep: true
+    }
   }
 };
 </script>
@@ -302,7 +314,7 @@ export default {
                     font-size: px(14);
                     font-family: Helvetica;
                     color: #757575;
-                    line-height: px(42);
+                    line-height: px(32);
                   }
                 }
               }
@@ -368,7 +380,7 @@ export default {
             & > span {
               display: block;
               font-size: px(14);
-              line-height: px(46);
+              line-height: px(32);
             }
           }
         }

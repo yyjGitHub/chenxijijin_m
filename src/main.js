@@ -6,8 +6,11 @@ import store from "./store";
 import "normalize.css";
 import "element-ui/lib/theme-chalk/index.css";
 import { Pagination } from "element-ui";
+import animated from "animate.css";
 import "./styles/app.scss";
 import VueAwesomeSwiper from "vue-awesome-swiper";
+import axios from "axios";
+import VueAxios from "vue-axios";
 import { Icon } from "vant";
 import { Tab, Tabs } from "vant";
 import { Collapse, CollapseItem } from "vant";
@@ -17,11 +20,16 @@ import "swiper/dist/css/swiper.css";
 
 Vue.use(VueAwesomeSwiper /* { default global options } */);
 
+Vue.prototype.$baseUrl = "http://fund.xjcode.top/Home/index/";
+Vue.prototype.$basePicUrl = "http://fund.xjcode.top/Public/Uploads/";
+
 Vue.use(VueAMap);
 Vue.use(Icon);
 Vue.use(Tab).use(Tabs);
 Vue.use(Collapse).use(CollapseItem);
 Vue.use(Pagination);
+Vue.use(VueAxios, axios);
+Vue.use(animated);
 
 VueAMap.initAMapApiLoader({
   key: "1787da644b789c9eb13218cc6b404a26",
@@ -36,22 +44,5 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  mounted() {
-    let _this = this;
-    this.resetFontsize();
-    window.onresize = () => {
-      return (() => {
-        console.log(1);
-        _this.resetFontsize();
-      })();
-    };
-  },
-  methods: {
-    resetFontsize() {
-      let rootHtml = document.documentElement;
-      let deviceWidth = rootHtml.clientWidth;
-      rootHtml.style.fontSize = (deviceWidth * 100) / 750 + "px";
-    }
-  },
   render: h => h(App)
 }).$mount("#app");

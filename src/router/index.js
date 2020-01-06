@@ -112,10 +112,10 @@ const mainroutes = [
         }
       },
       {
-        path: "CFGL",
-        name: "CFGL",
+        path: "CWGL",
+        name: "CWGL",
         meta: {
-          label: "财富管理"
+          label: "财务管理"
         }
       }
     ],
@@ -231,7 +231,7 @@ const mainroutes = [
   }
 ];
 const routerPush = VueRouter.prototype.push;
-VueRouter.prototype.push = function push (location) {
+VueRouter.prototype.push = function push(location) {
   return routerPush.call(this, location).catch(error => error);
 };
 const router = new VueRouter({
@@ -240,7 +240,7 @@ const router = new VueRouter({
   loadingroutes: false,
   isCreateMenu: false,
   routes: [...baseroutes, ...mainroutes],
-  scrollBehavior () {
+  scrollBehavior() {
     // to, from, savedPosition
     return { x: 0, y: 0 };
   }
