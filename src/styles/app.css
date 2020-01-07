@@ -14,6 +14,10 @@ p {
   transition: all 0.3s ease-in-out;
 }
 
+.el-message .el-icon-success {
+  font-size: px(18);
+}
+
 .van-tabs--line .van-tabs__wrap {
   height: px(73);
   border-bottom: 1px solid #ebedf0;

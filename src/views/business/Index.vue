@@ -1,12 +1,12 @@
 <template>
   <div class="business_index_box layout_content_box">
     <div class="page_top_box">
-      <img src="~@/assets/m/business_top_bg.png" alt="" srcset="" />
-      <div class="_title">三大板块 保驾护航</div>
+      <img :src="`${$basePicUrl}${topInfo.logo}`" alt="" srcset="" />
+      <div class="_title">{{ topInfo.title }}</div>
     </div>
     <div class="page_bottom_box">
       <div class="tab_box">
-        <van-tabs v-model="activeName" animated swipeable>
+        <van-tabs v-model="activeName" @click="onClick" animated swipeable>
           <van-tab title="地产基金" name="DCJJ">
             <div class="part _part1">
               <div class="part_top_box">
@@ -34,25 +34,14 @@
                       alt=""
                       srcset=""
                     />
-                    <span class="_title">地产基金</span>
-                    <span class="_subtitle">— 拓宽投资途径 —</span>
+                    <span class="_title">{{ DCJJ_Info.ctitle }}</span>
+                    <span class="_subtitle">{{ DCJJ_Info.title }}</span>
                   </div>
                   <div class="_bottom">
                     <div>
-                      <!-- <div class="title_box">
-                        <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
-                        <span>地产基金部 | Real Estate Fund department</span>
-                      </div> -->
-                      <div class="into_box">
-                        <span
-                          >晨曦基金地产基金部，自成立以来，专注于房地产生态圈的私募股权投资和管理,紧紧围绕着”地产+”板块进行战略布局,聚焦房地产股权基金开发类基金和存量资产收并购及资产证券化业务，为机构和高净值客户提供资产管理和财务管理的双驱动专业服务。</span
-                        >
-                        <span>
-                          晨曦基金公司至今已独立发行备案产品4支，同时积极关注和参与国内商业物业证券化市场，与高和资本一同牵头推动了领昱系列类REITs项目的储架注册和注册额度下领昱1号类REITs项目的落地,该项目系中国首单民企长租公寓储架式权益类REITs。未来，晨曦基金将继续通过证券化工具打通旗下其他并购项目的资本进入和退出渠道，积极储备公募REITs项目，最终形成“REITs+并购基金”闭环滚动发展模式。
-                        </span>
-                      </div>
+                      <div class="into_box" v-html="DCJJ_Info.content"></div>
                     </div>
-                    <div class="_list">
+                    <!-- <div class="_list">
                       <div class="_item">
                         <img
                           src="~@/assets/m/business_part1_icon1.png"
@@ -79,51 +68,17 @@
                           >
                         </div>
                       </div>
-                    </div>
-                    <div class="gray">
+                    </div> -->
+                    <div
+                      class="gray"
+                      v-for="(item, index) in DCJJ_List"
+                      :key="index"
+                    >
                       <div class="title_box">
                         <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
-                        <span>投资策略</span>
+                        <span>{{ item.title }}</span>
                       </div>
-                      <div class="into_box">
-                        <span
-                          ><b>交易对手：</b
-                          >全国前百强房企、区域龙头、各区域投资上报房企；</span
-                        >
-                        <span>
-                          <b>城市选择：</b
-                          >核心一线城市、省会城市+典型二线城市、部分拓展优质三线城市；
-                        </span>
-                        <span>
-                          <b>业态选择：</b
-                          >资金需要在12个月内退现金流回正、高周转+快回本（逆向选择）、住宅比例>70%（或住宅部分覆盖借款本息）；
-                        </span>
-                        <span>
-                          <b> 财务状况：</b
-                          >项目本身的财务指标（ROE>20%，EBIT>12%）、实际控制人的财务状况、关注资金回收期——ROI,IRR等动态指标，考虑货币时间价值。
-                        </span>
-                      </div>
-                    </div>
-                    <div class="gray">
-                      <div class="title_box">
-                        <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
-                        <span>产品策略</span>
-                      </div>
-                      <div class="into_box">
-                        <span
-                          ><b>同股同权产品：</b
-                          >旨在解决土地端融资难题，降低峰值出资额，释放资本金。区别于开发商合作开发，不分操盘权、并表权，避免复杂的日常决策流程；且无需股权质押、土地抵押或提供额外担保；同时引进财务投资人，提升少数股东权益，有效降低资产负债率，优化报表。</span
-                        >
-                        <span>
-                          <b>优先股产品： </b
-                          >利润倾斜分配，通过不等比的分红，大幅撬动IRR
-                          ；无需股权质押、土地抵押或提供额外担保；非融资性，可同开发贷并存。
-                        </span>
-                        <span>
-                          <b>租售类产品：</b
-                          >通过收并购取得商业、办公、长租公寓等持有型资产，通过整合运营将成熟资产装入储架式类REITs,在交易所实现上市交易。
-                        </span>
-                      </div>
+                      <div class="into_box" v-html="item.content"></div>
                     </div>
                   </div>
                 </div>
@@ -135,13 +90,13 @@
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
-                    机构业务
+                    {{ JGYW_Info.ctitle }}
                   </div>
                   <div class="_entitle">
                     INSTITUTION
                   </div>
                   <div class="_info">
-                    专业团队 持续跟踪
+                    {{ JGYW_Info.title }}
                   </div>
                   <div class="_line"></div>
                 </div>
@@ -149,13 +104,13 @@
               <div class="part_bottom_box">
                 <div class="_top">
                   <img
-                    src="~@/assets/m/business_part2_pic1.png"
+                    :src="`${$basePicUrl}${JGYW_Info.logo}`"
                     alt=""
                     srcset=""
                   />
                 </div>
-                <div class="_bottom">
-                  <div class="_titlebox">根据公司业务发展及产品需求:</div>
+                <div class="_bottom" v-html="JGYW_Info.content">
+                  <!-- <div class="_titlebox">根据公司业务发展及产品需求:</div>
                   <div class="_intobox">
                     <span
                       >1、负责银行、信托、第三方财富、券商等机构客户的开发，分析机构客户的投资偏好，挖掘合作契合点；</span
@@ -167,7 +122,7 @@
                     <span
                       >4、对机构渠道持续跟进、评估与维护，积极引导、鼓励机构开拓、建立新业务模式。</span
                     >
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -177,13 +132,13 @@
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
-                    财富管理
+                    {{ CWGL_Info.ctitle }}
                   </div>
                   <div class="_entitle">
                     WEALTH
                   </div>
                   <div class="_info">
-                    专业团队 深入研究
+                    {{ CWGL_Info.title }}
                   </div>
                   <div class="_line"></div>
                 </div>
@@ -191,19 +146,19 @@
               <div class="part_bottom_box">
                 <div class="_top">
                   <img
-                    src="~@/assets/m/business_part3_pic1.png"
+                    :src="`${$basePicUrl}${CWGL_Info.logo}`"
                     alt=""
                     srcset=""
                   />
                 </div>
                 <div class="_bottom">
-                  <div class="_intobox">
-                    <span
+                  <div class="_intobox" v-html="CWGL_Info.content">
+                    <!-- <span
                       >财富管理部是为高净值客户、家族客户和机构投资人提供财富管理、资产管理以及增值服务的综合服务平台，具体业务包括资产配置咨询，项目投资咨询等业务。</span
                     >
                     <span
                       >目前财富部下设三个二级部：产品培训部、大客户部和市场渠道部。团队成员从业背景主要来自银行、券商、家族财富办公室及法律、移民专业服务机构，平均金融工作年限超过15年。</span
-                    >
+                    > -->
                   </div>
                 </div>
               </div>
@@ -219,25 +174,101 @@
 export default {
   data() {
     return {
-      activeName: "DCJJ"
+      activeName: "DCJJ",
+      topInfo: {
+        title: "",
+        entitle: "",
+        content: "",
+        logo: ""
+      },
+      DCJJ_Info: {
+        title: "",
+        content: "",
+        logo: "",
+        contentext: ""
+      },
+      DCJJ_List: [],
+      JGYW_Info: {
+        title: "",
+        content: "",
+        logo: ""
+      },
+      JGYW_List: [],
+      CWGL_Info: {
+        title: "",
+        content: "",
+        logo: ""
+      },
+      CWGL_List: []
     };
   },
   watch: {
     $route: {
       handler(newVal) {
-        console.log(newVal);
         if (newVal.query.hasOwnProperty("_")) {
           this.activeName = newVal.query["_"];
+          this.onClick(newVal.query["_"]);
         }
       },
       immediate: true,
       deep: true
     }
+  },
+  mounted() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      this.axios
+        .get(`${this.$baseUrl}content/id/8`)
+        .then(({ data }) => {
+          this.topInfo = data.data;
+        })
+        .catch(response => {
+          console.log(response);
+        });
+    },
+    onClick(name) {
+      let info_url = `${this.$baseUrl}`;
+      let list_url = `${this.$baseUrl}`;
+      switch (name) {
+        case "DCJJ":
+          info_url += `content/id/9`;
+          list_url += `contentext/id/9`;
+          break;
+        case "JGYW":
+          info_url += `content/id/10`;
+          list_url += `contentext/id/10`;
+          break;
+        case "CWGL":
+          info_url += `content/id/11`;
+          list_url += `contentext/id/11`;
+          break;
+        default:
+          break;
+      }
+      this.axios
+        .get(info_url)
+        .then(({ data }) => {
+          this.$data[`${name}_Info`] = data.data;
+        })
+        .catch(response => {
+          console.log(response);
+        });
+      this.axios
+        .get(list_url)
+        .then(({ data }) => {
+          this.$data[`${name}_List`] = data.data;
+        })
+        .catch(response => {
+          console.log(response);
+        });
+    }
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .business_index_box {
   .page_bottom_box {
     ._part1 {
@@ -309,17 +340,96 @@ export default {
                   }
                 }
                 & > .into_box {
-                  & > span {
+                  display: block;
+                  font-size: px(14);
+                  font-family: Helvetica;
+                  color: #757575;
+                  line-height: px(32);
+                  span {
                     display: block;
                     font-size: px(14);
                     font-family: Helvetica;
                     color: #757575;
                     line-height: px(32);
                   }
+                  .__into {
+                    font-size: px(20);
+                    color: #7f7f7f;
+                    line-height: px(40);
+                    margin-bottom: px(40);
+                  }
+                  .row_list {
+                    margin-bottom: px(40);
+                    & > div {
+                      display: flex;
+                      align-items: center;
+                      padding: px(24) 0;
+                      &:first-child {
+                        border-bottom: 1px solid #cacaca;
+                        padding-top: 0;
+                      }
+                      &::after {
+                        display: block;
+                        content: "";
+                        height: px(64);
+                        width: 1px;
+                        background-color: #979797;
+                        position: absolute;
+                        right: 0%;
+                        top: 50%;
+                        transform: translateY(-50%);
+                      }
+                      &:nth-child(2n-1) {
+                        ._left {
+                          background: url("~@/assets/image/business_index_icon1.png")
+                            no-repeat center;
+                          background-size: cover;
+                        }
+                      }
+                      &:nth-child(2n) {
+                        ._left {
+                          background: url("~@/assets/image/business_index_icon2.png")
+                            no-repeat center;
+                          background-size: cover;
+                        }
+                        &::after {
+                          display: none;
+                        }
+                      }
+                      ._left {
+                        width: px(96);
+                        height: px(72);
+                        display: block;
+                        margin-right: px(24);
+                      }
+                      ._right {
+                        ._title {
+                          height: px(33);
+                          font-size: px(24);
+                          color: rgba(0, 0, 0, 1);
+                          line-height: px(29);
+                          margin-bottom: px(8);
+                          text-overflow: ellipsis;
+                          white-space: nowrap;
+                          overflow: hidden;
+                          font-weight: bold;
+                        }
+                        ._subinto {
+                          font-size: px(18);
+                          color: #7f7f7f;
+                          line-height: px(24);
+                          display: -webkit-box;
+                          -webkit-box-orient: vertical;
+                          -webkit-line-clamp: 2;
+                          overflow: hidden;
+                        }
+                      }
+                    }
+                  }
                 }
               }
               &._list {
-                & > ._item {
+                & > div {
                   display: flex;
                   align-items: center;
                   padding: px(24) 0;
@@ -369,6 +479,8 @@ export default {
           }
         }
         & > ._bottom {
+          font-size: px(14);
+          line-height: px(32);
           ._titlebox {
             height: px(24);
             font-size: px(14);

@@ -47,7 +47,8 @@
                     small
                     background
                     layout="prev, pager, next"
-                    :total="20"
+                    :total="CXSJ_total"
+                    @current-change="pageChange3"
                   >
                   </el-pagination>
                 </div>
@@ -69,43 +70,27 @@
               </div>
               <div class="part_bottom_box">
                 <div class="_listbox">
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/news_part2_pic1.png"
-                      alt=""
-                      srcset=""
-                    />
+                  <div
+                    class="_item"
+                    v-for="(item, index) in QYGG_List"
+                    :key="index"
+                  >
+                    <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
                     <div>
                       <span class="_title">
-                        曦盛1号私募投资基金备案成功
+                        {{ item.title }}
                       </span>
-                      <span class="_into">
-                        晨曦基金发起的第一支纯股基金——曦盛1号私募投资基金于2018年3月29日通过中国基金业协会备案，备案编号为SCN301。该基金采用双管理人的模式，历时3个多月的谈判，最终与项目方、资方大成一致合作意向。
-                      </span>
-                    </div>
-                  </div>
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/news_part1_pic2.png"
-                      alt=""
-                      srcset=""
-                    />
-                    <div>
-                      <span class="_title">
-                        中国首单民企长租公寓储架式权益类REITs获批
-                      </span>
-                      <span class="_into">
-                        晨曦基金发起的第一支纯股基金——曦盛1号私募投资基金于2018年3月29日通过中国基金业协会备案，备案编号为SCN301。该基金采用双管理人的模式，历时3个多月的谈判，最终与项目方、资方大成一致合作意向。
-                      </span>
+                      <span class="_into" v-html="item.content"> </span>
                     </div>
                   </div>
                 </div>
                 <div class="pagination_box">
                   <el-pagination
                     small
+                    @current-change="pageChange1"
                     background
                     layout="prev, pager, next"
-                    :total="20"
+                    :total="QYGG_total"
                   >
                   </el-pagination>
                 </div>
@@ -127,34 +112,17 @@
               </div>
               <div class="part_bottom_box">
                 <div class="_listbox">
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/news_part3_pic1.png"
-                      alt=""
-                      srcset=""
-                    />
+                  <div
+                    class="_item"
+                    v-for="(item, index) in CEOTALK_List"
+                    :key="index"
+                  >
+                    <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
                     <div>
                       <span class="_title">
-                        以最佳状态决必应之战
+                        {{ item.title }}
                       </span>
-                      <span class="_into">
-                        一上班，桌上的一堆文件、邮箱里的各类邮件、领导的临时布置和同事的求救呼叫……一天的时间很快就在忙忙碌碌中过掉了。相信很多同事都会有这样的经历，但忙碌是否就代表有效率？
-                      </span>
-                    </div>
-                  </div>
-                  <div class="_item">
-                    <img
-                      src="~@/assets/m/news_part3_pic2.png"
-                      alt=""
-                      srcset=""
-                    />
-                    <div>
-                      <span class="_title">
-                        以最佳状态决必应之战
-                      </span>
-                      <span class="_into">
-                        一上班，桌上的一堆文件、邮箱里的各类邮件、领导的临时布置和同事的求救呼叫……一天的时间很快就在忙忙碌碌中过掉了。相信很多同事都会有这样的经历，但忙碌是否就代表有效率？
-                      </span>
+                      <span class="_into" v-html="item.content"> </span>
                     </div>
                   </div>
                 </div>
@@ -163,7 +131,8 @@
                     small
                     background
                     layout="prev, pager, next"
-                    :total="20"
+                    :total="CEOTALK_total"
+                    @current-change="pageChange2"
                   >
                   </el-pagination>
                 </div>
@@ -213,7 +182,13 @@ export default {
         content: "",
         logo: ""
       },
-      CEOTALK_List: []
+      CEOTALK_List: [],
+      CXSJ_p: 0,
+      QYGG_p: 0,
+      CEOTALK_p: 0,
+      CXSJ_total: 0,
+      QYGG_total: 0,
+      CEOTALK_total: 0
     };
   },
   watch: {
@@ -249,7 +224,7 @@ export default {
       switch (name) {
         case "CXSJ":
           info_url += `content/id/23`;
-          list_url += `contentext/id/23`;
+          list_url += `contentext/id/23/p/1/count/5`;
           break;
         case "QYGG":
           info_url += `content/id/13`;
@@ -278,6 +253,15 @@ export default {
         .catch(response => {
           console.log(response);
         });
+    },
+    pageChange1(p) {
+      console.log(p);
+    },
+    pageChange2(p) {
+      console.log(p);
+    },
+    pageChange3(p) {
+      console.log(p);
     }
   }
 };
@@ -323,6 +307,10 @@ export default {
               font-size: px(18);
               color: #949494;
               line-height: px(24);
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
             }
           }
         }

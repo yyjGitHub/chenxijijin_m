@@ -1,8 +1,8 @@
 <template>
   <div class="service_index_box layout_content_box">
     <div class="page_top_box">
-      <img src="~@/assets/m/relation_top_bg.png" alt="" srcset="" />
-      <div class="_title">高效及时 用心服务</div>
+      <img :src="`${$basePicUrl}${topInfo.logo}`" alt="" srcset="" />
+      <div class="_title">{{ topInfo.title }}</div>
     </div>
     <div class="page_bottom_box">
       <div class="tab_box">
@@ -57,12 +57,23 @@
                 </div>
                 <div class="form_wrap">
                   <div class="inline">
-                    <input type="text" class="name" placeholder="姓名" />
-                    <input type="text" class="email" placeholder="邮箱/手机" />
+                    <input
+                      type="text"
+                      class="name"
+                      v-model="name"
+                      placeholder="姓名"
+                    />
+                    <input
+                      type="text"
+                      class="email"
+                      v-model="contact"
+                      placeholder="邮箱/手机"
+                    />
                   </div>
                   <textarea
                     name="feedback"
                     class="feedback"
+                    v-model="content"
                     placeholder="请输入留言信息"
                     cols="30"
                     rows="10"
@@ -73,7 +84,7 @@
                     <img src="~@/assets/m/weibo_icon.png" alt="" srcset="" />
                     <img src="~@/assets/m/wechat_icon.png" alt="" srcset="" />
                   </div>
-                  <div class="_submit">
+                  <div class="_submit" @click="postData">
                     提交
                   </div>
                 </div>
@@ -96,124 +107,26 @@
               <div class="part_bottom_box">
                 <div class="collapse_box">
                   <van-collapse v-model="activeNames">
-                    <van-collapse-item name="1"
-                      ><div slot="title">
+                    <van-collapse-item
+                      v-for="(item, index) in SHZP_List"
+                      :key="index"
+                      :name="index + 1 + ' '"
+                    >
+                      <div slot="title">
                         <div class="_left">
                           <span class="_title"
-                            >资产管理经理/总监（财务背景）</span
+                            >{{ item.title }}（{{ item.name }}）</span
                           >
                           <span class="_into">
-                            <span>上海</span>
+                            <span>{{ item.attr }}</span>
                             <span>资产数据部</span>
-                            <span>2018年03月30日</span>
+                            <span>{{ item.time.split(" ")[0] }}</span>
                           </span>
                         </div>
                         <span class="_more">查看详情</span>
                       </div>
-                      <div class="_content">
-                        <span><b>工作职责：</b></span>
-                        <span>1、全日制本科以上学历； </span>
-                        <span
-                          >2、5年以上工作经验，需在TOP50地产公司有过财务、运营、投资方面从业经历；
-                        </span>
-                        <span>3、有过项目完整开发周期经验的优先。</span>
-                        <br />
-                        <span><b>职位要求：</b></span>
-                        <span
-                          >1、
-                          参与拟投资项目的财务尽调、财务测算和投资分析，参与拟订项目投后管理的方案；</span
-                        >
-                        <span
-                          >2、
-                          对投资项目进行跟踪管理，对项目资金、进度、成本、市场和销售等情况进行跟踪管理；</span
-                        >
-                        <span
-                          >3、
-                          督促落实投资协议中风控措施的全面落实，负责项目投后风险评估及风险管理；</span
-                        >
-                        <span>4、 配合完成项目的投资退出工作。</span>
-                        <br />
-                        <span><b>投递邮箱：chenxihr@cifi.com.cn</b></span>
-                      </div></van-collapse-item
-                    >
-                    <van-collapse-item name="2"
-                      ><div slot="title">
-                        <div class="_left">
-                          <span class="_title"
-                            >资产管理经理/总监（工程成本背景）</span
-                          >
-                          <span class="_into">
-                            <span>上海</span>
-                            <span>资产数据部</span>
-                            <span>2018年03月30日</span>
-                          </span>
-                        </div>
-                        <span class="_more">查看详情</span>
-                      </div>
-                      <div class="_content">
-                        <span><b>工作职责：</b></span>
-                        <span>1、全日制本科以上学历； </span>
-                        <span
-                          >2、5年以上工作经验，需在TOP50地产公司有过财务、运营、投资方面从业经历；
-                        </span>
-                        <span>3、有过项目完整开发周期经验的优先。</span>
-                        <br />
-                        <span><b>职位要求：</b></span>
-                        <span
-                          >1、
-                          参与拟投资项目的财务尽调、财务测算和投资分析，参与拟订项目投后管理的方案；</span
-                        >
-                        <span
-                          >2、
-                          对投资项目进行跟踪管理，对项目资金、进度、成本、市场和销售等情况进行跟踪管理；</span
-                        >
-                        <span
-                          >3、
-                          督促落实投资协议中风控措施的全面落实，负责项目投后风险评估及风险管理；</span
-                        >
-                        <span>4、 配合完成项目的投资退出工作。</span>
-                        <br />
-                        <span><b>投递邮箱：chenxihr@cifi.com.cn</b></span>
-                      </div></van-collapse-item
-                    >
-                    <van-collapse-item name="2"
-                      ><div slot="title">
-                        <div class="_left">
-                          <span class="_title">投资经理</span>
-                          <span class="_into">
-                            <span>上海</span>
-                            <span>资产数据部</span>
-                            <span>2018年03月30日</span>
-                          </span>
-                        </div>
-                        <span class="_more">查看详情</span>
-                      </div>
-                      <div class="_content">
-                        <span><b>工作职责：</b></span>
-                        <span>1、全日制本科以上学历； </span>
-                        <span
-                          >2、5年以上工作经验，需在TOP50地产公司有过财务、运营、投资方面从业经历；
-                        </span>
-                        <span>3、有过项目完整开发周期经验的优先。</span>
-                        <br />
-                        <span><b>职位要求：</b></span>
-                        <span
-                          >1、
-                          参与拟投资项目的财务尽调、财务测算和投资分析，参与拟订项目投后管理的方案；</span
-                        >
-                        <span
-                          >2、
-                          对投资项目进行跟踪管理，对项目资金、进度、成本、市场和销售等情况进行跟踪管理；</span
-                        >
-                        <span
-                          >3、
-                          督促落实投资协议中风控措施的全面落实，负责项目投后风险评估及风险管理；</span
-                        >
-                        <span>4、 配合完成项目的投资退出工作。</span>
-                        <br />
-                        <span><b>投递邮箱：chenxihr@cifi.com.cn</b></span>
-                      </div></van-collapse-item
-                    >
+                      <div class="_content" v-html="item.content"></div
+                    ></van-collapse-item>
                   </van-collapse>
                 </div>
                 <div class="_morebtn">展开更多</div>
@@ -227,6 +140,7 @@
 </template>
 
 <script>
+import { Message } from "element-ui";
 import { AMapManager } from "vue-amap";
 let amapManager = new AMapManager();
 export default {
@@ -243,7 +157,14 @@ export default {
       mapStyle: "fresh",
       name: "",
       contact: "",
-      content: ""
+      content: "",
+      topInfo: {
+        title: "",
+        entitle: "",
+        logo: "",
+        content: ""
+      },
+      SHZP_List: []
     };
   },
   watch: {
@@ -256,6 +177,53 @@ export default {
       },
       immediate: true,
       deep: true
+    }
+  },
+  mounted() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      this.axios
+        .get(`${this.$baseUrl}content/id/16`)
+        .then(({ data }) => {
+          this.topInfo = data.data;
+        })
+        .catch(response => {
+          console.log(response);
+        });
+      //  社会招聘
+      this.axios
+        .get(`${this.$baseUrl}contentjob/id/18`)
+        .then(({ data }) => {
+          this.SHZP_List = data.data;
+        })
+        .catch(response => {
+          console.log(response);
+        });
+    },
+    postData() {
+      this.axios
+        .post(`${this.$baseUrl}contact`, {
+          name: this.name,
+          tel: this.contact,
+          content: this.content
+        })
+        .then(({ data }) => {
+          console.log(data);
+          if (data.status === "1") {
+            Message({
+              message: "添加成功",
+              type: "success"
+            });
+            this.name = "";
+            this.contact = "";
+            this.content = "";
+          }
+        })
+        .catch(response => {
+          console.log(response);
+        });
     }
   }
 };
