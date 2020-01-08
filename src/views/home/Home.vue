@@ -512,6 +512,17 @@ export default {
       this.axios
         .get(`${this.$baseUrl}contentext/id/23`)
         .then(({ data }) => {
+          for (let i = 0; i < data.data.length; i++) {
+            const element = data.data[i];
+            let ar = element.content.split("<p>");
+            for (let j = 0; j < ar.length; j++) {
+              const elementj = ar[j];
+              if (!elementj.includes("<img") && elementj !== "") {
+                data.data[i].content = ar[j];
+                break;
+              }
+            }
+          }
           this.XWZX_List = data.data;
           this.subSwiper.update();
           this.subSwiper.slideNext();
@@ -1143,6 +1154,7 @@ export default {
                 height: 1px;
                 background-color: #fff;
                 position: relative;
+                opacity: 0;
                 &.active1,
                 &.active3,
                 &.active5 {
@@ -1229,7 +1241,7 @@ export default {
               justify-content: space-between;
               flex-wrap: wrap;
               & > div {
-                // opacity: 0;
+                opacity: 0;
                 width: px(267);
                 height: px(228);
                 cursor: pointer;

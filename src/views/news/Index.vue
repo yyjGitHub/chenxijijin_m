@@ -30,6 +30,7 @@
                     class="_item"
                     v-for="(item, index) in CXSJ_List"
                     :key="index"
+                    @click="toitem(item.id)"
                   >
                     <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
                     <div>
@@ -46,9 +47,10 @@
                   <el-pagination
                     small
                     background
+                    :page-size="6"
                     layout="prev, pager, next"
                     :total="CXSJ_total"
-                    @current-change="pageChange3"
+                    @current-change="pageChange1"
                   >
                   </el-pagination>
                 </div>
@@ -89,6 +91,7 @@
                     small
                     @current-change="pageChange1"
                     background
+                    :page-size="6"
                     layout="prev, pager, next"
                     :total="QYGG_total"
                   >
@@ -131,8 +134,9 @@
                     small
                     background
                     layout="prev, pager, next"
+                    :page-size="6"
                     :total="CEOTALK_total"
-                    @current-change="pageChange2"
+                    @current-change="pageChange3"
                   >
                   </el-pagination>
                 </div>
@@ -183,9 +187,9 @@ export default {
         logo: ""
       },
       CEOTALK_List: [],
-      CXSJ_p: 0,
-      QYGG_p: 0,
-      CEOTALK_p: 0,
+      CXSJ_p: 1,
+      QYGG_p: 1,
+      CEOTALK_p: 1,
       CXSJ_total: 0,
       QYGG_total: 0,
       CEOTALK_total: 0
@@ -218,21 +222,27 @@ export default {
           console.log(response);
         });
     },
+    toitem(index) {
+      this.$router.push(`/news/${index}`);
+    },
     onClick(name) {
+      this.CXSJ_p = 1;
+      this.QYGG_p = 1;
+      this.CEOTALK_p = 1;
       let info_url = `${this.$baseUrl}`;
       let list_url = `${this.$baseUrl}`;
       switch (name) {
         case "CXSJ":
           info_url += `content/id/23`;
-          list_url += `contentext/id/23/p/1/count/5`;
+          list_url += `contentext/id/23/p/1/count/6`;
           break;
         case "QYGG":
           info_url += `content/id/13`;
-          list_url += `contentext/id/13`;
+          list_url += `contentext/id/13/p/1/count/6`;
           break;
         case "CEOTALK":
           info_url += `content/id/14`;
-          list_url += `contentext/id/14`;
+          list_url += `contentext/id/14/p/1/count/6`;
           break;
         default:
           break;
@@ -255,13 +265,43 @@ export default {
         });
     },
     pageChange1(p) {
-      console.log(p);
+      this.CXSJ_p = p;
+      // 晨曦世界
+      this.axios
+        .get(`${this.$baseUrl}contentext/id/23/p/${this.CXSJ_p}/count/6`)
+        .then(({ data }) => {
+          this.CXSJ_List = data.data;
+          this.CXSJ_total = parseInt(data.count);
+        })
+        .catch(response => {
+          console.log(response);
+        });
     },
     pageChange2(p) {
-      console.log(p);
+      this.QYGG_p = p;
+      // 企业公告
+      this.axios
+        .get(`${this.$baseUrl}contentext/id/13/p/${this.QYGG_p}/count/6`)
+        .then(({ data }) => {
+          this.QYGG_List = data.data;
+          this.QYGG_total = parseInt(data.count);
+        })
+        .catch(response => {
+          console.log(response);
+        });
     },
     pageChange3(p) {
-      console.log(p);
+      this.CEOTALK_p = p;
+      // CEOTALK
+      this.axios
+        .get(`${this.$baseUrl}contentext/id/14/p/${this.CEOTALK_p}/count/6`)
+        .then(({ data }) => {
+          this.CEOTALK_List = data.data;
+          this.CEOTALK_total = parseInt(data.count);
+        })
+        .catch(response => {
+          console.log(response);
+        });
     }
   }
 };

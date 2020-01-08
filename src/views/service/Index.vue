@@ -129,7 +129,9 @@
                     ></van-collapse-item>
                   </van-collapse>
                 </div>
-                <div class="_morebtn">展开更多</div>
+                <div class="_morebtn" v-if="!get_more" @click="getMore">
+                  展开更多
+                </div>
               </div>
             </div>
           </van-tab>
@@ -164,7 +166,8 @@ export default {
         logo: "",
         content: ""
       },
-      SHZP_List: []
+      SHZP_List: [],
+      get_more: false
     };
   },
   watch: {
@@ -194,7 +197,7 @@ export default {
         });
       //  社会招聘
       this.axios
-        .get(`${this.$baseUrl}contentjob/id/18`)
+        .get(`${this.$baseUrl}contentjob/id/18/p/1/count/2`)
         .then(({ data }) => {
           this.SHZP_List = data.data;
         })
@@ -220,6 +223,18 @@ export default {
             this.contact = "";
             this.content = "";
           }
+        })
+        .catch(response => {
+          console.log(response);
+        });
+    },
+    getMore() {
+      this.get_more = true;
+      //  社会招聘
+      this.axios
+        .get(`${this.$baseUrl}contentjob/id/18/p/1/count/99999`)
+        .then(({ data }) => {
+          this.SHZP_List = data.data;
         })
         .catch(response => {
           console.log(response);

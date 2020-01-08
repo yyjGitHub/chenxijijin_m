@@ -64,8 +64,9 @@
               <el-pagination
                 small
                 background
+                :page-size="10"
                 layout="prev, pager, next"
-                :total="20"
+                :total="total"
               >
               </el-pagination>
             </div>
@@ -87,7 +88,9 @@ export default {
         logo: "",
         content: ""
       },
-      list: []
+      list: [],
+      page: 1,
+      total: 0
     };
   },
   mounted() {
@@ -103,10 +106,15 @@ export default {
         .catch(response => {
           console.log(response);
         });
+      this.size_change(1);
+    },
+    size_change(p) {
+      this.page = p;
       this.axios
-        .get(`${this.$baseUrl}contentext/id/15`)
+        .get(`${this.$baseUrl}contentext/id/15/p/${this.page}/count/10`)
         .then(({ data }) => {
           this.list = data.data;
+          this.total = parseInt(data.count);
         })
         .catch(response => {
           console.log(response);
