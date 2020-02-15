@@ -98,6 +98,7 @@ p {
   line-height: px(48);
   letter-spacing: px(3);
   font-weight: bold;
+  display: inline-block;
 }
 
 .layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top ._entitle {
@@ -124,7 +125,8 @@ p {
   color: #888;
   line-height: px(15);
   text-align: center;
-  width: 100%;
+  display: inline-block;
+  font-weight: normal !important;
 }
 
 .layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top ._line {

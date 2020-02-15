@@ -107,7 +107,7 @@
                           <span class="_t">企业简介</span>
                           <span class="_et">COMPANY PROFILE</span>
                         </div>
-                        <div class="more">
+                        <div @click="toPage('/about?_=QYJJ')" class="more">
                           <span>了解更多</span>
                           <img
                             src="~@/assets/image/arrow_right_active.png"
@@ -531,6 +531,9 @@ export default {
           console.log(response);
         });
     },
+    toPage(url) {
+      this.$router.push(url);
+    },
     resetFontsize() {
       let rootHtml = document.documentElement;
       let deviceWidth =
@@ -822,7 +825,7 @@ export default {
               position: absolute;
               top: 50%;
               left: 50%;
-              transform: translate(-50%, -50%);
+              transform: translate(-50%, -100%);
               z-index: 77;
               height: px(220);
               text-align: center;

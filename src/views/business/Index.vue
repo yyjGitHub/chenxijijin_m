@@ -13,13 +13,14 @@
                 <div class="_top">
                   <div class="_title">
                     晨曦领域
+                    <div class="_info">
+                      三大板块 保驾护航
+                    </div>
                   </div>
                   <div class="_entitle">
                     BUSINESS
                   </div>
-                  <div class="_info">
-                    三大板块 保驾护航
-                  </div>
+
                   <div class="_line"></div>
                 </div>
                 <div class="_bottom">

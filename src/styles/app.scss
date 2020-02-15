@@ -85,6 +85,7 @@ p {
               line-height: px(48);
               letter-spacing: px(3);
               font-weight: bold;
+              display: inline-block;
             }
             ._entitle {
               position: absolute;
@@ -109,7 +110,8 @@ p {
               color: #888;
               line-height: px(15);
               text-align: center;
-              width: 100%;
+              display: inline-block;
+              font-weight: normal !important;
             }
             ._line {
               width: px(60);

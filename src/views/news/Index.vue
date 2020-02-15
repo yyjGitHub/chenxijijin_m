@@ -13,13 +13,14 @@
                 <div class="_top">
                   <div class="_title">
                     晨曦视界
+                    <div class="_info">
+                      {{ CXSJ_Info.title }}
+                    </div>
                   </div>
                   <div class="_entitle">
                     NEWS
                   </div>
-                  <div class="_info">
-                    {{ CXSJ_Info.title }}
-                  </div>
+
                   <div class="_line"></div>
                 </div>
                 <div class="_bottom" v-html="CXSJ_Info.content"></div>

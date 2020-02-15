@@ -13,12 +13,12 @@
                 <div class="_top">
                   <div class="_title">
                     晨曦基金
+                    <div class="_info">
+                      {{ QYJJ_Info.title }}
+                    </div>
                   </div>
                   <div class="_entitle">
                     COMPANY
-                  </div>
-                  <div class="_info">
-                    {{ QYJJ_Info.title }}
                   </div>
                   <div class="_line"></div>
                 </div>
@@ -92,13 +92,14 @@
                 <div class="_top">
                   <div class="_title">
                     晨曦策略
+                    <div class="_info">
+                      {{ TZCL_Info.title }}
+                    </div>
                   </div>
                   <div class="_entitle">
                     STRATEGY
                   </div>
-                  <div class="_info">
-                    {{ TZCL_Info.title }}
-                  </div>
+
                   <div class="_line"></div>
                 </div>
                 <div class="_bottom" v-html="TZCL_Info.content"></div>
@@ -173,13 +174,14 @@
                 <div class="_top">
                   <div class="_title">
                     合作伙伴
+                    <div class="_info">
+                      {{ HZHB_Info.title }}
+                    </div>
                   </div>
                   <div class="_entitle">
                     PARTNERS
                   </div>
-                  <div class="_info">
-                    {{ HZHB_Info.title }}
-                  </div>
+
                   <div class="_line"></div>
                 </div>
                 <div class="_bottom" v-html="HZHB_Info.content"></div>
