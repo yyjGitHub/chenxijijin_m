@@ -825,7 +825,7 @@ export default {
               position: absolute;
               top: 50%;
               left: 50%;
-              transform: translate(-50%, -100%);
+              transform: translate(-50%, -120%);
               z-index: 77;
               height: px(220);
               text-align: center;

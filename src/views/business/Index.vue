@@ -92,12 +92,10 @@
                 <div class="_top">
                   <div class="_title">
                     {{ JGYW_Info.ctitle }}
+                    <div class="_info" v-html="JGYW_Info.title"></div>
                   </div>
                   <div class="_entitle">
                     INSTITUTION
-                  </div>
-                  <div class="_info">
-                    {{ JGYW_Info.title }}
                   </div>
                   <div class="_line"></div>
                 </div>
@@ -134,12 +132,12 @@
                 <div class="_top">
                   <div class="_title">
                     {{ CWGL_Info.ctitle }}
+                    <div class="_info">
+                      {{ CWGL_Info.title }}
+                    </div>
                   </div>
                   <div class="_entitle">
                     WEALTH
-                  </div>
-                  <div class="_info">
-                    {{ CWGL_Info.title }}
                   </div>
                   <div class="_line"></div>
                 </div>
@@ -384,14 +382,14 @@ export default {
                         ._left {
                           background: url("~@/assets/image/business_index_icon1.png")
                             no-repeat center;
-                          background-size: cover;
+                          background-size: contain;
                         }
                       }
                       &:nth-child(2n) {
                         ._left {
                           background: url("~@/assets/image/business_index_icon2.png")
                             no-repeat center;
-                          background-size: cover;
+                          background-size: contain;
                         }
                         &::after {
                           display: none;

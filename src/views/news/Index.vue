@@ -33,7 +33,7 @@
                     :key="index"
                     @click="toitem(item.id)"
                   >
-                    <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
+                    <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
                       <span class="_title">
                         {{ item.title }}
@@ -78,7 +78,7 @@
                     v-for="(item, index) in QYGG_List"
                     :key="index"
                   >
-                    <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
+                    <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
                       <span class="_title">
                         {{ item.title }}
@@ -121,7 +121,7 @@
                     v-for="(item, index) in CEOTALK_List"
                     :key="index"
                   >
-                    <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
+                    <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
                       <span class="_title">
                         {{ item.title }}

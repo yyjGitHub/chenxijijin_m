@@ -10,7 +10,6 @@
 
 <script>
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 export default {
   name: "layout",
   data() {
@@ -20,8 +19,15 @@ export default {
   },
   mounted() {},
   methods: {},
-  components: { Header, Footer }
+  components: { Header }
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.layout_box {
+  .sub_routerview {
+    height: calc(100vh - 1.2rem);
+    overflow: auto;
+  }
+}
+</style>

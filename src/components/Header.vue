@@ -149,6 +149,9 @@ header {
   align-items: center;
   box-sizing: border-box;
   padding: 0 px(48);
+  // position: fixed;
+  // top: 0;
+  // left: 0;
   .logo {
     width: px(235);
     height: px(44);

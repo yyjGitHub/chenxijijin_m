@@ -7,6 +7,50 @@
     <div class="page_bottom_box">
       <div class="tab_box">
         <van-tabs v-model="activeName" animated swipeable>
+          <van-tab title="社会招聘" name="SHZP">
+            <div class="part _part2">
+              <div class="part_top_box">
+                <div class="_top">
+                  <div class="_title">
+                    人才招聘
+                  </div>
+                  <div class="_entitle">
+                    TALENT
+                  </div>
+                  <div class="_line"></div>
+                </div>
+              </div>
+              <div class="part_bottom_box">
+                <div class="collapse_box">
+                  <van-collapse v-model="activeNames">
+                    <van-collapse-item
+                      v-for="(item, index) in SHZP_List"
+                      :key="index"
+                      :name="index + 1 + ' '"
+                    >
+                      <div slot="title">
+                        <div class="_left">
+                          <span class="_title"
+                            >{{ item.title }}（{{ item.name }}）</span
+                          >
+                          <span class="_into">
+                            <span>{{ item.attr }}</span>
+                            <span>资产数据部</span>
+                            <span>{{ item.time.split(" ")[0] }}</span>
+                          </span>
+                        </div>
+                        <span class="_more">查看详情</span>
+                      </div>
+                      <div class="_content" v-html="item.content"></div
+                    ></van-collapse-item>
+                  </van-collapse>
+                </div>
+                <div class="_morebtn" v-if="!get_more" @click="getMore">
+                  展开更多
+                </div>
+              </div>
+            </div>
+          </van-tab>
           <van-tab title="联系我们" name="LXWM">
             <div class="part _part1">
               <div class="part_top_box">
@@ -87,50 +131,6 @@
                   <div class="_submit" @click="postData">
                     提交
                   </div>
-                </div>
-              </div>
-            </div>
-          </van-tab>
-          <van-tab title="社会招聘" name="SHZP">
-            <div class="part _part2">
-              <div class="part_top_box">
-                <div class="_top">
-                  <div class="_title">
-                    人才招聘
-                  </div>
-                  <div class="_entitle">
-                    TALENT
-                  </div>
-                  <div class="_line"></div>
-                </div>
-              </div>
-              <div class="part_bottom_box">
-                <div class="collapse_box">
-                  <van-collapse v-model="activeNames">
-                    <van-collapse-item
-                      v-for="(item, index) in SHZP_List"
-                      :key="index"
-                      :name="index + 1 + ' '"
-                    >
-                      <div slot="title">
-                        <div class="_left">
-                          <span class="_title"
-                            >{{ item.title }}（{{ item.name }}）</span
-                          >
-                          <span class="_into">
-                            <span>{{ item.attr }}</span>
-                            <span>资产数据部</span>
-                            <span>{{ item.time.split(" ")[0] }}</span>
-                          </span>
-                        </div>
-                        <span class="_more">查看详情</span>
-                      </div>
-                      <div class="_content" v-html="item.content"></div
-                    ></van-collapse-item>
-                  </van-collapse>
-                </div>
-                <div class="_morebtn" v-if="!get_more" @click="getMore">
-                  展开更多
                 </div>
               </div>
             </div>
@@ -275,7 +275,7 @@ export default {
           ._tooltip {
             width: 100%;
             height: px(64);
-            padding: 0 px(31);
+            padding: 0 px(15);
             background-color: #599ae5;
             display: flex;
             align-items: center;
@@ -294,7 +294,7 @@ export default {
               font-size: px(20);
               color: rgba(255, 255, 255, 1);
               &._address {
-                width: px(330);
+                width: px(380);
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
@@ -304,8 +304,8 @@ export default {
               width: 1px;
               height: px(31);
               background-color: #fff;
-              margin-left: px(28);
-              margin-right: px(36);
+              margin-left: px(14);
+              margin-right: px(18);
             }
           }
         }
@@ -461,11 +461,24 @@ export default {
             padding: px(24);
             & > ._content {
               line-height: px(17);
-              & > span {
-                display: block;
-                font-size: px(14);
-                color: rgba(130, 130, 130, 1);
-                line-height: px(17);
+              & > div {
+                margin-bottom: px(16);
+                // & > span {
+                //   display: block;
+                //   font-size: px(14);
+                //   color: rgba(130, 130, 130, 1);
+                //   line-height: px(17);
+                // }
+                strong,
+                span {
+                  color: #828282;
+                  display: block;
+                  font-size: px(16);
+                  line-height: px(23);
+                }
+                strong {
+                  margin-bottom: px(4);
+                }
               }
             }
           }

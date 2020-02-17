@@ -30,7 +30,7 @@
                   v-for="(item, index) in QYJJ_List"
                   :key="index"
                 >
-                  <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
+                  <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                   <div>
                     <span class="_title">{{ item.title }}</span>
                     <span class="_info" v-html="item.content"> </span>
@@ -59,7 +59,7 @@
               <div class="part_bottom_box">
                 <div class="_top">
                   <img
-                    :src="`${$basePicUrl}${QYFC_List[0].logo}`"
+                    :src="`${$basePicUrl}${QYFC_List[0].file}`"
                     alt=""
                     srcset=""
                   />
@@ -77,7 +77,7 @@
                     v-for="(item, index) in QYFCsub_List"
                     :key="index"
                   >
-                    <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
+                    <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
                       <span>{{ item.title }}</span>
                     </div>
