@@ -154,7 +154,7 @@
                   </div>
                 </div>
                 <div class="bottom_box">
-                  <div class="_other" @click="toPage('/about?_=QYJJ')">
+                  <div class="_other" @click="toPage('/about?_=QYFC')">
                     <div>
                       <div class="_title">
                         企业荣誉
@@ -170,7 +170,7 @@
                       srcset=""
                     />
                   </div>
-                  <div class="_other" @click="toPage('/about?_=QYJJ')">
+                  <div class="_other" @click="toPage('/about?_=QYFC')">
                     <div>
                       <div class="_title">
                         企业愿景
