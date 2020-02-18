@@ -145,7 +145,7 @@
               <div class="part_bottom_box">
                 <div class="_top">
                   <img
-                    :src="`${$basePicUrl}${CWGL_Info.logo}`"
+                    :src="`${$basePicUrl}${CWGL_Info.file}`"
                     alt=""
                     srcset=""
                   />

@@ -33,7 +33,7 @@
           >
             <div
               class="active"
-              :style="{ left: (active_slide_indexnum - 1) * (24 + 8) + 'px' }"
+              :style="{ left: (active_slide_indexnum - 1) * (26.5 + 6) + 'px' }"
             >
               <div>
                 <span :class="[!isTrans ? 's_active' : '']">
@@ -154,7 +154,7 @@
                   </div>
                 </div>
                 <div class="bottom_box">
-                  <div class="_other">
+                  <div class="_other" @click="toPage('/about?_=QYJJ')">
                     <div>
                       <div class="_title">
                         企业荣誉
@@ -170,7 +170,7 @@
                       srcset=""
                     />
                   </div>
-                  <div class="_other">
+                  <div class="_other" @click="toPage('/about?_=QYJJ')">
                     <div>
                       <div class="_title">
                         企业愿景
@@ -324,7 +324,7 @@
                   <div class="pic_box">
                     <img
                       class="_pic"
-                      :src="`${$basePicUrl}${item.logo}`"
+                      :src="`${$basePicUrl}${item.file}`"
                       alt=""
                       srcset=""
                     />
@@ -711,8 +711,8 @@ export default {
       & > div:not(.active) {
         cursor: pointer;
         display: block;
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
         box-sizing: border-box;
         border: 1px solid #599ae5;
         border-radius: 50%;
@@ -720,8 +720,8 @@ export default {
       }
       .active {
         cursor: pointer;
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
         box-sizing: border-box;
         border: 1px solid #599ae5;
         border-radius: 50%;
@@ -730,8 +730,8 @@ export default {
         top: 0;
         transition: all ease-in-out 0.5s;
         & > div {
-          width: 24px;
-          height: 24px;
+          width: 18px;
+          height: 18px;
           position: absolute;
           top: 50%;
           left: 50%;
@@ -740,8 +740,8 @@ export default {
           border-radius: 50%;
           overflow: hidden;
           & > span {
-            width: 12px;
-            height: 24px;
+            width: 9px;
+            height: 18px;
             position: absolute;
             top: 0;
             overflow: hidden;
@@ -752,8 +752,8 @@ export default {
               left: 0;
               & > div {
                 // transform: rotate(45deg);
-                border-top: 4px solid #5b9be4;
-                border-right: 4px solid #5b9be4;
+                border-top: 3px solid #5b9be4;
+                border-right: 3px solid #5b9be4;
                 left: 0;
                 &.a_active {
                   -webkit-animation: circleProgressLoad_left_a 0.3s linear
@@ -769,8 +769,8 @@ export default {
               right: 0;
               & > div {
                 // transform: rotate(-45deg);
-                border-top: 4px solid #5b9be4;
-                border-left: 4px solid #5b9be4;
+                border-top: 3px solid #5b9be4;
+                border-left: 3px solid #5b9be4;
                 right: 0;
                 &.a_active {
                   -webkit-animation: circleProgressLoad_right_a 0.3s linear
@@ -783,9 +783,9 @@ export default {
               }
             }
             & > div {
-              width: 24px;
-              height: 24px;
-              border: 4px solid rgba(0, 0, 0, 0);
+              width: 18px;
+              height: 18px;
+              border: 3px solid rgba(0, 0, 0, 0);
               border-radius: 50%;
               position: absolute;
               top: 0;
@@ -933,7 +933,7 @@ export default {
                       & > .more {
                         width: px(120);
                         height: px(40);
-                        border: 2px solid rgba(83, 150, 228, 1);
+                        border: 1px solid rgba(83, 150, 228, 1);
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -1079,35 +1079,35 @@ export default {
                     opacity: 1;
                     transition-delay: 0;
                     .line1 {
-                      height: px(20) !important;
+                      height: px(10) !important;
                     }
                   }
                   &.active2 {
                     opacity: 1;
                     transition-delay: 0.2s;
                     .line2 {
-                      height: px(60) !important;
+                      height: px(35) !important;
                     }
                   }
                   &.active3 {
                     opacity: 1;
                     transition-delay: 0.4s;
                     .line3 {
-                      height: px(100) !important;
+                      height: px(70) !important;
                     }
                   }
                   &.active4 {
                     opacity: 1;
                     transition-delay: 0.6s;
                     .line2 {
-                      height: px(60) !important;
+                      height: px(35) !important;
                     }
                   }
                   &.active5 {
                     opacity: 1;
                     transition-delay: 0.8s;
                     .line1 {
-                      height: px(20) !important;
+                      height: px(10) !important;
                     }
                   }
                   &.active6 {
@@ -1518,6 +1518,23 @@ export default {
                 .sub_swiper {
                   height: px(411);
                   position: relative;
+                  &::after,
+                  &::before {
+                    content: "";
+                    display: block;
+                    height: 1px;
+                    width: 100%;
+                    position: absolute;
+                    background-color: #979797;
+                    left: 0;
+                    z-index: 55;
+                  }
+                  &::after {
+                    bottom: px(137);
+                  }
+                  &::before {
+                    top: px(137);
+                  }
                   .swiper-wrapper {
                     height: px(273);
                     .swiper-slide {
@@ -1526,7 +1543,7 @@ export default {
                       align-items: center;
                       &.swiper-slide-next {
                         // &.swiper-slide-active {
-                        border: 1px #979797 solid;
+                        // border: 1px #979797 solid;
                         border-left: none;
                         border-right: none;
                         .left_box {
