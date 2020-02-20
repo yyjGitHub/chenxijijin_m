@@ -13,6 +13,13 @@ p {
 .el-message .el-icon-success {
   font-size: px(18);
 }
+.swiper-container-fade .swiper-slide-active,
+.swiper-container-fade .swiper-slide-active .swiper-slide-active {
+  pointer-events: inherit !important;
+}
+.swiper-container-fade .swiper-slide .swiper-slide {
+  pointer-events: inherit !important;
+}
 .van-tabs--line .van-tabs__wrap {
   height: px(73);
   border-bottom: 1px solid #ebedf0;
