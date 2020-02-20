@@ -1604,12 +1604,12 @@ export default {
                           overflow: hidden;
                           margin-bottom: px(8);
                           white-space: nowrap;
-                          line-height: px(22);
+                          line-height: px(25);
                         }
                         ._into {
                           height: px(22);
                           font-size: px(14);
-                          line-height: px(17);
+                          line-height: px(22);
                           text-overflow: ellipsis;
                           overflow: hidden;
                           white-space: nowrap;
