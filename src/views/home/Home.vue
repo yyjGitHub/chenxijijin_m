@@ -1597,11 +1597,12 @@ export default {
                         // flex: 1;
                         max-width: px(542);
                         ._title {
+                          height: px(40);
+                          line-height: px(40);
                           font-size: px(20);
                           font-weight: bold;
                           text-overflow: ellipsis;
                           overflow: hidden;
-                          margin-bottom: px(8);
                           white-space: nowrap;
                         }
                         ._into {
