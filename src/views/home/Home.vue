@@ -1582,7 +1582,6 @@ export default {
                         // flex: 1;
                         max-width: px(542);
                         ._title {
-<<<<<<< HEAD
                           height: px(33);
                           font-size: px(24);
                           font-weight: bold;
@@ -1599,19 +1598,6 @@ export default {
                           display: -webkit-box;
                           -webkit-box-orient: vertical;
                           -webkit-line-clamp: 2;
-=======
-                          height: px(40);
-                          line-height: px(40);
-                          font-size: px(20);
-                          font-weight: bold;
-                          text-overflow: ellipsis;
-                          overflow: hidden;
-                          white-space: nowrap;
-                        }
-                        ._into {
-                          font-size: px(14);
-                          text-overflow: ellipsis;
->>>>>>> b7076b5ffbeb26670a70d33cafa08cd632679acb
                           overflow: hidden;
                           p {
                             display: -webkit-box;
