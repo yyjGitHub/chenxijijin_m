@@ -333,24 +333,24 @@ export default {
               display: block;
             }
             ._title {
-              height: px(29);
-              font-size: px(24);
+              height: px(33);
+              font-size: px(28);
               color: #333;
-              line-height: px(29);
+              line-height: px(33);
               font-weight: bold;
-              margin-bottom: px(4);
+              margin-bottom: px(8);
               text-overflow: ellipsis;
               white-space: nowrap;
               overflow: hidden;
             }
             ._date,
             ._into {
-              font-size: px(18);
+              font-size: px(20);
               color: #949494;
               line-height: px(24);
               display: -webkit-box;
               -webkit-box-orient: vertical;
-              -webkit-line-clamp: 2;
+              -webkit-line-clamp: 5;
               overflow: hidden;
             }
           }

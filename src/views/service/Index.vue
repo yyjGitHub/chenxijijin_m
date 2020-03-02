@@ -80,23 +80,27 @@
                     ></el-amap-marker>
                   </el-amap>
                   <div class="_tooltip">
-                    <img
-                      src="~@/assets/image/telphone_icon.png"
-                      class="_icon"
-                      alt=""
-                      srcset=""
-                    />
-                    <span>021-58995866</span>
-                    <div class="line"></div>
-                    <img
-                      src="~@/assets/image/address_icon.png"
-                      class="_icon"
-                      alt=""
-                      srcset=""
-                    />
-                    <span class="_address"
-                      >浦东新区张杨路2389弄置汇旭辉广场C座15楼</span
-                    >
+                    <div>
+                      <img
+                        src="~@/assets/image/address_icon.png"
+                        class="_icon"
+                        alt=""
+                        srcset=""
+                      />
+                      <span class="_address"
+                        >浦东新区张杨路2389弄置汇旭辉广场C座15楼</span
+                      >
+                    </div>
+                    <span class="line"></span>
+                    <div>
+                      <img
+                        src="~@/assets/image/telphone_icon.png"
+                        class="_icon"
+                        alt=""
+                        srcset=""
+                      />
+                      <span>021-58995866</span>
+                    </div>
                   </div>
                 </div>
                 <div class="form_wrap">
@@ -274,48 +278,59 @@ export default {
           margin-bottom: px(24);
           ._tooltip {
             width: 100%;
-            height: px(64);
-            padding: 0 px(15);
+            height: px(120);
+            padding: 0 px(27);
             background-color: #599ae5;
-            display: flex;
-            align-items: center;
             position: absolute;
             left: px(0);
             bottom: px(0);
             box-sizing: border-box;
-            ._icon {
-              display: block;
-              width: px(21);
-              height: px(21);
-              margin-right: px(7);
-            }
-            span {
-              display: block;
-              font-size: px(20);
-              color: rgba(255, 255, 255, 1);
-              &._address {
-                width: px(380);
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            & > div {
+              display: flex;
+              align-items: center;
+              margin-bottom: px(9);
+              &:last-child {
+                margin-bottom: 0;
+              }
+              ._icon {
+                display: block;
+                width: px(21);
+                height: px(21);
+                margin-right: px(11);
+              }
+              span {
+                display: block;
+                font-size: px(24);
+                color: rgba(255, 255, 255, 1);
+                &._address {
+                  width: px(550);
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  overflow: hidden;
+                }
               }
             }
+
             .line {
-              width: 1px;
-              height: px(31);
+              display: block;
+              width: px(599);
+              height: px(1);
               background-color: #fff;
-              margin-left: px(14);
-              margin-right: px(18);
+              margin-bottom: px(15);
             }
           }
         }
         .form_wrap {
           input {
-            height: px(40);
-            line-height: px(40);
+            height: px(54);
+            line-height: px(54);
             border: 1px solid #cccccc;
             box-sizing: border-box;
-            padding: 0 px(25);
+            padding: 0 px(12);
+            font-size: px(20);
           }
           .inline {
             display: flex;
@@ -337,8 +352,9 @@ export default {
             display: block;
             width: 100%;
             min-height: px(120);
+            font-size: px(20);
             box-sizing: border-box;
-            padding: px(10) px(24);
+            padding: px(10) px(12);
             line-height: px(32);
             margin-bottom: px(24);
           }
@@ -352,21 +368,21 @@ export default {
             align-items: center;
             img {
               display: block;
-              width: px(33);
-              height: px(33);
+              width: px(48);
+              height: px(48);
               &:first-child {
-                margin-right: px(15);
+                margin-right: px(18);
               }
             }
           }
           ._submit {
             width: px(120);
-            height: px(40);
-            line-height: px(40);
+            height: px(50);
+            line-height: px(50);
             color: #fff;
             background-color: #599ae5;
             text-align: center;
-            font-size: px(20);
+            font-size: px(26);
           }
         }
       }
@@ -431,11 +447,11 @@ export default {
                 }
                 ._title {
                   height: px(32);
-                  font-size: px(24);
+                  font-size: px(28);
                   font-weight: bold;
                   color: #333;
                   line-height: px(32);
-                  margin-bottom: px(14);
+                  margin-bottom: px(8);
                   white-space: nowrap;
                   text-overflow: ellipsis;
                   overflow: hidden;
@@ -446,7 +462,7 @@ export default {
                   & > span {
                     margin-right: px(24);
                     height: px(24);
-                    font-size: px(18);
+                    font-size: px(20);
                     color: #949494;
                     line-height: px(24);
                     &:last-child {
@@ -473,8 +489,8 @@ export default {
                 span {
                   color: #828282;
                   display: block;
-                  font-size: px(16);
-                  line-height: px(23);
+                  font-size: px(24);
+                  line-height: px(36);
                 }
                 strong {
                   margin-bottom: px(4);

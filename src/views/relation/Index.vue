@@ -177,7 +177,7 @@ export default {
     & > :not(._list) {
       // width: 100%;
       margin: px(0) px(48);
-      height: px(57);
+      height: px(70);
       border: 1px solid rgba(91, 155, 228, 1);
       margin-top: px(40);
       padding: 0 px(24);
@@ -193,7 +193,7 @@ export default {
         transform: rotateZ(90deg);
       }
       & > span {
-        font-size: px(18);
+        font-size: px(26);
         color: rgba(91, 155, 228, 1);
       }
     }
@@ -209,7 +209,7 @@ export default {
       left: 0;
       & > .item {
         display: flex;
-        height: px(57);
+        height: px(70);
         width: 100%;
         background-color: #f8f8f8;
         color: #333;
@@ -230,7 +230,7 @@ export default {
           }
         }
         span {
-          font-size: px(18);
+          font-size: px(26);
           color: #333;
         }
         img {
@@ -268,7 +268,7 @@ export default {
           justify-content: space-between;
           ._left {
             ._date {
-              height: px(18);
+              height: px(20);
               font-size: px(24);
               color: #7f7f7f;
               line-height: px(24);
@@ -301,7 +301,7 @@ export default {
                 display: flex;
                 align-items: center;
                 span {
-                  font-size: px(14);
+                  font-size: px(20);
 
                   color: #599ae5;
                   display: block;

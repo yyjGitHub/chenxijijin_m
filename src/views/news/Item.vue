@@ -57,27 +57,27 @@ export default {
       .news_title {
         text-align: center;
         color: #333;
-        font-size: px(24);
-        line-height: px(36);
-        height: px(36);
-        margin-bottom: px(4);
+        font-size: px(34);
+        line-height: px(44);
+        height: px(88);
+        margin-bottom: px(30);
         font-weight: bold;
       }
       .news_date {
         text-align: center;
         color: #7f7f7f;
-        font-size: px(18);
+        font-size: px(22);
         line-height: px(24);
         height: px(24);
         margin-bottom: px(24);
       }
       border-bottom: 1px solid #979797;
-      margin-bottom: px(24);
+      margin-bottom: px(29);
     }
     ._bottom {
-      font-size: px(14);
+      font-size: px(28);
       color: #333;
-      line-height: px(24);
+      line-height: px(32);
       img {
         display: block;
         width: 100%;

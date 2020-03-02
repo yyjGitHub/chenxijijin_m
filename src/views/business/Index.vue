@@ -295,15 +295,15 @@ export default {
               z-index: -1;
             }
             ._title {
-              height: px(36);
-              font-size: px(36);
+              height: px(44);
+              font-size: px(46);
               color: rgba(255, 255, 255, 1);
-              line-height: px(36);
+              line-height: px(44);
               font-weight: bold;
               margin-bottom: px(12);
             }
             ._subtitle {
-              font-size: px(14);
+              font-size: px(18);
               font-family: Helvetica;
               color: rgba(255, 255, 255, 1);
               letter-spacing: px(2);
@@ -324,37 +324,36 @@ export default {
                   margin-bottom: px(16);
                   & > img {
                     display: block;
-                    width: px(23);
-                    height: px(11);
+                    height: px(15);
                     margin-right: px(13);
                     margin-top: px(-5);
                   }
                   span {
                     display: block;
-                    height: px(25);
-                    font-size: px(18);
+                    height: px(42);
+                    font-size: px(30);
                     color: rgba(0, 0, 0, 1);
                     font-weight: bold;
-                    line-height: px(22);
+                    line-height: px(42);
                   }
                 }
                 & > .into_box {
                   display: block;
-                  font-size: px(14);
+                  font-size: px(28);
                   font-family: Helvetica;
                   color: #757575;
-                  line-height: px(32);
+                  line-height: px(48);
                   span {
                     display: block;
-                    font-size: px(14);
+                    font-size: px(28);
                     font-family: Helvetica;
                     color: #757575;
-                    line-height: px(32);
+                    line-height: px(48);
                   }
                   .__into {
-                    font-size: px(20);
+                    font-size: px(28);
                     color: #7f7f7f;
-                    line-height: px(40);
+                    line-height: px(48);
                     margin-bottom: px(40);
                   }
                   .row_list {
@@ -396,27 +395,27 @@ export default {
                         }
                       }
                       ._left {
-                        width: px(96);
-                        height: px(72);
+                        width: px(98);
+                        height: px(98);
                         display: block;
-                        margin-right: px(24);
+                        margin-right: px(30);
                       }
                       ._right {
                         ._title {
-                          height: px(33);
-                          font-size: px(24);
+                          height: px(42);
+                          font-size: px(30);
                           color: rgba(0, 0, 0, 1);
-                          line-height: px(29);
-                          margin-bottom: px(8);
+                          line-height: px(42);
+                          margin-bottom: px(4);
                           text-overflow: ellipsis;
                           white-space: nowrap;
                           overflow: hidden;
                           font-weight: bold;
                         }
                         ._subinto {
-                          font-size: px(18);
+                          font-size: px(24);
                           color: #7f7f7f;
-                          line-height: px(24);
+                          line-height: px(34);
                           display: -webkit-box;
                           -webkit-box-orient: vertical;
                           -webkit-line-clamp: 2;
@@ -478,20 +477,20 @@ export default {
           }
         }
         & > ._bottom {
-          font-size: px(14);
-          line-height: px(32);
+          font-size: px(30);
+          line-height: px(48);
           ._titlebox {
-            height: px(24);
-            font-size: px(14);
-            line-height: px(24);
+            height: px(48);
+            font-size: px(30);
+            line-height: px(48);
             font-weight: bold;
             margin-bottom: px(12);
           }
           ._intobox {
             & > span {
               display: block;
-              font-size: px(14);
-              line-height: px(32);
+              font-size: px(30);
+              line-height: px(48);
             }
           }
         }

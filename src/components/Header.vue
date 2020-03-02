@@ -33,7 +33,11 @@
                 <div class="_title">
                   {{ item.meta.label }}
                 </div>
-                <van-icon name="arrow" class="arrow_right" />
+                <van-icon
+                  name="arrow"
+                  v-if="item.children.length > 1"
+                  class="arrow_right"
+                />
               </div>
               <div
                 class="child_box"

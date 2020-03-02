@@ -435,18 +435,18 @@ export default {
             span {
               display: block;
               &._title {
-                height: px(33);
-                font-size: px(24);
+                height: px(38);
+                font-size: px(28);
                 color: rgba(0, 0, 0, 1);
-                line-height: px(29);
+                line-height: px(38);
                 font-weight: bold;
-                margin-bottom: px(8);
+                margin-bottom: px(10);
               }
               &._info {
-                font-size: px(16);
+                font-size: px(24);
                 color: #353535;
                 text-align: center;
-                line-height: px(20);
+                line-height: px(26);
               }
             }
           }
@@ -461,12 +461,13 @@ export default {
             bottom: px(-24) !important;
           }
           ._info {
-            font-weight: bold;
+            font-weight: bold !important;
             bottom: px(-73) !important;
-            height: px(24) !important;
-            font-size: px(24) !important;
-            line-height: px(24) !important;
+            height: px(32) !important;
+            font-size: px(32) !important;
+            line-height: px(32) !important;
             color: #666666 !important;
+            width: 100% !important;
           }
         }
         ._bottom {
@@ -486,25 +487,25 @@ export default {
             margin-bottom: px(24);
           }
           ._title {
-            height: px(33);
-            font-size: px(24);
-            line-height: px(29);
+            height: px(40);
+            font-size: px(38);
+            line-height: px(40);
             color: #636363;
             font-weight: bold;
-            margin-bottom: px(6);
+            margin-bottom: px(10);
           }
           ._subtitle {
-            height: px(25);
-            font-size: px(18);
+            height: px(30);
+            font-size: px(28);
             color: rgba(89, 154, 229, 1);
-            line-height: px(22);
+            line-height: px(30);
             letter-spacing: px(1);
-            margin-bottom: px(8);
+            margin-bottom: px(20);
           }
           ._into {
-            font-size: px(14);
+            font-size: px(28);
             color: #666666;
-            line-height: px(32);
+            line-height: px(48);
           }
         }
         ._bottom {
@@ -538,8 +539,8 @@ export default {
               background-color: #f8f8f8;
               span {
                 display: block;
-                font-size: px(20);
-                line-height: px(24);
+                font-size: px(22);
+                line-height: px(30);
                 text-align: center;
                 font-weight: bold;
               }
@@ -581,7 +582,7 @@ export default {
               margin-bottom: px(12);
             }
             ._subtitle {
-              font-size: px(14);
+              font-size: px(18);
               font-family: Helvetica;
               color: rgba(255, 255, 255, 1);
               letter-spacing: px(2);
@@ -603,20 +604,20 @@ export default {
                 }
                 span {
                   display: block;
-                  height: px(25);
-                  font-size: px(18);
+                  height: px(42);
+                  font-size: px(30);
                   color: rgba(0, 0, 0, 1);
                   font-weight: bold;
-                  line-height: px(22);
+                  line-height: px(42);
                 }
               }
               & > .into_box {
                 span {
                   display: block;
-                  font-size: px(14);
+                  font-size: px(28);
                   font-family: Helvetica;
                   color: #757575;
-                  line-height: px(32);
+                  line-height: px(48);
                 }
               }
             }
