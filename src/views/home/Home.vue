@@ -587,46 +587,56 @@ export default {
 <style lang="scss">
 @-webkit-keyframes circleProgressLoad_right_a {
   0% {
-    -webkit-transform: rotate(-25deg);
+    opacity: 0.1;
+    -webkit-transform: rotate(-45deg);
   }
   50% {
-    -webkit-transform: rotate(15deg);
+    opacity: 0.8;
+    -webkit-transform: rotate(0deg);
   }
   100% {
+    opacity: 1;
     -webkit-transform: rotate(45deg);
   }
 }
 @-webkit-keyframes circleProgressLoad_left_a {
   0% {
-    -webkit-transform: rotate(25deg);
+    opacity: 0.1;
+    -webkit-transform: rotate(45deg);
   }
   50% {
-    -webkit-transform: rotate(-15deg);
+    opacity: 0.8;
+    -webkit-transform: rotate(0deg);
   }
   100% {
+    opacity: 1;
     -webkit-transform: rotate(-45deg);
   }
 }
 @-webkit-keyframes circleProgressLoad_right_b {
   0% {
+    opacity: 1;
     -webkit-transform: rotate(45deg);
   }
   50% {
-    -webkit-transform: rotate(3deg);
+    -webkit-transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(-45deg);
+    opacity: 0;
   }
 }
 @-webkit-keyframes circleProgressLoad_left_b {
   0% {
+    opacity: 1;
     -webkit-transform: rotate(-45deg);
   }
   50% {
-    -webkit-transform: rotate(3deg);
+    -webkit-transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(45deg);
+    opacity: 0;
   }
 }
 .trs5 {
@@ -761,16 +771,19 @@ export default {
             &:first-child {
               left: 0;
               & > div {
-                // transform: rotate(45deg);
+                transform: rotate(45deg);
+                opacity: 0;
                 border-top: 3px solid #5b9be4;
                 border-right: 3px solid #5b9be4;
                 left: 0;
                 &.a_active {
                   -webkit-animation: circleProgressLoad_left_a 0.3s linear
                     forwards;
+                  animation-delay: 0.15s;
+                  -webkit-animation-delay: 0.15s;
                 }
                 &.b_active {
-                  -webkit-animation: circleProgressLoad_left_b 0.4s linear
+                  -webkit-animation: circleProgressLoad_left_b 0.2s linear
                     forwards;
                 }
               }
@@ -778,16 +791,19 @@ export default {
             &:last-child {
               right: 0;
               & > div {
-                // transform: rotate(-45deg);
+                opacity: 0;
+                transform: rotate(-45deg);
                 border-top: 3px solid #5b9be4;
                 border-left: 3px solid #5b9be4;
                 right: 0;
                 &.a_active {
                   -webkit-animation: circleProgressLoad_right_a 0.3s linear
                     forwards;
+                  animation-delay: 0.15s;
+                  -webkit-animation-delay: 0.15s;
                 }
                 &.b_active {
-                  -webkit-animation: circleProgressLoad_right_b 0.4s linear
+                  -webkit-animation: circleProgressLoad_right_b 0.2s linear
                     forwards;
                 }
               }

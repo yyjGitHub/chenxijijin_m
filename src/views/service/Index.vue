@@ -130,7 +130,12 @@
                 <div class="submit_wrap">
                   <div class="_left">
                     <img src="~@/assets/m/weibo_icon.png" alt="" srcset="" />
-                    <img src="~@/assets/m/wechat_icon.png" alt="" srcset="" />
+                    <img
+                      @click="showzz = true"
+                      src="~@/assets/m/wechat_icon.png"
+                      alt=""
+                      srcset=""
+                    />
                   </div>
                   <div class="_submit" @click="postData">
                     提交
@@ -140,6 +145,12 @@
             </div>
           </van-tab>
         </van-tabs>
+      </div>
+    </div>
+    <div class="zz" v-if="showzz" @click="showzz = !showzz">
+      <div class="_box" @click.stop="showzz = true">
+        <img src="@/assets/m/qrcode_icon.png" alt="" srcset="" />
+        <span>长按二维码，关注晨曦基金官方账号</span>
       </div>
     </div>
   </div>
@@ -157,6 +168,7 @@ export default {
       // amapManager,
       // zoom: "12",
       // center: [121.545101, 31.236498]
+      showzz: false,
       amapManager,
       zoom: 16,
       center: [121.545101, 31.236498],
@@ -508,6 +520,41 @@ export default {
           line-height: px(48);
           font-size: px(20);
         }
+      }
+    }
+  }
+  .zz {
+    height: calc(100vh - 1.2rem);
+    position: fixed;
+    top: px(120);
+    width: 100%;
+    left: 0;
+    z-index: 520;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ._box {
+      width: px(506);
+      height: px(493);
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        display: block;
+        width: px(300);
+        height: px(300);
+        margin-top: px(64);
+        margin-bottom: px(32);
+      }
+      span {
+        display: block;
+        text-align: center;
+        height: px(33);
+        font-size: px(24);
+        color: rgba(0, 0, 0, 1);
+        line-height: px(33);
       }
     }
   }
