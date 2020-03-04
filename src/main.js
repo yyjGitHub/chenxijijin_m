@@ -44,5 +44,47 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  created() {
+    if (this.IsPC()) {
+      window.location.href =
+        location.protocol + "//" + location.host + "/index.html#/";
+    }
+  },
+  mounted() {
+    const that = this;
+    that.resetFontSize();
+    window.onresize = () => {
+      return (() => {
+        that.resetFontSize();
+      })();
+    };
+  },
+  methods: {
+    resetFontSize() {
+      let rootHtml = document.documentElement;
+      let deviceWidth = rootHtml.clientWidth;
+
+      rootHtml.style.fontSize = (deviceWidth * 100) / 750 + "px";
+    },
+    IsPC() {
+      var userAgentInfo = navigator.userAgent;
+      var Agents = [
+        "Android",
+        "iPhone",
+        "SymbianOS",
+        "Windows Phone",
+        "iPad",
+        "iPod"
+      ];
+      var flag = true;
+      for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+          flag = false;
+          break;
+        }
+      }
+      return flag;
+    }
+  }
 }).$mount("#app");
