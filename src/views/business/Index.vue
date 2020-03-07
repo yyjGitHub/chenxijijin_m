@@ -395,7 +395,7 @@ export default {
                         }
                       }
                       ._left {
-                        width: px(98);
+                        width: px(128);
                         height: px(98);
                         display: block;
                         margin-right: px(30);
@@ -467,6 +467,9 @@ export default {
     }
     ._part2,
     ._part3 {
+      .part_top_box {
+        padding-bottom: 0 !important;
+      }
       .part_bottom_box {
         & > ._top {
           margin-bottom: px(32);

@@ -262,6 +262,11 @@ export default {
 
 <style lang="scss">
 .service_index_box {
+  .page_bottom_box {
+    .van-tabs--line .van-tabs__wrap {
+      padding: 0 25%;
+    }
+  }
   .part {
     .part_top_box {
       padding-bottom: px(20) !important;
@@ -330,8 +335,19 @@ export default {
               display: block;
               width: px(599);
               height: px(1);
-              background-color: #fff;
+              background-color: rgba(0, 0, 0, 0);
               margin-bottom: px(15);
+              position: relative;
+              &::after {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                content: "";
+                background-color: #fff;
+                -webkit-transform: scaleY(0.5);
+              }
             }
           }
         }

@@ -268,7 +268,7 @@ export default {
           justify-content: space-between;
           ._left {
             ._date {
-              height: px(20);
+              height: px(24);
               font-size: px(24);
               color: #7f7f7f;
               line-height: px(24);
@@ -279,6 +279,8 @@ export default {
               align-items: center;
               justify-content: space-between;
               ._title {
+                height: px(32);
+                line-height: px(32);
                 font-size: px(28);
                 color: #333;
                 max-width: px(380);

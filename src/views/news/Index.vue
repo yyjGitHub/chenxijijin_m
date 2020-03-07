@@ -333,15 +333,11 @@ export default {
               display: block;
             }
             ._title {
-              height: px(33);
               font-size: px(28);
               color: #333;
               line-height: px(33);
               font-weight: bold;
               margin-bottom: px(8);
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              overflow: hidden;
             }
             ._date,
             ._into {
@@ -352,6 +348,20 @@ export default {
               -webkit-box-orient: vertical;
               -webkit-line-clamp: 5;
               overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+  }
+  ._part2,
+  ._part3 {
+    .part_bottom_box {
+      ._listbox {
+        ._item {
+          & > div {
+            ._into {
+              line-height: px(32);
             }
           }
         }

@@ -102,7 +102,6 @@
 
                   <div class="_line"></div>
                 </div>
-                <div class="_bottom" v-html="TZCL_Info.content"></div>
               </div>
               <div class="part_bottom_box">
                 <div class="_item">
@@ -188,7 +187,9 @@
               </div>
               <div class="part_bottom_box">
                 <div v-for="(item, index) in HZHB_List" :key="index">
-                  <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
+                  <div class="_box">
+                    <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -456,13 +457,13 @@ export default {
     ._part2 {
       .part_top_box {
         ._top {
-          margin-bottom: px(89) !important;
+          margin-bottom: px(143) !important;
           ._line {
-            bottom: px(-24) !important;
+            bottom: px(-40) !important;
           }
           ._info {
             font-weight: bold !important;
-            bottom: px(-73) !important;
+            bottom: px(-113) !important;
             height: px(32) !important;
             font-size: px(32) !important;
             line-height: px(32) !important;
@@ -535,7 +536,7 @@ export default {
               width: 100%;
               height: px(102);
               box-sizing: border-box;
-              padding: 0 px(24);
+              padding: 0 px(54);
               background-color: #f8f8f8;
               span {
                 display: block;
@@ -550,6 +551,9 @@ export default {
       }
     }
     ._part3 {
+      .part_top_box {
+        padding-bottom: 0 !important;
+      }
       .part_bottom_box {
         & > ._item {
           margin-bottom: px(48);
@@ -574,10 +578,10 @@ export default {
               z-index: -1;
             }
             ._title {
-              height: px(36);
-              font-size: px(36);
+              height: px(46);
+              font-size: px(46);
               color: rgba(255, 255, 255, 1);
-              line-height: px(36);
+              line-height: px(46);
               font-weight: bold;
               margin-bottom: px(12);
             }
@@ -619,6 +623,14 @@ export default {
                   color: #757575;
                   line-height: px(48);
                 }
+                & > p {
+                  & > span {
+                    margin-bottom: px(18);
+                  }
+                }
+                & > span {
+                  margin-bottom: px(18);
+                }
               }
             }
           }
@@ -632,22 +644,34 @@ export default {
         & > div {
           margin-right: px(16);
           margin-top: px(16);
-          width: px(207);
-          height: px(137);
+          width: px(310);
+          height: px(160);
           box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           border: 1px solid #efefef;
-          &:nth-child(3n) {
+          &:nth-child(2n) {
             margin-right: 0;
           }
           &:nth-child(1),
-          &:nth-child(2),
-          &:nth-child(3) {
+          &:nth-child(2) {
             margin-top: 0;
           }
-          & > img {
-            display: block;
-            width: 100%;
-            height: 100%;
+          & > ._box {
+            position: relative;
+            overflow: hidden;
+
+            width: px(249);
+            height: px(124);
+            & > img {
+              display: block;
+              top: px(-1);
+              left: px(-2);
+              position: absolute;
+              width: px(253);
+              height: px(126);
+            }
           }
         }
       }

@@ -69,22 +69,32 @@ export default {
         font-size: px(22);
         line-height: px(24);
         height: px(24);
-        margin-bottom: px(24);
+        padding-bottom: px(24);
       }
-      border-bottom: 1px solid #979797;
+      position: relative;
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: #979797;
+        -webkit-transform: scaleY(0.5);
+      }
       margin-bottom: px(29);
     }
     ._bottom {
       font-size: px(28);
-      color: #333;
-      line-height: px(32);
+      color: #6e6e6e;
+      line-height: px(48);
       img {
         display: block;
         width: 100%;
       }
       p {
         margin: 0;
-        margin-bottom: px(20);
+        margin-bottom: px(26);
         &:last-child {
           margin-bottom: 0;
         }

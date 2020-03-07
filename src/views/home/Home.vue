@@ -73,12 +73,12 @@
                 <span>忠于所托 成就价值</span>
               </div>
             </div>
-            <img
+            <!-- <img
               class="home_bg"
               src="~@/assets/m/home_part1_pic1.png"
               alt=""
               srcset=""
-            />
+            /> -->
             <div class="arrow_top">
               <img src="~@/assets/m/arrow_top_icon.png" alt="" />
             </div>
@@ -393,7 +393,7 @@
                     <swiper-slide
                       v-for="(item, index) in XWZX_List"
                       :key="index"
-                      @click.native="toNewItem(item.id)"
+                      @click.stop.native="toNewItem(item.id, $event)"
                     >
                       <div class="left_box">
                         <span class="day">{{
@@ -576,9 +576,15 @@ export default {
     toSlide(index) {
       this.swiper.slideTo(index);
     },
-    toNewItem(id) {
-      console.log(id);
-      this.$router.push(`/news/${id}`);
+    hasClass(elem, cls) {
+      cls = cls || "";
+      if (cls.replace(/\s/g, "").length == 0) return false;
+      return new RegExp(" " + cls + " ").test(" " + elem.className + " ");
+    },
+    toNewItem(id, e = "") {
+      if (e === "" || this.hasClass(e.currentTarget, "swiper-slide-next")) {
+        this.$router.push(`/news/${id}`);
+      }
     }
   }
 };
@@ -829,22 +835,25 @@ export default {
       .swiper-slide {
         position: relative;
         &.home_1st_slide {
+          background: url("~@/assets/m/home_part1_pic1.png") no-repeat top
+            center;
+          background-size: cover;
+          background-color: #fff;
           position: relative;
-          .home_bg {
-            position: absolute;
-            z-index: 66;
-            display: block;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          }
+          // .home_bg {
+          //   position: absolute;
+          //   z-index: 66;
+          //   display: block;
+          //   top: 0;
+          //   left: 0;
+          //   width: 100%;
+          //   height: 100%;
+          // }
           ._box {
             width: 100%;
             height: 100%;
             align-items: center;
             justify-content: center;
-            background-color: rgba(0, 0, 0, 0.2);
             position: relative;
             z-index: 77;
             & > div {
@@ -1119,6 +1128,10 @@ export default {
                       align-items: flex-end;
                       transform: translateX(-100%);
                     }
+                    ._title {
+                      position: relative;
+                      left: 5%;
+                    }
                     .line2 {
                       height: px(28) !important;
                     }
@@ -1139,6 +1152,10 @@ export default {
                     ._into {
                       align-items: flex-start;
                       transform: translateX(0);
+                    }
+                    ._title {
+                      position: relative;
+                      left: -5%;
                     }
                   }
                   &.active5 {
@@ -1244,7 +1261,7 @@ export default {
                     justify-content: center;
                     ._title {
                       text-align: center;
-                      font-size: px(18);
+                      font-size: px(16);
                       color: rgba(255, 255, 255, 1);
                       line-height: px(24);
                       margin-bottom: px(2);
@@ -1342,7 +1359,7 @@ export default {
           & > ._box {
             width: px(654);
             position: absolute;
-            top: px(80);
+            top: px(50);
             left: 50%;
             margin-left: px(-327);
             & > ._top {
@@ -1355,7 +1372,7 @@ export default {
               display: flex;
               align-items: center;
               justify-content: space-between;
-              margin-bottom: px(60);
+              margin-bottom: px(50);
               & > .title {
                 display: flex;
                 align-items: center;
@@ -1385,7 +1402,7 @@ export default {
               flex-direction: column;
               & > div {
                 height: px(232);
-                margin-bottom: px(55);
+                margin-bottom: px(50);
                 border-left: 2px solid rgba(0, 0, 0, 0.2);
                 padding-left: px(32);
                 padding-right: px(32);
@@ -1451,14 +1468,14 @@ export default {
           & > ._box {
             width: px(654);
             position: absolute;
-            top: px(80);
+            top: px(50);
             left: 50%;
             margin-left: px(-327);
             & > ._top {
               display: flex;
               align-items: center;
               justify-content: space-between;
-              margin-bottom: px(60);
+              margin-bottom: px(43);
               & > .title {
                 display: flex;
                 align-items: center;
@@ -1486,6 +1503,7 @@ export default {
             & > ._bottom {
               & > ._top {
                 width: 100%;
+                margin-bottom: px(39);
                 .topic_img {
                   display: block;
                   width: 100%;
@@ -1608,7 +1626,6 @@ export default {
                           line-height: px(33);
                         }
                         ._into {
-                          height: px(46);
                           font-size: px(18);
                           line-height: px(22);
                           display: -webkit-box;
