@@ -482,6 +482,7 @@ export default {
         & > ._bottom {
           font-size: px(30);
           line-height: px(48);
+          color: #6e6e6e;
           ._titlebox {
             height: px(48);
             font-size: px(30);

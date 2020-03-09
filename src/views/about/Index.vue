@@ -188,7 +188,7 @@
               <div class="part_bottom_box">
                 <div v-for="(item, index) in HZHB_List" :key="index">
                   <div class="_box">
-                    <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
+                    <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                   </div>
                 </div>
               </div>
