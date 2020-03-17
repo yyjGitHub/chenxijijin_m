@@ -313,7 +313,11 @@
                 </div>
               </div>
               <div class="_bottom">
-                <div v-for="(item, index) in YWLY_List" :key="index">
+                <div
+                  v-for="(item, index) in YWLY_List"
+                  @click="tobusiness(index)"
+                  :key="index"
+                >
                   <div class="_top">
                     <div class="title">
                       {{ item.title }}
@@ -428,7 +432,7 @@ export default {
       homeSwiperOption: {
         direction: "vertical",
         slidesPerView: 1,
-        speed: 800,
+        speed: 100,
         mousewheel: true,
         initialSlide: 0,
         effect: "fade",
@@ -495,6 +499,23 @@ export default {
     });
   },
   methods: {
+    tobusiness(index) {
+      if ((index = 0)) {
+        this.$router.push({
+          url: "/business?_=DCJJ"
+        });
+      }
+      if ((index = 1)) {
+        this.$router.push({
+          url: "/business?_=JGYW"
+        });
+      }
+      if ((index = 2)) {
+        this.$router.push({
+          url: "/business?_=CWGL"
+        });
+      }
+    },
     getData() {
       // 专业私募管理人
       this.axios
