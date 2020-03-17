@@ -313,7 +313,11 @@
                 </div>
               </div>
               <div class="_bottom">
-                <div v-for="(item, index) in YWLY_List" :key="index">
+                <div
+                  v-for="(item, index) in YWLY_List"
+                  @click="tobusiness(index)"
+                  :key="index"
+                >
                   <div class="_top">
                     <div class="title">
                       {{ item.title }}
@@ -428,10 +432,11 @@ export default {
       homeSwiperOption: {
         direction: "vertical",
         slidesPerView: 1,
-        speed: 800,
+        speed: 200,
         mousewheel: true,
         initialSlide: 0,
         effect: "fade",
+        cssMode: true,
         // simulateTouch: false,
         height:
           window.innerHeight -
@@ -495,6 +500,17 @@ export default {
     });
   },
   methods: {
+    tobusiness(index) {
+      if (index === 0) {
+        this.$router.push({ path: "/business?_=DCJJ" });
+      }
+      if (index === 1) {
+        this.$router.push({ path: "/business?_=JGYW" });
+      }
+      if (index === 2) {
+        this.$router.push({ path: "/business?_=CWGL" });
+      }
+    },
     getData() {
       // 专业私募管理人
       this.axios
@@ -830,6 +846,7 @@ export default {
     .swiper_box {
       height: 100%;
       overflow: hidden;
+      transition-duration: 0ms !important;
       // background: url("~@/assets/m/swiper_bg.png") no-repeat center;
       // background-size: cover;
       .swiper-slide {
