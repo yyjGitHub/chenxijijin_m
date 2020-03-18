@@ -1259,8 +1259,8 @@ export default {
                   &::after {
                     display: block;
                     content: "";
-                    width: px(12);
-                    height: px(12);
+                    width: px(10);
+                    height: px(10);
                     background-color: #fff;
                     border-radius: 50%;
                     position: absolute;
