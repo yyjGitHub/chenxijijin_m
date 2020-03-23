@@ -120,7 +120,7 @@
                         </div>
                       </div>
                       <div class="_center">
-                        上海晨曦股权投资基金管理有限公司（以下简称“晨曦基金”），成立于2016年10月28日，注册资本1亿人民币，为上海旭辉企业发展有限公司控股的子公司，是旭辉集团一体两翼“房地产+”板块的核心成员之一。
+                        上海晨曦股权投资基金管理有限公司（以下简称“晨曦基金”），成立于2016年10月28日，注册资本1亿元人民币。于2017年4月12日，在中国证券投资基金业协会，完成私募基金管理人备案登记（私募投资基金管理人登记号为P1062335）
                       </div>
                       <div class="_bottom">
                         <div>
@@ -308,7 +308,7 @@
               <div class="_top">
                 <div class="title">
                   <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
-                  <span class="_t">业务领域</span>
+                  <span class="_t">战略蓝图</span>
                   <span class="_et">BUSIJNESS DOMAIN</span>
                 </div>
               </div>
@@ -358,7 +358,7 @@
               <div class="_top">
                 <div class="title">
                   <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
-                  <span class="_t">新闻资讯</span>
+                  <span class="_t">晨曦视界</span>
                   <span class="_et">NEWS INFORMATION</span>
                 </div>
               </div>
@@ -521,7 +521,7 @@ export default {
         .catch(response => {
           console.log(response);
         });
-      // 业务领域
+      // 战略蓝图
       this.axios
         .get(`${this.$baseUrl}contentext/id/25`)
         .then(({ data }) => {
@@ -530,7 +530,7 @@ export default {
         .catch(response => {
           console.log(response);
         });
-      // 新闻资讯
+      // 晨曦视界
       this.axios
         .get(`${this.$baseUrl}contentext/id/23`)
         .then(({ data }) => {
@@ -920,10 +920,9 @@ export default {
             width: px(654);
             height: px(861);
             position: absolute;
-            top: 50%;
+            top: px(50);
             left: 50%;
             margin-left: px(-317);
-            margin-top: px(-430.5);
             display: flex;
             align-items: flex-end;
             .left_box {
@@ -1121,7 +1120,7 @@ export default {
             width: px(655);
             height: px(560);
             position: absolute;
-            top: px(80);
+            top: px(50);
             left: 50%;
             margin-left: px(-327.5);
             box-sizing: border-box;

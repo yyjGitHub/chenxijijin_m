@@ -93,8 +93,8 @@ const mainroutes = [
         name: "index",
         component: _import("business/Index"),
         meta: {
-          label: "业务领域",
-          title: "业务领域-晨曦基金"
+          label: "战略蓝图",
+          title: "战略蓝图-晨曦基金"
         }
       },
       {
@@ -120,8 +120,8 @@ const mainroutes = [
       }
     ],
     meta: {
-      label: "业务领域",
-      title: "业务领域-晨曦基金"
+      label: "战略蓝图",
+      title: "战略蓝图-晨曦基金"
     }
   },
   {
@@ -134,8 +134,8 @@ const mainroutes = [
         name: "index",
         component: _import("news/Index"),
         meta: {
-          label: "新闻资讯",
-          title: "新闻资讯-晨曦基金"
+          label: "晨曦视界",
+          title: "晨曦视界-晨曦基金"
         }
       },
       {
@@ -143,8 +143,8 @@ const mainroutes = [
         name: "newsietm",
         component: _import("news/Item"),
         meta: {
-          label: "新闻资讯",
-          title: "新闻资讯-晨曦基金",
+          label: "晨曦视界",
+          title: "晨曦视界-晨曦基金",
           isntShow: true
         }
       },
@@ -171,30 +171,30 @@ const mainroutes = [
       }
     ],
     meta: {
-      label: "新闻资讯",
-      title: "新闻资讯-晨曦基金"
+      label: "晨曦视界",
+      title: "晨曦视界-晨曦基金"
     }
   },
-  {
-    path: "/relation",
-    name: "relation",
-    component: Layout,
-    children: [
-      {
-        path: "",
-        name: "index",
-        component: _import("relation/Index"),
-        meta: {
-          label: "投资者关系",
-          title: "投资者关系-晨曦基金"
-        }
-      }
-    ],
-    meta: {
-      label: "投资者关系",
-      title: "投资者关系-晨曦基金"
-    }
-  },
+  // {
+  //   path: "/relation",
+  //   name: "relation",
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: "",
+  //       name: "index",
+  //       component: _import("relation/Index"),
+  //       meta: {
+  //         label: "投资者关系",
+  //         title: "投资者关系-晨曦基金"
+  //       }
+  //     }
+  //   ],
+  //   meta: {
+  //     label: "投资者关系",
+  //     title: "投资者关系-晨曦基金"
+  //   }
+  // },
   {
     path: "/service",
     name: "service",
@@ -205,8 +205,8 @@ const mainroutes = [
         name: "index",
         component: _import("service/Index"),
         meta: {
-          label: "服务中心",
-          title: "服务中心-晨曦基金"
+          label: "联系我们",
+          title: "联系我们-晨曦基金"
         }
       },
       {
@@ -225,8 +225,8 @@ const mainroutes = [
       }
     ],
     meta: {
-      label: "服务中心",
-      title: "服务中心-晨曦基金"
+      label: "联系我们",
+      title: "联系我们-晨曦基金"
     }
   }
 ];

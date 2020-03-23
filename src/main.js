@@ -20,8 +20,8 @@ import "swiper/dist/css/swiper.css";
 
 Vue.use(VueAwesomeSwiper /* { default global options } */);
 
-Vue.prototype.$baseUrl = "http://fund.xjcode.top/Home/index/";
-Vue.prototype.$basePicUrl = "http://fund.xjcode.top/Public/Uploads/";
+Vue.prototype.$baseUrl = "http://taomaidian.cn/Home/index/";
+Vue.prototype.$basePicUrl = "http://taomaidian.cn/Public/Uploads/";
 
 Vue.use(VueAMap);
 Vue.use(Icon);

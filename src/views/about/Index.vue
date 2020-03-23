@@ -78,20 +78,17 @@
                     :key="index"
                   >
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
-                    <div>
-                      <span>{{ item.title }}</span>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </van-tab>
-          <van-tab title="投资策略" name="TZCL">
+          <van-tab title="业务介绍" name="TZCL">
             <div class="part _part3">
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
-                    晨曦策略
+                    业务介绍
                     <div class="_info">
                       {{ TZCL_Info.title }}
                     </div>
@@ -522,29 +519,10 @@ export default {
             & > img {
               display: block;
               width: 100%;
-              height: px(307);
             }
             &:nth-child(1),
             &:nth-child(2) {
               margin-top: 0;
-            }
-            & > div {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              width: 100%;
-              height: px(102);
-              box-sizing: border-box;
-              padding: 0 px(54);
-              background-color: #f8f8f8;
-              span {
-                display: block;
-                font-size: px(22);
-                line-height: px(30);
-                text-align: center;
-                font-weight: bold;
-              }
             }
           }
         }

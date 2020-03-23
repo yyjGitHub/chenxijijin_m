@@ -4,9 +4,9 @@
       <div class="_left">
         <div class="_top">
           <div>关于晨曦</div>
-          <div>业务领域</div>
-          <div>新闻资讯</div>
-          <div>服务中心</div>
+          <div>战略蓝图</div>
+          <div>晨曦视界</div>
+          <div>联系我们</div>
         </div>
         <div class="_company">Copyright©️ 上海晨曦股权投资基金管理有限公司</div>
         <div class="_beian">备案号：泸ICP18001865号</div>
