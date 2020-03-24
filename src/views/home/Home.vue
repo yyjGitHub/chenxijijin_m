@@ -124,28 +124,24 @@
                       </div>
                       <div class="_bottom">
                         <div>
-                          <div class="label_title">时间：</div>
                           <div class="label_value">
                             成立于<br />
                             2016-10-28
                           </div>
                         </div>
                         <div>
-                          <div class="label_title">资本：</div>
                           <div class="label_value">
                             注册资本<br />
                             一亿人民币
                           </div>
                         </div>
                         <div>
-                          <div class="label_title">实力：</div>
                           <div class="label_value">
                             上海旭辉企业<br />
                             控股的子公司
                           </div>
                         </div>
                         <div>
-                          <div class="label_title">伙伴：</div>
                           <div class="label_value">
                             旭辉“房地产+”<br />
                             核心成员之一
