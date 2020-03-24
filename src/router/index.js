@@ -67,7 +67,7 @@ const mainroutes = [
         path: "TZCL",
         name: "TZCL",
         meta: {
-          label: "投资策略"
+          label: "业务介绍"
         }
       },
       {
@@ -152,14 +152,14 @@ const mainroutes = [
         path: "CXSJ",
         name: "CXSJ",
         meta: {
-          label: "晨曦视界"
+          label: "新闻动态"
         }
       },
       {
         path: "QYGG",
         name: "QYGG",
         meta: {
-          label: "企业公告"
+          label: "团队建设"
         }
       },
       {

@@ -305,7 +305,7 @@
                 <div class="title">
                   <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
                   <span class="_t">战略蓝图</span>
-                  <span class="_et">BUSIJNESS DOMAIN</span>
+                  <span class="_et">STRATEGIC BLUEPRINT</span>
                 </div>
               </div>
               <div class="_bottom">
@@ -354,7 +354,7 @@
               <div class="_top">
                 <div class="title">
                   <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
-                  <span class="_t">晨曦视界</span>
+                  <span class="_t">新闻动态</span>
                   <span class="_et">NEWS INFORMATION</span>
                 </div>
               </div>

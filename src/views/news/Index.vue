@@ -7,12 +7,12 @@
     <div class="page_bottom_box">
       <div class="tab_box">
         <van-tabs v-model="activeName" @click="onClick" animated swipeable>
-          <van-tab title="晨曦视界" name="CXSJ">
+          <van-tab title="新闻动态" name="CXSJ">
             <div class="part _part1">
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
-                    晨曦视界
+                    术有专攻
                     <div class="_info">
                       {{ CXSJ_Info.title }}
                     </div>
@@ -58,12 +58,12 @@
               </div>
             </div>
           </van-tab>
-          <van-tab title="企业公告" name="QYGG">
+          <van-tab title="团队建设" name="QYGG">
             <div class="part _part2">
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
-                    企业公告
+                    投资经典
                   </div>
                   <div class="_entitle">
                     NOTICE
@@ -106,7 +106,7 @@
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
-                    CEO TALK
+                    深度洞察
                   </div>
                   <div class="_entitle">
                     NOTICE
