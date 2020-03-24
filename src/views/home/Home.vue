@@ -1030,15 +1030,11 @@ export default {
                         border-left: px(2) solid rgba(91, 155, 228, 0.4);
                         display: flex;
                         flex-direction: column;
-                        justify-content: space-between;
+                        justify-content: center;
                         &:nth-child(2n) {
                           margin-bottom: px(26);
                         }
                         padding-left: px(16);
-                        .label_title {
-                          font-size: px(20);
-                          color: rgba(91, 155, 228, 1);
-                        }
                         .label_value {
                           font-size: px(18);
                           color: rgba(0, 0, 0, 1);
