@@ -498,13 +498,13 @@ export default {
   methods: {
     tobusiness(index) {
       if (index === 0) {
-        this.$router.push({ path: "/business?_=DCJJ" });
+        this.$router.push({ path: "/business?_=SYZG" });
       }
       if (index === 1) {
-        this.$router.push({ path: "/business?_=JGYW" });
+        this.$router.push({ path: "/business?_=TZJD" });
       }
       if (index === 2) {
-        this.$router.push({ path: "/business?_=CWGL" });
+        this.$router.push({ path: "/business?_=SDDC" });
       }
     },
     getData() {
