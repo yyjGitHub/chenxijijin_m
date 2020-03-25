@@ -76,6 +76,7 @@
                   <div
                     class="_item"
                     v-for="(item, index) in QYGG_List"
+                    @click="toitem(item.id)"
                     :key="index"
                   >
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
@@ -119,6 +120,7 @@
                   <div
                     class="_item"
                     v-for="(item, index) in CEOTALK_List"
+                    @click="toitem(item.id)"
                     :key="index"
                   >
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
