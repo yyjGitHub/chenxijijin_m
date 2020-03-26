@@ -362,13 +362,24 @@
                 <div class="_top">
                   <img
                     class="topic_img"
+                    @click="
+                      toNewItem(
+                        XWZX_List[subActiveIndex + 1].url,
+                        XWZX_List[subActiveIndex + 1].id
+                      )
+                    "
                     :src="`${$basePicUrl}${XWZX_List[subActiveIndex].logo}`"
                     alt=""
                     srcset=""
                   />
                   <div
                     class="topic_title"
-                    @click="toNewItem(XWZX_List[subActiveIndex + 1].id)"
+                    @click="
+                      toNewItem(
+                        XWZX_List[subActiveIndex + 1].url,
+                        XWZX_List[subActiveIndex + 1].id
+                      )
+                    "
                   >
                     <div class="_title">
                       {{ XWZX_List[subActiveIndex].title }}
@@ -378,7 +389,12 @@
                     </div>
                   </div>
                   <div
-                    @click="toNewItem(XWZX_List[subActiveIndex + 1].id)"
+                    @click="
+                      toNewItem(
+                        XWZX_List[subActiveIndex + 1].url,
+                        XWZX_List[subActiveIndex + 1].id
+                      )
+                    "
                     class="topic_into"
                     v-html="XWZX_List[subActiveIndex].content"
                   ></div>
@@ -393,7 +409,7 @@
                     <swiper-slide
                       v-for="(item, index) in XWZX_List"
                       :key="index"
-                      @click.stop.native="toNewItem(item.id, $event)"
+                      @click.stop.native="toNewItem(item.url, item.id, $event)"
                     >
                       <div class="left_box">
                         <span class="day">{{
@@ -528,7 +544,7 @@ export default {
         });
       // 晨曦视界
       this.axios
-        .get(`${this.$baseUrl}contentext/id/23`)
+        .get(`${this.$baseUrl}contentext/id/23/p/1/count/6/sortTime/desc`)
         .then(({ data }) => {
           for (let i = 0; i < data.data.length; i++) {
             const element = data.data[i];
@@ -593,7 +609,11 @@ export default {
       if (cls.replace(/\s/g, "").length == 0) return false;
       return new RegExp(" " + cls + " ").test(" " + elem.className + " ");
     },
-    toNewItem(id, e = "") {
+    toNewItem(url, id, e = "") {
+      if (url) {
+        window.open(url);
+        return;
+      }
       if (e === "" || this.hasClass(e.currentTarget, "swiper-slide-next")) {
         this.$router.push(`/news/${id}`);
       }
