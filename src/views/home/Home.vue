@@ -946,7 +946,7 @@ export default {
                     margin: px(20);
                     background-color: #fff;
                     box-sizing: border-box;
-                    padding: px(40);
+                    padding: px(20) px(40);
                     display: flex;
                     flex-direction: column;
                     & > ._top {
@@ -1006,10 +1006,10 @@ export default {
                       font-family: Helvetica;
                       color: rgba(0, 0, 0, 1);
                       line-height: px(26);
-                      height: px(104);
+                      height: px(124);
                       display: -webkit-box;
                       -webkit-box-orient: vertical;
-                      -webkit-line-clamp: 2;
+                      -webkit-line-clamp: 4;
                       overflow: hidden;
                       margin-bottom: px(36);
                     }

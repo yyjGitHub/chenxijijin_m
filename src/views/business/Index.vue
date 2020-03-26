@@ -31,7 +31,7 @@
                     class="_item"
                     v-for="(item, index) in SYZG_List"
                     :key="index"
-                    @click="toitem(item.id)"
+                    @click="toitem(item.url, item.id)"
                   >
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
@@ -76,7 +76,7 @@
                   <div
                     class="_item"
                     v-for="(item, index) in TZJD_List"
-                    @click="toitem(item.id)"
+                    @click="toitem(item.url, item.id)"
                     :key="index"
                   >
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
@@ -120,7 +120,7 @@
                   <div
                     class="_item"
                     v-for="(item, index) in SDDC_List"
-                    @click="toitem(item.id)"
+                    @click="toitem(item.url, item.id)"
                     :key="index"
                   >
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
@@ -225,7 +225,11 @@ export default {
           console.log(response);
         });
     },
-    toitem(index) {
+    toitem(url, index) {
+      if (url) {
+        window.open(url);
+        return;
+      }
       this.$router.push(`/news/${index}`);
     },
     onClick(name) {
