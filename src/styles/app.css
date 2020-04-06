@@ -29,7 +29,7 @@ p {
 
 .van-tabs--line .van-tabs__wrap {
   height: px(86);
-  border-bottom: 1px solid #ebedf0;
+  border-bottom: 1px solid rgba(151, 151, 151, 0.5);
 }
 
 .van-hairline--top-bottom::after,
@@ -62,7 +62,7 @@ p {
 }
 
 .layout_content_box .page_bottom_box {
-  padding-bottom: px(56);
+  padding-bottom: px(38);
 }
 
 .layout_content_box .page_bottom_box .tab_box .van-tabs .van-tab {
@@ -89,8 +89,12 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: px(119);
-  padding-bottom: px(40);
+  padding-top: px(70);
+  padding-bottom: px(70);
+}
+
+.layout_content_box .page_bottom_box .tab_box .part .part_top_box.iss {
+  padding-bottom: 0 !important;
 }
 
 .layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top {
@@ -100,47 +104,38 @@ p {
   margin-bottom: px(126);
 }
 
+.layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top.iss {
+  margin-bottom: px(86) !important;
+}
+
 .layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top ._title {
-  height: px(60);
+  height: px(54);
   font-size: px(60);
   color: #666666;
-  line-height: px(60);
+  line-height: px(54);
   letter-spacing: px(3);
   font-weight: bold;
   display: inline-block;
 }
 
-.layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top ._entitle {
-  position: absolute;
-  top: px(-50);
-  left: 50%;
-  transform: translateX(-50%);
-  height: px(82);
-  font-size: px(82);
-  font-family: HelveticaNeue-Bold, HelveticaNeue;
-  font-weight: bold;
-  color: #f7f7f7;
-  line-height: px(82);
-  letter-spacing: px(5);
-  z-index: -1;
-}
-
 .layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top ._info {
   position: absolute;
-  bottom: px(-34);
+  bottom: px(-35);
   left: 50%;
   transform: translateX(-50%);
   font-size: px(22);
   height: px(22);
   line-height: px(22);
   color: #888;
+  letter-spacing: px(4);
   text-align: center;
   display: inline-block;
   font-weight: normal;
+  width: 120%;
 }
 
 .layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top ._line {
-  width: px(60);
+  width: px(76);
   height: 1px;
   position: absolute;
   bottom: px(-75);
@@ -149,13 +144,26 @@ p {
   background-color: #999;
 }
 
+.layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top ._line.iss {
+  bottom: px(-40);
+}
+
 .layout_content_box .page_bottom_box .tab_box .part .part_top_box ._bottom {
   width: px(654);
   text-align: left;
   font-size: px(28);
-  line-height: px(42);
+  line-height: px(48);
   color: #6e6e6e;
   letter-spacing: px(1);
+}
+
+.layout_content_box .page_bottom_box .tab_box .part .part_top_box ._bottom p {
+  display: block;
+  margin-bottom: px(20);
+}
+
+.layout_content_box .page_bottom_box .tab_box .part .part_top_box ._bottom p:last-child {
+  margin-bottom: 0;
 }
 
 .layout_content_box .page_bottom_box .tab_box .part .part_bottom_box {
@@ -184,20 +192,6 @@ p {
 
 .layout_content_box .page_bottom_box .tab_box .part .part_bottom_box .pagination_box .btn-next .el-icon::before {
   content: "下一页";
-}
-
-.el-pagination.is-background .btn-next,
-.el-pagination.is-background .btn-prev,
-.el-pagination.is-background .el-pager li {
-  margin: 0 px(16);
-  background-color: transparent;
-  color: #888888;
-  min-width: auto;
-  border-radius: 0px;
-  border: 1px solid #d8d8d8;
-  width: px(48);
-  height: px(48);
-  line-height: px(48);
 }
 
 .el-pagination.is-background .el-pager li:not(.disabled).active {
@@ -251,4 +245,56 @@ p {
 .el-textarea__inner:-moz-placeholder {
   /* Firefox 18- */
   color: #fff;
+}
+
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+  margin: 0 px(16);
+  background-color: transparent;
+  color: #888888;
+  min-width: auto;
+  border-radius: 0px;
+  border: 1px solid #d8d8d8;
+  min-width: px(48);
+  height: px(48);
+  line-height: px(48);
+}
+
+.el-pagination.is-background .btn-next.btn-next, .el-pagination.is-background .btn-next.btn-prev,
+.el-pagination.is-background .btn-prev.btn-next,
+.el-pagination.is-background .btn-prev.btn-prev,
+.el-pagination.is-background .el-pager li.btn-next,
+.el-pagination.is-background .el-pager li.btn-prev {
+  padding: 0 px(45);
+}
+
+.el-pagination.is-background.el-pagination--small .btn-next,
+.el-pagination.is-background.el-pagination--small .btn-prev,
+.el-pagination.is-background.el-pagination--small .el-pager li {
+  margin: 0 px(16);
+  background-color: transparent;
+  color: #888888;
+  min-width: auto;
+  border-radius: 0px;
+  border: 1px solid #d8d8d8;
+  min-width: px(48);
+  height: px(48);
+  line-height: px(48);
+}
+
+.el-pagination.is-background.el-pagination--small .btn-next.btn-next, .el-pagination.is-background.el-pagination--small .btn-next.btn-prev,
+.el-pagination.is-background.el-pagination--small .btn-prev.btn-next,
+.el-pagination.is-background.el-pagination--small .btn-prev.btn-prev,
+.el-pagination.is-background.el-pagination--small .el-pager li.btn-next,
+.el-pagination.is-background.el-pagination--small .el-pager li.btn-prev {
+  padding: 0 px(45);
+}
+
+.el-pagination.is-background .btn-next.disabled,
+.el-pagination.is-background .btn-next:disabled,
+.el-pagination.is-background .btn-prev.disabled,
+.el-pagination.is-background .btn-prev:disabled,
+.el-pagination.is-background .el-pager li.disabled {
+  color: #cdcbcc;
 }

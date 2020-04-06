@@ -3,15 +3,15 @@ import VueRouter from "vue-router";
 import store from "@/store/index";
 import Layout from "@/views/layout/Index";
 
-const _import = file => require(`@/views/${file}.vue`).default;
+const _import = (file) => require(`@/views/${file}.vue`).default;
 
 Vue.use(VueRouter);
 
 const baseroutes = [
   {
     path: "/",
-    redirect: "/home"
-  }
+    redirect: "/home",
+  },
 ];
 
 const mainroutes = [
@@ -26,14 +26,14 @@ const mainroutes = [
         component: _import("home/Home"),
         meta: {
           label: "关于晨曦",
-          title: "关于晨曦-晨曦基金"
-        }
-      }
+          title: "关于晨曦-晨曦基金",
+        },
+      },
     ],
     meta: {
       label: "首页",
-      title: "首页-晨曦基金"
-    }
+      title: "首页-晨曦基金",
+    },
   },
   {
     path: "/about",
@@ -46,42 +46,42 @@ const mainroutes = [
         component: _import("about/Index"),
         meta: {
           label: "关于晨曦",
-          title: "关于晨曦-晨曦基金"
-        }
+          title: "关于晨曦-晨曦基金",
+        },
       },
       {
         path: "QYJJ",
         name: "SYZG",
         meta: {
-          label: "企业简介"
-        }
+          label: "企业简介",
+        },
       },
       {
         path: "QYFC",
         name: "QYFC",
         meta: {
-          label: "企业风采"
-        }
+          label: "企业治理",
+        },
       },
       {
         path: "TZCL",
         name: "TZCL",
         meta: {
-          label: "业务介绍"
-        }
+          label: "业务介绍",
+        },
       },
       {
         path: "HZHB",
         name: "HZHB",
         meta: {
-          label: "合作伙伴"
-        }
-      }
+          label: "合作伙伴",
+        },
+      },
     ],
     meta: {
       label: "关于晨曦",
-      title: "关于晨曦-晨曦基金"
-    }
+      title: "关于晨曦-晨曦基金",
+    },
   },
   {
     path: "/business",
@@ -94,35 +94,35 @@ const mainroutes = [
         component: _import("business/Index"),
         meta: {
           label: "战略蓝图",
-          title: "战略蓝图-晨曦基金"
-        }
+          title: "战略蓝图-晨曦基金",
+        },
       },
       {
         path: "SYZG",
         name: "SYZG",
         meta: {
-          label: "术有专攻"
-        }
+          label: "术有专攻",
+        },
       },
       {
         path: "TZJD",
         name: "TZJD",
         meta: {
-          label: "投资经典"
-        }
+          label: "投资经典",
+        },
       },
       {
         path: "SDDC",
         name: "SDDC",
         meta: {
-          label: "深度洞察"
-        }
-      }
+          label: "深度洞察",
+        },
+      },
     ],
     meta: {
       label: "战略蓝图",
-      title: "战略蓝图-晨曦基金"
-    }
+      title: "战略蓝图-晨曦基金",
+    },
   },
   {
     path: "/news",
@@ -135,8 +135,8 @@ const mainroutes = [
         component: _import("news/Index"),
         meta: {
           label: "晨曦视界",
-          title: "晨曦视界-晨曦基金"
-        }
+          title: "晨曦视界-晨曦基金",
+        },
       },
       {
         path: ":newsID",
@@ -145,35 +145,35 @@ const mainroutes = [
         meta: {
           label: "晨曦视界",
           title: "晨曦视界-晨曦基金",
-          isntShow: true
-        }
+          isntShow: true,
+        },
       },
       {
         path: "CXSJ",
         name: "CXSJ",
         meta: {
-          label: "新闻动态"
-        }
+          label: "新闻动态",
+        },
       },
       {
         path: "QYGG",
         name: "QYGG",
         meta: {
-          label: "团队建设"
-        }
+          label: "团队建设",
+        },
       },
       {
         path: "CEOTALK",
         name: "CEOTALK",
         meta: {
-          label: "CEO TALK"
-        }
-      }
+          label: "CEO TALK",
+        },
+      },
     ],
     meta: {
       label: "晨曦视界",
-      title: "晨曦视界-晨曦基金"
-    }
+      title: "晨曦视界-晨曦基金",
+    },
   },
   // {
   //   path: "/relation",
@@ -206,33 +206,33 @@ const mainroutes = [
         component: _import("service/Index"),
         meta: {
           label: "联系我们",
-          title: "联系我们-晨曦基金"
-        }
+          title: "联系我们-晨曦基金",
+        },
       },
       {
         path: "SHZP",
         name: "SHZP",
         meta: {
-          label: "社会招聘"
-        }
+          label: "合作洽谈",
+        },
       },
       {
         path: "LXWM",
         name: "LXWM",
         meta: {
-          label: "联系我们"
-        }
-      }
+          label: "联系我们",
+        },
+      },
     ],
     meta: {
       label: "联系我们",
-      title: "联系我们-晨曦基金"
-    }
-  }
+      title: "联系我们-晨曦基金",
+    },
+  },
 ];
 const routerPush = VueRouter.prototype.push;
 VueRouter.prototype.push = function push(location) {
-  return routerPush.call(this, location).catch(error => error);
+  return routerPush.call(this, location).catch((error) => error);
 };
 const router = new VueRouter({
   mode: "hash",
@@ -243,7 +243,7 @@ const router = new VueRouter({
   scrollBehavior() {
     // to, from, savedPosition
     return { x: 0, y: 0 };
-  }
+  },
 });
 
 router.beforeEach((to, from, next) => {

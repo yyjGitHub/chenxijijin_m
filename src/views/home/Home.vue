@@ -14,7 +14,7 @@
                   :style="{
                     transform: `translateY(-${(parseInt(active_slide_indexnum) -
                       1) *
-                      18}px)`
+                      18}px)`,
                   }"
                 >
                   <div>{{ active_slide_indexnum }}</div>
@@ -66,7 +66,7 @@
                 active_slide_tonext && active_slide_indexnum !== '01'
                   ? 'fadeOutUp'
                   : '',
-                active_slide_indexnum === '01' ? 'fadeInUp' : ''
+                active_slide_indexnum === '01' ? 'fadeInUp' : '',
               ]"
             >
               <div>
@@ -90,7 +90,7 @@
                 active_slide_tonext && active_slide_indexnum !== '02'
                   ? 'fadeOutUp'
                   : '',
-                active_slide_indexnum === '02' ? 'fadeInUp' : ''
+                active_slide_indexnum === '02' ? 'fadeInUp' : '',
               ]"
             >
               <div class="left_box">
@@ -107,7 +107,6 @@
                             />
                             <span class="_t">企业简介</span>
                           </div>
-                          <span class="_et">COMPANY PROFILE</span>
                         </div>
                         <div @click="toPage('/about?_=QYJJ')" class="more">
                           <span>了解更多</span>
@@ -122,32 +121,6 @@
                       <div class="_center">
                         上海晨曦股权投资基金管理有限公司（以下简称“晨曦基金”），成立于2016年10月28日，注册资本1亿元人民币。于2017年4月12日，在中国证券投资基金业协会，完成私募基金管理人备案登记（私募投资基金管理人登记号为P1062335）
                       </div>
-                      <div class="_bottom">
-                        <div>
-                          <div class="label_value">
-                            成立于<br />
-                            2016-10-28
-                          </div>
-                        </div>
-                        <div>
-                          <div class="label_value">
-                            注册资本<br />
-                            一亿人民币
-                          </div>
-                        </div>
-                        <div>
-                          <div class="label_value">
-                            上海旭辉企业<br />
-                            控股的子公司
-                          </div>
-                        </div>
-                        <div>
-                          <div class="label_value">
-                            旭辉“房地产+”<br />
-                            核心成员之一
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -156,9 +129,6 @@
                     <div>
                       <div class="_title">
                         企业荣誉
-                      </div>
-                      <div class="_entitle">
-                        COMPANY HONOR
                       </div>
                     </div>
                     <img
@@ -172,9 +142,6 @@
                     <div>
                       <div class="_title">
                         企业愿景
-                      </div>
-                      <div class="_entitle">
-                        COMPANY VISION
                       </div>
                     </div>
                     <img
@@ -196,7 +163,7 @@
                 active_slide_tonext && active_slide_indexnum !== '03'
                   ? 'fadeOutUp'
                   : '',
-                active_slide_indexnum === '03' ? 'fadeInUp' : ''
+                active_slide_indexnum === '03' ? 'fadeInUp' : '',
               ]"
             >
               <div class="_top">
@@ -298,14 +265,13 @@
                 active_slide_tonext && active_slide_indexnum !== '04'
                   ? 'fadeOutUp'
                   : '',
-                active_slide_indexnum === '04' ? 'fadeInUp' : ''
+                active_slide_indexnum === '04' ? 'fadeInUp' : '',
               ]"
             >
               <div class="_top">
                 <div class="title">
                   <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
                   <span class="_t">战略蓝图</span>
-                  <span class="_et">STRATEGIC BLUEPRINT</span>
                 </div>
               </div>
               <div class="_bottom">
@@ -317,9 +283,6 @@
                   <div class="_top">
                     <div class="title">
                       {{ item.title }}
-                    </div>
-                    <div class="entitle">
-                      {{ item.entitle }}
                     </div>
                   </div>
                   <div class="pic_box">
@@ -348,14 +311,13 @@
                 active_slide_tonext && active_slide_indexnum !== '05'
                   ? 'fadeOutUp'
                   : '',
-                active_slide_indexnum === '05' ? 'fadeInUp' : ''
+                active_slide_indexnum === '05' ? 'fadeInUp' : '',
               ]"
             >
               <div class="_top">
                 <div class="title">
                   <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
                   <span class="_t">新闻动态</span>
-                  <span class="_et">NEWS INFORMATION</span>
                 </div>
               </div>
               <div class="_bottom">
@@ -388,16 +350,6 @@
                       {{ XWZX_List[subActiveIndex].time.split(" ")[0] }}
                     </div>
                   </div>
-                  <div
-                    @click="
-                      toNewItem(
-                        XWZX_List[subActiveIndex + 1].url,
-                        XWZX_List[subActiveIndex + 1].id
-                      )
-                    "
-                    class="topic_into"
-                    v-html="XWZX_List[subActiveIndex].content"
-                  ></div>
                 </div>
                 <div class="_bottom">
                   <swiper
@@ -411,22 +363,30 @@
                       :key="index"
                       @click.stop.native="toNewItem(item.url, item.id, $event)"
                     >
-                      <div class="left_box">
-                        <span class="day">{{
-                          item.time.split(" ")[0].substring(8, 10)
-                        }}</span>
-                        <span class="year">{{
-                          item.time.split(" ")[0].substring(0, 7)
-                        }}</span>
-                      </div>
-                      <div class="right_box">
+                      <div>
+                        <div class="year">
+                          {{ item.time.split(" ")[0].substring(0, 10) }}
+                        </div>
                         <div class="_title">
                           {{ item.title }}
                         </div>
-                        <div class="_into" v-html="item.content"></div>
                       </div>
                     </swiper-slide>
                   </swiper>
+                  <div @click="subswiperPrev" class="own_swiper_btn_prev">
+                    <img
+                      src="~@/assets/image/own_swiper_btn.png"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div @click="subswiperNext" class="own_swiper_btn_next">
+                    <img
+                      src="~@/assets/image/own_swiper_btn.png"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -452,14 +412,14 @@ export default {
         // simulateTouch: false,
         height:
           window.innerHeight -
-          (1.2 * (document.documentElement.clientWidth * 100)) / 750
+          (1.2 * (document.documentElement.clientWidth * 100)) / 750,
       },
       subSwiperOption: {
         direction: "vertical",
         slidesPerView: 3,
         // loop: true
         // init: false,
-        simulateTouch: false
+        simulateTouch: false,
         // centeredSlides: true
       },
       fz: 0,
@@ -475,10 +435,10 @@ export default {
           title: "",
           content: "",
           logo: "",
-          time: ""
-        }
+          time: "",
+        },
       ],
-      subActiveIndex: 0
+      subActiveIndex: 0,
     };
   },
   // watch: {
@@ -496,7 +456,7 @@ export default {
     },
     subSwiper() {
       return this.$refs.subSwiper.swiper;
-    }
+    },
   },
   mounted() {
     let _this = this;
@@ -530,7 +490,7 @@ export default {
         .then(({ data }) => {
           this.ZYGLR_List = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
       // 战略蓝图
@@ -539,7 +499,7 @@ export default {
         .then(({ data }) => {
           this.YWLY_List = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
       // 晨曦视界
@@ -561,7 +521,7 @@ export default {
           this.subSwiper.update();
           this.subSwiper.slideNext();
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -617,8 +577,14 @@ export default {
       if (e === "" || this.hasClass(e.currentTarget, "swiper-slide-next")) {
         this.$router.push(`/news/${id}`);
       }
-    }
-  }
+    },
+    subswiperNext() {
+      this.subSwiper.slideNext();
+    },
+    subswiperPrev() {
+      this.subSwiper.slidePrev();
+    },
+  },
 };
 </script>
 
@@ -891,9 +857,9 @@ export default {
             z-index: 77;
             & > div {
               position: absolute;
-              top: 50%;
+              top: px(202);
               left: 50%;
-              transform: translate(-50%, -120%);
+              transform: translateX(-50%);
               z-index: 77;
               height: px(220);
               text-align: center;
@@ -904,10 +870,15 @@ export default {
               span {
                 display: inline-block;
                 margin: 0 auto;
+                width: px(541);
                 margin-top: px(99);
                 margin-bottom: px(94);
-                font-size: px(56);
-                color: rgba(255, 255, 255, 1);
+                font-size: px(60);
+                color: rgba(28, 41, 75, 0.7);
+                position: relative;
+                letter-spacing: px(3);
+                left: 50%;
+                transform: translateX(-50%);
               }
             }
           }
@@ -934,7 +905,7 @@ export default {
         &.home_2nd_slide {
           & > ._box {
             width: px(654);
-            height: px(861);
+            height: px(880);
             position: absolute;
             top: px(50);
             left: 50%;
@@ -943,7 +914,7 @@ export default {
             align-items: flex-end;
             .left_box {
               width: px(374);
-              height: px(861);
+              height: px(880);
               display: flex;
               flex-direction: column;
               box-sizing: border-box;
@@ -953,52 +924,47 @@ export default {
               z-index: 99;
               & > .top_box {
                 width: 100%;
-                height: px(476);
-                margin-bottom: px(40);
+                height: px(498);
+                margin-bottom: px(38);
                 & > ._box {
                   width: px(574);
-                  height: px(476);
+                  height: px(498);
                   box-sizing: border-box;
                   border: px(3) solid rgba(91, 155, 228, 1);
                   & > div {
                     width: px(534);
-                    height: px(436);
+                    height: px(458);
                     margin: px(20);
                     background-color: #fff;
                     box-sizing: border-box;
-                    padding: px(20) px(40);
+                    padding: px(54) px(42) px(0) px(43);
                     display: flex;
                     flex-direction: column;
                     & > ._top {
                       display: flex;
-                      align-items: flex-start;
+                      align-items: center;
                       justify-content: space-between;
-                      margin-bottom: px(12);
+                      margin-bottom: px(54);
                       & > .title {
                         .top_ {
                           display: flex;
                           align-items: flex-end;
                           & > img {
                             display: block;
-                            width: px(37);
+                            width: px(34);
                             height: px(18);
                             margin-right: px(12);
-                            margin-bottom: px(3);
+                            margin-bottom: px(2);
                           }
                           ._t {
-                            font-size: px(28);
+                            line-height: px(30);
+                            height: px(30);
+                            font-size: px(30);
                             color: #333;
                             font-weight: bold;
                             display: block;
                             white-space: nowrap;
                           }
-                          margin-bottom: px(3);
-                        }
-
-                        ._et {
-                          font-size: px(20);
-                          color: #7f7f7f;
-                          white-space: nowrap;
                         }
                       }
                       & > .more {
@@ -1009,7 +975,7 @@ export default {
                         align-items: center;
                         justify-content: center;
                         & > span {
-                          font-size: px(14);
+                          font-size: px(16);
                           color: rgba(83, 150, 228, 1);
                           margin-right: px(8);
                           line-height: px(40);
@@ -1022,42 +988,11 @@ export default {
                       }
                     }
                     & > ._center {
-                      font-size: px(18);
+                      font-size: px(24);
                       font-family: Helvetica;
                       color: rgba(0, 0, 0, 1);
-                      line-height: px(26);
+                      line-height: px(42);
                       height: px(124);
-                      display: -webkit-box;
-                      -webkit-box-orient: vertical;
-                      -webkit-line-clamp: 4;
-                      overflow: hidden;
-                      margin-bottom: px(36);
-                    }
-                    & > ._bottom {
-                      display: flex;
-                      align-items: flex-start;
-                      flex-wrap: wrap;
-                      justify-content: flex-start;
-                      flex: 1;
-                      & > div {
-                        height: px(73);
-                        width: px(222);
-                        box-sizing: border-box;
-                        border-left: px(2) solid rgba(91, 155, 228, 0.4);
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        &:nth-child(2n) {
-                          margin-bottom: px(26);
-                        }
-                        padding-left: px(16);
-                        .label_value {
-                          font-size: px(18);
-                          color: rgba(0, 0, 0, 1);
-                          line-height: px(22);
-                          color: #7f7f7f;
-                        }
-                      }
                     }
                   }
                 }
@@ -1076,8 +1011,6 @@ export default {
                   &:last-child {
                     margin-bottom: 0;
                   }
-                  display: flex;
-                  align-items: center;
                   position: relative;
                   & > div {
                     position: relative;
@@ -1086,17 +1019,10 @@ export default {
                     ._title {
                       height: px(35);
                       font-size: px(26);
-                      color: #6f777b;
+                      color: #5a5a5a;
                       line-height: px(35);
                       transition: all ease-in-out 0.5s;
-                      margin-bottom: px(2);
-                    }
-                    ._entitle {
-                      height: px(25);
-                      font-size: px(18);
-                      color: #b1bfc3;
-                      line-height: px(25);
-                      transition: all ease-in-out 0.5s;
+                      margin-top: px(37);
                     }
                   }
                   ._img {
@@ -1116,7 +1042,7 @@ export default {
               margin-right: 0;
               width: px(280);
               min-width: 0;
-              height: px(861);
+              height: px(880);
               background: url("~@/assets/image/home_3rd_slide_pic3.png")
                 no-repeat center;
               background-size: cover;
@@ -1400,27 +1326,24 @@ export default {
               display: flex;
               align-items: center;
               justify-content: space-between;
-              margin-bottom: px(50);
+              margin-bottom: px(64);
               & > .title {
                 display: flex;
-                align-items: center;
+                align-items: flex-end;
                 img {
                   display: block;
-                  width: px(37);
+                  width: px(34);
                   height: px(18);
                   margin-right: px(12);
+                  margin-bottom: px(2);
                 }
                 ._t {
-                  font-size: px(28);
+                  font-size: px(30);
+                  height: px(30);
+                  line-height: px(30);
                   color: #333;
                   font-weight: bold;
                   display: block;
-                  white-space: nowrap;
-                  margin-right: px(10);
-                }
-                ._et {
-                  font-size: px(20);
-                  color: #7f7f7f;
                   white-space: nowrap;
                 }
               }
@@ -1429,8 +1352,8 @@ export default {
               display: flex;
               flex-direction: column;
               & > div {
-                height: px(232);
-                margin-bottom: px(50);
+                height: px(210);
+                margin-bottom: px(77);
                 border-left: 2px solid rgba(0, 0, 0, 0.2);
                 padding-left: px(32);
                 padding-right: px(32);
@@ -1441,25 +1364,18 @@ export default {
                 flex-direction: column;
                 justify-content: space-between;
                 & > ._top {
-                  margin-bottom: px(24);
                   .title {
                     transition: all ease-in-out 0.5s;
                     font-size: px(30);
                     color: #000;
                     line-height: px(42);
                   }
-                  .entitle {
-                    transition: all ease-in-out 0.5s;
-                    font-size: px(20);
-                    color: #7f7f7f;
-                    line-height: px(27);
-                  }
                 }
                 & > .pic_box {
                   display: flex;
                   align-items: flex-end;
                   overflow: hidden;
-                  width: px(504);
+                  width: px(506);
                   height: px(145);
                   position: relative;
                   ._pic {
@@ -1503,27 +1419,24 @@ export default {
               display: flex;
               align-items: center;
               justify-content: space-between;
-              margin-bottom: px(43);
+              margin-bottom: px(64);
               & > .title {
                 display: flex;
-                align-items: center;
+                align-items: flex-end;
                 img {
                   display: block;
                   width: px(37);
                   height: px(18);
                   margin-right: px(12);
+                  margin-bottom: px(2);
                 }
                 ._t {
-                  font-size: px(28);
+                  height: px(30);
+                  line-height: px(30);
+                  font-size: px(30);
                   color: #333;
                   font-weight: bold;
                   display: block;
-                  white-space: nowrap;
-                  margin-right: px(8);
-                }
-                ._et {
-                  font-size: px(20);
-                  color: #7f7f7f;
                   white-space: nowrap;
                 }
               }
@@ -1541,38 +1454,48 @@ export default {
                   margin-top: px(16);
                   margin-bottom: px(5);
                   ._title {
-                    height: px(38);
-                    line-height: px(38);
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    font-size: px(28);
+                    line-height: px(36);
+                    font-size: px(30);
                     font-weight: bold;
                     color: rgba(0, 0, 0, 1);
                   }
                   ._time {
                     color: #7f7f7f;
-                    height: px(25);
-                    line-height: px(25);
-                    font-size: px(18);
+                    height: px(30);
+                    line-height: px(30);
+                    font-size: px(22);
                   }
-                }
-                .topic_into {
-                  font-size: px(20);
-                  color: #333333;
-                  line-height: px(26);
-                  display: -webkit-box;
-                  -webkit-box-orient: vertical;
-                  -webkit-line-clamp: 2;
-                  overflow: hidden;
                 }
               }
               & > ._bottom {
                 width: px(660);
-                height: px(346);
+                padding: px(23) 0;
                 position: relative;
+                .own_swiper_btn_prev,
+                .own_swiper_btn_next {
+                  cursor: pointer;
+                  display: block;
+                  width: px(33);
+                  height: px(17);
+                  position: absolute;
+                  left: 50%;
+                  margin-left: px(-8.5);
+                  img {
+                    display: block;
+                    width: 100%;
+                  }
+                }
+                .own_swiper_btn_prev {
+                  top: px(-6);
+                  img {
+                    transform: rotateZ(180deg);
+                  }
+                }
+                .own_swiper_btn_next {
+                  bottom: px(-6);
+                }
                 .sub_swiper {
-                  height: px(346);
+                  height: px(315);
                   position: relative;
                   &::after,
                   &::before {
@@ -1581,18 +1504,18 @@ export default {
                     height: 1px;
                     width: 100%;
                     position: absolute;
-                    background-color: #979797;
+                    background-color: #5b9be4;
                     left: 0;
                     z-index: 55;
                   }
                   &::after {
-                    bottom: px(115);
+                    bottom: px(105);
                   }
                   &::before {
-                    top: px(115);
+                    top: px(105);
                   }
                   .swiper-wrapper {
-                    height: px(346);
+                    height: px(315);
                     .swiper-slide {
                       color: #7f7f7f;
                       display: flex;
@@ -1602,70 +1525,29 @@ export default {
                         // border: 1px #979797 solid;
                         border-left: none;
                         border-right: none;
-                        .left_box {
-                          span {
-                            &.day {
-                              color: #000;
-                            }
-                            &.year {
-                              color: #333;
-                            }
-                          }
-                        }
-                        .right_box {
-                          color: #333;
-                        }
-                      }
-                      .left_box {
-                        display: flex;
-                        align-items: center;
-                        flex-direction: column;
-                        margin-right: px(24);
-                        width: px(88);
-                        height: px(88);
-                        border: 1px solid #5b9be4;
-                        justify-content: center;
-                        span {
-                          display: block;
-                        }
-                        .day {
-                          height: px(32);
-                          font-size: px(32);
-                          line-height: px(32);
-                        }
-                        .year {
-                          height: px(16);
-                          margin-top: px(1);
-                          font-size: px(16);
-                          line-height: px(16);
-                        }
-                      }
-                      .right_box {
-                        // flex: 1;
-                        max-width: px(542);
                         ._title {
-                          height: px(33);
+                          color: #5b9be4;
+                        }
+                      }
+                      & > div {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        .year {
+                          height: px(32);
                           font-size: px(24);
-                          font-weight: bold;
+                          line-height: px(32);
+                          color: #7d7d7d;
+                        }
+                        ._title {
+                          width: px(592);
+                          height: px(35);
+                          font-size: px(26);
+                          color: #7d7d7d;
+                          line-height: px(35);
                           text-overflow: ellipsis;
                           overflow: hidden;
-                          margin-bottom: px(6);
                           white-space: nowrap;
-                          line-height: px(33);
-                        }
-                        ._into {
-                          font-size: px(18);
-                          line-height: px(22);
-                          display: -webkit-box;
-                          -webkit-box-orient: vertical;
-                          -webkit-line-clamp: 2;
-                          overflow: hidden;
-                          p {
-                            display: -webkit-box;
-                            -webkit-box-orient: vertical;
-                            -webkit-line-clamp: 2;
-                            overflow: hidden;
-                          }
                         }
                       }
                     }

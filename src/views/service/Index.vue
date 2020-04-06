@@ -1,21 +1,77 @@
 <template>
   <div class="service_index_box layout_content_box">
-    <div class="page_top_box">
-      <img :src="`${$basePicUrl}${topInfo.logo}`" alt="" srcset="" />
-      <div class="_title">{{ topInfo.title }}</div>
-    </div>
     <div class="page_bottom_box">
       <div class="tab_box">
         <van-tabs v-model="activeName" animated swipeable>
-          <van-tab title="社会招聘" name="SHZP">
+          <van-tab :title="SHZP_Info.ctitle" name="LXWM">
+            <div class="part _part1">
+              <div class="part_top_box">
+                <div class="_top">
+                  <div class="_title">
+                    {{ SHZP_Info.ctitle }}
+                  </div>
+                  <div class="_line"></div>
+                </div>
+              </div>
+              <div class="part_bottom_box">
+                <div class="map_wrap">
+                  <el-amap
+                    ref="map"
+                    vid="amapDemo"
+                    :amap-manager="amapManager"
+                    :center="center"
+                    :zoom="zoom"
+                    class="amap-demo"
+                  >
+                    <el-amap-marker
+                      vid="component-marker"
+                      :position="center"
+                    ></el-amap-marker>
+                  </el-amap>
+                </div>
+                <div class="_tooltip">
+                  <div>
+                    <img
+                      src="~@/assets/image/address_icon.png"
+                      class="_icon"
+                      alt=""
+                      srcset=""
+                    />
+                    <span class="_address"
+                      >上海浦东新区张杨路2389弄<br />
+                      置汇旭辉广场C座15楼</span
+                    >
+                  </div>
+                  <span class="line"></span>
+                  <div>
+                    <img
+                      src="~@/assets/image/telphone_icon.png"
+                      class="_icon"
+                      alt=""
+                      srcset=""
+                    />
+                    <span>021-58995866</span>
+                  </div>
+                  <span class="line"></span>
+                  <div>
+                    <img
+                      src="~@/assets/image/telphone_icon.png"
+                      class="_icon"
+                      alt=""
+                      srcset=""
+                    />
+                    <span>58995866-217</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </van-tab>
+          <van-tab :title="HZQT_Info.ctitle" name="SHZP">
             <div class="part _part2">
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
-                    人才招聘
-                  </div>
-                  <div class="_entitle">
-                    TALENT
+                    {{ HZQT_Info.ctitle }}
                   </div>
                   <div class="_line"></div>
                 </div>
@@ -47,99 +103,6 @@
                 </div>
                 <div class="_morebtn" v-if="!get_more" @click="getMore">
                   展开更多
-                </div>
-              </div>
-            </div>
-          </van-tab>
-          <van-tab title="联系我们" name="LXWM">
-            <div class="part _part1">
-              <div class="part_top_box">
-                <div class="_top">
-                  <div class="_title">
-                    联系我们
-                  </div>
-                  <div class="_entitle">
-                    CONTACT
-                  </div>
-                  <div class="_line"></div>
-                </div>
-              </div>
-              <div class="part_bottom_box">
-                <div class="map_wrap">
-                  <el-amap
-                    ref="map"
-                    vid="amapDemo"
-                    :amap-manager="amapManager"
-                    :center="center"
-                    :zoom="zoom"
-                    class="amap-demo"
-                  >
-                    <el-amap-marker
-                      vid="component-marker"
-                      :position="center"
-                    ></el-amap-marker>
-                  </el-amap>
-                  <div class="_tooltip">
-                    <div>
-                      <img
-                        src="~@/assets/image/address_icon.png"
-                        class="_icon"
-                        alt=""
-                        srcset=""
-                      />
-                      <span class="_address"
-                        >浦东新区张杨路2389弄置汇旭辉广场C座15楼</span
-                      >
-                    </div>
-                    <span class="line"></span>
-                    <div>
-                      <img
-                        src="~@/assets/image/telphone_icon.png"
-                        class="_icon"
-                        alt=""
-                        srcset=""
-                      />
-                      <span>021-58995866</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="form_wrap">
-                  <div class="inline">
-                    <input
-                      type="text"
-                      class="name"
-                      v-model="name"
-                      placeholder="姓名"
-                    />
-                    <input
-                      type="text"
-                      class="email"
-                      v-model="contact"
-                      placeholder="邮箱/手机"
-                    />
-                  </div>
-                  <textarea
-                    name="feedback"
-                    class="feedback"
-                    v-model="content"
-                    placeholder="请输入留言信息"
-                    cols="30"
-                    rows="10"
-                  ></textarea>
-                </div>
-                <div class="submit_wrap">
-                  <div class="_left">
-                    <img src="~@/assets/m/weibo_icon.png" alt="" srcset="" />
-                    <img
-                      @click="showzz = true"
-                      src="~@/assets/m/wechat_icon.png"
-                      alt=""
-                      srcset=""
-                    />
-                  </div>
-                  <div class="_submit" @click="postData">
-                    提交
-                  </div>
                 </div>
               </div>
             </div>
@@ -180,10 +143,20 @@ export default {
         title: "",
         entitle: "",
         logo: "",
-        content: ""
+        content: "",
       },
       SHZP_List: [],
-      get_more: false
+      get_more: false,
+      SHZP_Info: {
+        title: "",
+        content: "",
+        logo: "",
+      },
+      HZQT_Info: {
+        title: "",
+        content: "",
+        logo: "",
+      },
     };
   },
   watch: {
@@ -195,8 +168,8 @@ export default {
         }
       },
       immediate: true,
-      deep: true
-    }
+      deep: true,
+    },
   },
   mounted() {
     this.getData();
@@ -204,20 +177,32 @@ export default {
   methods: {
     getData() {
       this.axios
+        .get(`${this.$baseUrl}content/id/17`)
+        .then(({ data }) => {
+          this.SHZP_Info = data.data;
+        })
+        .catch(() => {});
+      this.axios
+        .get(`${this.$baseUrl}content/id/18`)
+        .then(({ data }) => {
+          this.HZQT_Info = data.data;
+        })
+        .catch(() => {});
+      this.axios
         .get(`${this.$baseUrl}content/id/16`)
         .then(({ data }) => {
           this.topInfo = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
-      //  社会招聘
+      //  合作洽谈
       this.axios
         .get(`${this.$baseUrl}contentjob/id/18/p/1/count/2`)
         .then(({ data }) => {
           this.SHZP_List = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -226,37 +211,37 @@ export default {
         .post(`${this.$baseUrl}contact`, {
           name: this.name,
           tel: this.contact,
-          content: this.content
+          content: this.content,
         })
         .then(({ data }) => {
           console.log(data);
           if (data.status === "1") {
             Message({
               message: "添加成功",
-              type: "success"
+              type: "success",
             });
             this.name = "";
             this.contact = "";
             this.content = "";
           }
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
     getMore() {
       this.get_more = true;
-      //  社会招聘
+      //  合作洽谈
       this.axios
         .get(`${this.$baseUrl}contentjob/id/18/p/1/count/99999`)
         .then(({ data }) => {
           this.SHZP_List = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -292,62 +277,62 @@ export default {
           width: 100%;
           height: px(480);
           position: relative;
-          margin-bottom: px(24);
-          ._tooltip {
-            width: 100%;
-            height: px(120);
-            padding: 0 px(27);
-            background-color: #599ae5;
-            position: absolute;
-            left: px(0);
-            bottom: px(0);
-            box-sizing: border-box;
+        }
+        ._tooltip {
+          width: 100%;
+          padding: px(30) px(27);
+          background-color: #599ae5;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          & > div {
+            padding: px(18);
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            & > div {
-              display: flex;
-              align-items: center;
-              margin-bottom: px(9);
-              &:last-child {
-                margin-bottom: 0;
-              }
-              ._icon {
-                display: block;
-                width: px(21);
-                height: px(21);
-                margin-right: px(11);
-              }
-              span {
-                display: block;
-                font-size: px(24);
-                color: rgba(255, 255, 255, 1);
-                &._address {
-                  width: px(550);
-                  text-overflow: ellipsis;
-                  white-space: nowrap;
-                  overflow: hidden;
-                }
+            align-items: flex-start;
+            &:last-child {
+              margin-bottom: 0;
+              padding-bottom: 0;
+            }
+            &:first-child {
+              padding-top: 0;
+            }
+            ._icon {
+              display: block;
+              width: px(23);
+              height: px(23);
+              margin-top: px(5);
+              margin-right: px(10);
+            }
+            span {
+              display: block;
+              font-size: px(24);
+              line-height: px(34);
+              color: rgba(255, 255, 255, 1);
+              &._address {
+                width: px(550);
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
               }
             }
+          }
 
-            .line {
-              display: block;
-              width: px(599);
-              height: px(1);
-              background-color: rgba(0, 0, 0, 0);
-              margin-bottom: px(15);
-              position: relative;
-              &::after {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 1px;
-                content: "";
-                background-color: #fff;
-                -webkit-transform: scaleY(0.5);
-              }
+          .line {
+            display: block;
+            width: px(599);
+            height: px(1);
+            background-color: rgba(0, 0, 0, 0);
+            position: relative;
+            &::after {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 1px;
+              content: "";
+              background-color: #fff;
+              -webkit-transform: scaleY(0.5);
             }
           }
         }

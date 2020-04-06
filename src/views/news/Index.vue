@@ -1,29 +1,17 @@
 <template>
   <div class="news_index_box layout_content_box">
-    <div class="page_top_box">
-      <img :src="`${$basePicUrl}${topInfo.logo}`" alt="" srcset="" />
-      <div class="_title">{{ topInfo.title }}</div>
-    </div>
     <div class="page_bottom_box">
       <div class="tab_box">
         <van-tabs v-model="activeName" @click="onClick" animated swipeable>
-          <van-tab title="新闻动态" name="CXSJ">
+          <van-tab :title="CXSJ_Info.ctitle" name="CXSJ">
             <div class="part _part1">
-              <div class="part_top_box">
-                <div class="_top">
+              <div class="part_top_box iss">
+                <div class="_top iss">
                   <div class="_title">
-                    术有专攻
-                    <div class="_info">
-                      {{ CXSJ_Info.title }}
-                    </div>
+                    {{ CXSJ_Info.ctitle }}
                   </div>
-                  <div class="_entitle">
-                    NEWS
-                  </div>
-
-                  <div class="_line"></div>
+                  <div class="_line iss"></div>
                 </div>
-                <div class="_bottom" v-html="CXSJ_Info.content"></div>
               </div>
               <div class="part_bottom_box">
                 <div class="_listbox">
@@ -49,6 +37,8 @@
                     small
                     background
                     :page-size="6"
+                    prev-text="上一页"
+                    next-text="下一页"
                     layout="prev, pager, next"
                     :total="CXSJ_total"
                     @current-change="pageChange1"
@@ -58,15 +48,12 @@
               </div>
             </div>
           </van-tab>
-          <van-tab title="团队建设" name="QYGG">
+          <van-tab :title="QYGG_Info.ctitle" name="QYGG">
             <div class="part _part2">
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
-                    投资经典
-                  </div>
-                  <div class="_entitle">
-                    NOTICE
+                    {{ QYGG_Info.ctitle }}
                   </div>
                   <div class="_line"></div>
                 </div>
@@ -81,10 +68,15 @@
                   >
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
+                      <span class="_date">
+                        {{ item.entitle }}
+                      </span>
                       <span class="_title">
                         {{ item.title }}
                       </span>
-                      <span class="_into" v-html="item.content"> </span>
+                      <span class="_into">
+                        {{ item.category }}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -94,6 +86,8 @@
                     @current-change="pageChange1"
                     background
                     :page-size="6"
+                    prev-text="上一页"
+                    next-text="下一页"
                     layout="prev, pager, next"
                     :total="QYGG_total"
                   >
@@ -102,15 +96,12 @@
               </div>
             </div>
           </van-tab>
-          <van-tab title="CEO TALK" name="CEOTALK">
+          <van-tab :title="CEOTALK_Info.ctitle" name="CEOTALK">
             <div class="part _part3">
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
-                    深度洞察
-                  </div>
-                  <div class="_entitle">
-                    NOTICE
+                    {{ CEOTALK_Info.ctitle }}
                   </div>
                   <div class="_line"></div>
                 </div>
@@ -125,10 +116,15 @@
                   >
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
+                      <span class="_date">
+                        {{ item.entitle }}
+                      </span>
                       <span class="_title">
                         {{ item.title }}
                       </span>
-                      <span class="_into" v-html="item.content"> </span>
+                      <span class="_into">
+                        {{ item.category }}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -137,6 +133,8 @@
                     small
                     background
                     layout="prev, pager, next"
+                    prev-text="上一页"
+                    next-text="下一页"
                     :page-size="6"
                     :total="CEOTALK_total"
                     @current-change="pageChange3"
@@ -161,33 +159,33 @@ export default {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       CXSJ_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       CXSJ_List: [],
       QYGG_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       QYGG_List: [
         {
           title: "",
           content: "",
-          logo: ""
-        }
+          logo: "",
+        },
       ],
       CEOTALK_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       CEOTALK_List: [],
       CXSJ_p: 1,
@@ -195,7 +193,7 @@ export default {
       CEOTALK_p: 1,
       CXSJ_total: 0,
       QYGG_total: 0,
-      CEOTALK_total: 0
+      CEOTALK_total: 0,
     };
   },
   watch: {
@@ -208,8 +206,8 @@ export default {
         }
       },
       immediate: true,
-      deep: true
-    }
+      deep: true,
+    },
   },
   mounted() {
     this.getData();
@@ -221,9 +219,12 @@ export default {
         .then(({ data }) => {
           this.topInfo = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
+      this.onClick("CXSJ");
+      this.onClick("QYGG");
+      this.onClick("CEOTALK");
     },
     toitem(url, index) {
       if (url) {
@@ -259,7 +260,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_Info`] = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
       this.axios
@@ -267,7 +268,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_List`] = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -282,7 +283,7 @@ export default {
           this.CXSJ_List = data.data;
           this.CXSJ_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -295,7 +296,7 @@ export default {
           this.QYGG_List = data.data;
           this.QYGG_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -308,11 +309,11 @@ export default {
           this.CEOTALK_List = data.data;
           this.CEOTALK_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -326,36 +327,37 @@ export default {
         padding-bottom: px(24);
         & > ._item {
           width: 100%;
-          padding: px(24);
+          padding: px(26) px(24);
           box-sizing: border-box;
           background-color: #f8f8f8;
-          margin-bottom: px(24);
+          margin-bottom: px(26);
           & > img {
             display: block;
             width: 100%;
-            height: px(218);
-            margin-bottom: px(24);
+            height: px(259);
+            margin-bottom: px(22);
           }
           & > div {
             span {
               display: block;
             }
+            ._date {
+              height: px(24);
+              font-size: px(20);
+              line-height: px(24);
+              margin-bottom: px(13);
+            }
             ._title {
               font-size: px(28);
               color: #333;
-              line-height: px(33);
+              line-height: px(36);
               font-weight: bold;
-              margin-bottom: px(8);
+              margin-bottom: px(2);
             }
-            ._date,
             ._into {
+              height: px(43);
               font-size: px(20);
-              color: #949494;
-              line-height: px(24);
-              display: -webkit-box;
-              -webkit-box-orient: vertical;
-              -webkit-line-clamp: 5;
-              overflow: hidden;
+              line-height: px(40);
             }
           }
         }

@@ -1,29 +1,17 @@
 <template>
   <div class="business_index_box layout_content_box">
-    <div class="page_top_box">
-      <img :src="`${$basePicUrl}${topInfo.logo}`" alt="" srcset="" />
-      <div class="_title">{{ topInfo.title }}</div>
-    </div>
     <div class="page_bottom_box">
       <div class="tab_box">
         <van-tabs v-model="activeName" @click="onClick" animated swipeable>
-          <van-tab title="术有专攻" name="SYZG">
+          <van-tab :title="SYZG_Info.ctitle" name="SYZG">
             <div class="part _part1">
-              <div class="part_top_box">
-                <div class="_top">
+              <div class="part_top_box iss">
+                <div class="_top iss">
                   <div class="_title">
-                    术有专攻
-                    <div class="_info">
-                      {{ SYZG_Info.title }}
-                    </div>
+                    {{ SYZG_Info.ctitle }}
                   </div>
-                  <div class="_entitle">
-                    NEWS
-                  </div>
-
-                  <div class="_line"></div>
+                  <div class="_line iss"></div>
                 </div>
-                <div class="_bottom" v-html="SYZG_Info.content"></div>
               </div>
               <div class="part_bottom_box">
                 <div class="_listbox">
@@ -58,15 +46,12 @@
               </div>
             </div>
           </van-tab>
-          <van-tab title="投资经典" name="TZJD">
+          <van-tab :title="TZJD_Info.ctitle" name="TZJD">
             <div class="part _part2">
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
-                    投资经典
-                  </div>
-                  <div class="_entitle">
-                    NOTICE
+                    {{ TZJD_Info.ctitle }}
                   </div>
                   <div class="_line"></div>
                 </div>
@@ -81,10 +66,15 @@
                   >
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
+                      <span class="_date">
+                        {{ item.entitle }}
+                      </span>
                       <span class="_title">
                         {{ item.title }}
                       </span>
-                      <span class="_into" v-html="item.content"> </span>
+                      <span class="_into">
+                        {{ item.category }}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -102,15 +92,12 @@
               </div>
             </div>
           </van-tab>
-          <van-tab title="深度洞察" name="SDDC">
+          <van-tab :title="SDDC_Info.ctitle" name="SDDC">
             <div class="part _part3">
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
-                    深度洞察
-                  </div>
-                  <div class="_entitle">
-                    NOTICE
+                    {{ SDDC_Info.ctitle }}
                   </div>
                   <div class="_line"></div>
                 </div>
@@ -125,10 +112,15 @@
                   >
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
+                      <span class="_date">
+                        {{ item.entitle }}
+                      </span>
                       <span class="_title">
                         {{ item.title }}
                       </span>
-                      <span class="_into" v-html="item.content"> </span>
+                      <span class="_into">
+                        {{ item.category }}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -157,37 +149,31 @@ export default {
   data() {
     return {
       activeName: "SYZG",
-      topInfo: {
-        title: "",
-        entitle: "",
-        content: "",
-        logo: ""
-      },
       SYZG_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       SYZG_List: [],
       TZJD_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       TZJD_List: [
         {
           title: "",
           content: "",
-          logo: ""
-        }
+          logo: "",
+        },
       ],
       SDDC_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       SDDC_List: [],
       SYZG_p: 1,
@@ -195,7 +181,7 @@ export default {
       SDDC_p: 1,
       SYZG_total: 0,
       TZJD_total: 0,
-      SDDC_total: 0
+      SDDC_total: 0,
     };
   },
   watch: {
@@ -207,24 +193,15 @@ export default {
         }
       },
       immediate: true,
-      deep: true
-    }
+      deep: true,
+    },
   },
   mounted() {
-    this.getData();
+    this.onClick("SYZG");
+    this.onClick("TZJD");
+    this.onClick("SDDC");
   },
   methods: {
-    getData() {
-      this.axios
-        .get(`${this.$baseUrl}content/id/8`)
-        .then(({ data }) => {
-          console.log(data);
-          this.topInfo = data.data;
-        })
-        .catch(response => {
-          console.log(response);
-        });
-    },
     toitem(url, index) {
       if (url) {
         window.open(url);
@@ -259,7 +236,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_Info`] = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
       this.axios
@@ -267,7 +244,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_List`] = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -282,7 +259,7 @@ export default {
           }
           this.SYZG_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -297,7 +274,7 @@ export default {
           }
           this.TZJD_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -313,11 +290,11 @@ export default {
           console.log(this.SDDC_List);
           this.SDDC_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -331,36 +308,37 @@ export default {
         padding-bottom: px(24);
         & > ._item {
           width: 100%;
-          padding: px(24);
+          padding: px(26) px(24);
           box-sizing: border-box;
           background-color: #f8f8f8;
-          margin-bottom: px(24);
+          margin-bottom: px(40);
           & > img {
             display: block;
             width: 100%;
-            height: px(218);
-            margin-bottom: px(24);
+            height: px(259);
+            margin-bottom: px(22);
           }
           & > div {
             span {
               display: block;
             }
+            ._date {
+              height: px(24);
+              font-size: px(20);
+              line-height: px(24);
+              margin-bottom: px(13);
+            }
             ._title {
               font-size: px(28);
               color: #333;
-              line-height: px(33);
+              line-height: px(36);
               font-weight: bold;
-              margin-bottom: px(8);
+              margin-bottom: px(2);
             }
-            ._date,
             ._into {
+              height: px(43);
               font-size: px(20);
-              color: #949494;
-              line-height: px(24);
-              display: -webkit-box;
-              -webkit-box-orient: vertical;
-              -webkit-line-clamp: 5;
-              overflow: hidden;
+              line-height: px(40);
             }
           }
         }

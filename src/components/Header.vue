@@ -19,7 +19,7 @@
               class="_item"
               :class="[
                 item.children.length > 1 ? '' : 'isSingle',
-                active_index === index ? 'active' : ''
+                active_index === index ? 'active' : '',
               ]"
               v-for="(item, index) in menulist"
               :key="index"
@@ -49,7 +49,7 @@
                         ? item.children.length - 2
                         : item.children.length - 1) *
                       0.81 +
-                    'px'
+                    'px',
                 }"
               >
                 <div
@@ -77,19 +77,19 @@ export default {
     return {
       active_index: 0,
       show_menu: false,
-      font_size: 0
+      font_size: 0,
     };
   },
   computed: {
     ...mapGetters({
-      menulist: "menulist"
-    })
+      menulist: "menulist",
+    }),
   },
   props: {
     is_1st_slide: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   mounted() {
     let _this = this;
@@ -106,7 +106,7 @@ export default {
         if (params) {
           this.$router.push({
             path: path,
-            query: { _: params }
+            query: { _: params },
           });
         } else {
           this.$router.push(path);
@@ -124,7 +124,7 @@ export default {
       let rootHtml = document.documentElement;
       let deviceWidth = rootHtml.clientWidth;
       this.font_size = (deviceWidth * 100) / 750;
-    }
+    },
   },
   watch: {
     $route: {
@@ -137,9 +137,9 @@ export default {
         }
       },
       deep: true,
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -152,6 +152,7 @@ header {
   align-items: center;
   box-sizing: border-box;
   padding: 0 px(48);
+  border-bottom: 1px solid rgba(151, 151, 151, 0.5);
   // position: fixed;
   // top: 0;
   // left: 0;

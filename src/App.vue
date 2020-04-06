@@ -10,9 +10,7 @@ export default {
     let _this = this;
     this.resetFontsize();
     window.onresize = () => {
-      console.log(2);
       return (() => {
-        console.log(1);
         _this.resetFontsize();
       })();
     };
@@ -22,15 +20,15 @@ export default {
       let rootHtml = document.documentElement;
       let deviceWidth = rootHtml.clientWidth;
       rootHtml.style.fontSize = (deviceWidth * 100) / 750 + "px";
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 @import "@/styles/fun.scss";
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: AlibabaPuHuiTiM;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
