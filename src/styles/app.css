@@ -30,6 +30,15 @@ p {
 .van-tabs--line .van-tabs__wrap {
   height: px(86);
   border-bottom: 1px solid rgba(151, 151, 151, 0.5);
+  width: 100%;
+}
+
+.van-tabs--line .van-tabs__wrap.fixed {
+  position: fixed;
+  top: px(120);
+  left: 0;
+  z-index: 88;
+  background-color: #fff;
 }
 
 .van-hairline--top-bottom::after,
@@ -39,6 +48,10 @@ p {
 
 .van-tabs__line {
   height: px(2);
+}
+
+.layout_content_box {
+  height: calc(100vh - 1.2rem);
 }
 
 .layout_content_box .page_top_box {
@@ -62,7 +75,23 @@ p {
 }
 
 .layout_content_box .page_bottom_box {
-  padding-bottom: px(38);
+  height: calc(100vh - 1.2rem);
+}
+
+.layout_content_box .page_bottom_box .tab_box {
+  height: calc(100vh - 1.2rem);
+}
+
+.layout_content_box .page_bottom_box .tab_box .van-tabs {
+  position: relative;
+  height: calc(100vh - 1.2rem);
+}
+
+.layout_content_box .page_bottom_box .tab_box .van-tabs.fixed::before {
+  content: "";
+  height: px(120);
+  width: 100%;
+  display: block;
 }
 
 .layout_content_box .page_bottom_box .tab_box .van-tabs .van-tab {
@@ -79,6 +108,20 @@ p {
 .layout_content_box .page_bottom_box .tab_box .van-tabs .van-tab.van-tab--active {
   color: #599ae5;
   font-weight: bold;
+}
+
+.layout_content_box .page_bottom_box .tab_box .van-tabs .van-tabs__content {
+  height: calc(100% - 0.86rem);
+  overflow-y: hidden;
+}
+
+.layout_content_box .page_bottom_box .tab_box .van-tabs .van-tabs__content .van-tab__pane-wrapper {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.layout_content_box .page_bottom_box .tab_box .van-tabs .van-tabs__content .van-tab__pane {
+  padding-bottom: px(38);
 }
 
 .layout_content_box .page_bottom_box .tab_box .van-tabs .van-tabs__line {
@@ -105,13 +148,13 @@ p {
 }
 
 .layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top.iss {
-  margin-bottom: px(86) !important;
+  margin-bottom: px(46) !important;
 }
 
 .layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top ._title {
   height: px(54);
   font-size: px(60);
-  color: #666666;
+  color: #599ae5;
   line-height: px(54);
   letter-spacing: px(3);
   font-weight: bold;
@@ -146,6 +189,7 @@ p {
 
 .layout_content_box .page_bottom_box .tab_box .part .part_top_box ._top ._line.iss {
   bottom: px(-40);
+  background-color: transparent;
 }
 
 .layout_content_box .page_bottom_box .tab_box .part .part_top_box ._bottom {
@@ -297,4 +341,9 @@ p {
 .el-pagination.is-background .btn-prev:disabled,
 .el-pagination.is-background .el-pager li.disabled {
   color: #cdcbcc;
+}
+
+.van-sticky--fixed {
+  top: 1.2rem;
+  z-index: 88;
 }

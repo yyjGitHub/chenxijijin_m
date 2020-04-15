@@ -2,7 +2,13 @@
   <div class="news_index_box layout_content_box">
     <div class="page_bottom_box">
       <div class="tab_box">
-        <van-tabs v-model="activeName" @click="onClick" animated swipeable>
+        <van-tabs
+          v-model="activeName"
+          @click="onClick"
+          @change="onClick"
+          animated
+          swipeable
+        >
           <van-tab :title="CXSJ_Info.ctitle" name="CXSJ">
             <div class="part _part1">
               <div class="part_top_box iss">
@@ -55,7 +61,6 @@
                   <div class="_title">
                     {{ QYGG_Info.ctitle }}
                   </div>
-                  <div class="_line"></div>
                 </div>
               </div>
               <div class="part_bottom_box">
@@ -103,7 +108,6 @@
                   <div class="_title">
                     {{ CEOTALK_Info.ctitle }}
                   </div>
-                  <div class="_line"></div>
                 </div>
               </div>
               <div class="part_bottom_box">
@@ -159,33 +163,33 @@ export default {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       CXSJ_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       CXSJ_List: [],
       QYGG_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       QYGG_List: [
         {
           title: "",
           content: "",
-          logo: "",
-        },
+          logo: ""
+        }
       ],
       CEOTALK_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       CEOTALK_List: [],
       CXSJ_p: 1,
@@ -193,7 +197,7 @@ export default {
       CEOTALK_p: 1,
       CXSJ_total: 0,
       QYGG_total: 0,
-      CEOTALK_total: 0,
+      CEOTALK_total: 0
     };
   },
   watch: {
@@ -206,8 +210,8 @@ export default {
         }
       },
       immediate: true,
-      deep: true,
-    },
+      deep: true
+    }
   },
   mounted() {
     this.getData();
@@ -219,7 +223,7 @@ export default {
         .then(({ data }) => {
           this.topInfo = data.data;
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
       this.onClick("CXSJ");
@@ -260,7 +264,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_Info`] = data.data;
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
       this.axios
@@ -268,7 +272,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_List`] = data.data;
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
     },
@@ -283,7 +287,7 @@ export default {
           this.CXSJ_List = data.data;
           this.CXSJ_total = parseInt(data.count);
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
     },
@@ -296,7 +300,7 @@ export default {
           this.QYGG_List = data.data;
           this.QYGG_total = parseInt(data.count);
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
     },
@@ -309,11 +313,11 @@ export default {
           this.CEOTALK_List = data.data;
           this.CEOTALK_total = parseInt(data.count);
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -381,9 +385,9 @@ export default {
   ._part2,
   ._part3 {
     .part_top_box {
-      padding-bottom: px(20) !important;
+      padding-bottom: px(0) !important;
       ._top {
-        margin-bottom: px(60) !important;
+        margin-bottom: px(46) !important;
         ._line {
           bottom: px(-32) !important;
         }

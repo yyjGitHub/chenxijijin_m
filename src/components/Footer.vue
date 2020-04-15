@@ -25,9 +25,9 @@ export default {
   props: {
     isHome: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

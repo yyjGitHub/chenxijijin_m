@@ -2,7 +2,13 @@
   <div class="about_index_box layout_content_box">
     <div class="page_bottom_box">
       <div class="tab_box">
-        <van-tabs v-model="activeName" @click="onClick" animated swipeable>
+        <van-tabs
+          v-model="activeName"
+          @click="onClick"
+          @change="onClick"
+          animated
+          swipeable
+        >
           <van-tab title="企业简介" name="QYJJ">
             <div class="page_top_box">
               <img :src="`${$basePicUrl}${topInfo.logo}`" alt="" srcset="" />
@@ -135,12 +141,12 @@
                   </div>
                 </div>
               </div>
-              <div class="part_top_box" style="padding-top:1rem;">
-                <div class="_top" style="margin-bottom:1.01rem;">
+              <div class="part_top_box iss" style="padding-top:1rem;">
+                <div class="_top iss" style="margin-bottom:1.01rem;">
                   <div class="_title">
                     {{ FXKZ__Info.ctitle }}
                   </div>
-                  <div class="_line"></div>
+                  <div class="_line iss"></div>
                 </div>
               </div>
               <div class="part_bottom_box part3">
@@ -159,11 +165,10 @@
           <van-tab title="合作伙伴" name="HZHB">
             <div class="part _part4">
               <div class="part_top_box" style="padding-bottom:0;">
-                <div class="_top" style="margin-bottom:0.86rem">
+                <div class="_top" style="margin-bottom:0.46rem">
                   <div class="_title">
                     {{ HZHB_Info.ctitle }}
                   </div>
-                  <div class="_line" style="bottom:-0.4rem"></div>
                 </div>
                 <div class="_bottom" v-html="HZHB_Info.content"></div>
               </div>
@@ -202,62 +207,62 @@ export default {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       QYJJ_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       QYJJ_List: [],
       QYFC_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       QYFC_List: [
         {
           title: "",
           content: "",
-          logo: "",
-        },
+          logo: ""
+        }
       ],
       QYFCsub_List: [],
       TZCL_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       TZCL_List: [],
       TZLN__Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       TZLN__List: [],
       TZCL__Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       TZCL__List: [],
       FXKZ__Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       FXKZ__List: [],
       HZHB_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       HZHB_List: [],
       HZHB_total: 0,
@@ -265,38 +270,43 @@ export default {
       ZZJG_Info: {
         title: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       ZZJG_List: [],
       GLTD_Info: {
         title: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       GLTD_List: [],
       QYWH_Info: {
         title: "",
         content: "",
-        logo: "",
+        logo: ""
       },
-      QYWH_List: [],
+      QYWH_List: []
     };
   },
   watch: {
     $route: {
       handler(newVal) {
-        console.log(newVal);
         if (newVal.query.hasOwnProperty("_")) {
           this.activeName = newVal.query["_"];
           this.onClick(newVal.query["_"]);
         }
       },
       immediate: true,
-      deep: true,
-    },
+      deep: true
+    }
   },
   mounted() {
     this.getData();
+  },
+  updated() {
+    if (this.$route.query.hasOwnProperty("b")) {
+      var t = document.getElementsByClassName("sub_routerview")[0].scrollHeight;
+      document.getElementsByClassName("sub_routerview")[0].scrollTop = t;
+    }
   },
   methods: {
     getData() {
@@ -305,7 +315,7 @@ export default {
         .then(({ data }) => {
           this.topInfo = data.data;
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
     },
@@ -320,7 +330,7 @@ export default {
           this.HZHB_List = data.data;
           this.HZHB_total = parseInt(data.count);
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
     },
@@ -355,7 +365,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_Info`] = data.data;
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
       this.axios
@@ -366,7 +376,7 @@ export default {
             this.HZHB_total = parseInt(data.count);
           }
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
       if (name === "QYFC") {
@@ -413,7 +423,7 @@ export default {
           .then(({ data }) => {
             this.TZLN__Info = data.data;
           })
-          .catch((response) => {
+          .catch(response => {
             console.log(response);
           });
         this.axios
@@ -421,7 +431,7 @@ export default {
           .then(({ data }) => {
             this.TZCL__Info = data.data;
           })
-          .catch((response) => {
+          .catch(response => {
             console.log(response);
           });
         this.axios
@@ -429,7 +439,7 @@ export default {
           .then(({ data }) => {
             this.FXKZ__Info = data.data;
           })
-          .catch((response) => {
+          .catch(response => {
             console.log(response);
           });
         this.axios
@@ -437,7 +447,7 @@ export default {
           .then(({ data }) => {
             this.TZLN__List = data.data;
           })
-          .catch((response) => {
+          .catch(response => {
             console.log(response);
           });
         this.axios
@@ -445,7 +455,7 @@ export default {
           .then(({ data }) => {
             this.TZCL__List = data.data;
           })
-          .catch((response) => {
+          .catch(response => {
             console.log(response);
           });
         this.axios
@@ -453,12 +463,12 @@ export default {
           .then(({ data }) => {
             this.FXKZ__List = data.data;
           })
-          .catch((response) => {
+          .catch(response => {
             console.log(response);
           });
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -671,6 +681,10 @@ export default {
                     font-size: px(27);
                     line-height: px(35);
                     color: #69666a;
+                    img {
+                      display: block;
+                      width: 100%;
+                    }
                     p {
                       font-size: px(26);
                       line-height: px(35);
@@ -749,6 +763,10 @@ export default {
               ._bottom {
                 padding-bottom: px(77);
                 & > div {
+                  img {
+                    display: block;
+                    width: 100%;
+                  }
                   p {
                     font-size: px(28);
                     line-height: px(48);
@@ -795,14 +813,11 @@ export default {
               overflow: hidden;
 
               width: px(252);
-              height: px(126);
+              height: px(167);
               & > img {
                 display: block;
-                top: px(-1);
-                left: px(-2);
-                position: absolute;
-                width: px(253);
-                height: px(126);
+                width: px(252);
+                height: px(167);
               }
             }
           }

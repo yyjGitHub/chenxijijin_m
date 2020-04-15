@@ -2,7 +2,13 @@
   <div class="business_index_box layout_content_box">
     <div class="page_bottom_box">
       <div class="tab_box">
-        <van-tabs v-model="activeName" @click="onClick" animated swipeable>
+        <van-tabs
+          v-model="activeName"
+          @click="onClick"
+          @change="onClick"
+          animated
+          swipeable
+        >
           <van-tab :title="SYZG_Info.ctitle" name="SYZG">
             <div class="part _part1">
               <div class="part_top_box iss">
@@ -53,7 +59,6 @@
                   <div class="_title">
                     {{ TZJD_Info.ctitle }}
                   </div>
-                  <div class="_line"></div>
                 </div>
               </div>
               <div class="part_bottom_box">
@@ -99,7 +104,6 @@
                   <div class="_title">
                     {{ SDDC_Info.ctitle }}
                   </div>
-                  <div class="_line"></div>
                 </div>
               </div>
               <div class="part_bottom_box">
@@ -153,27 +157,27 @@ export default {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       SYZG_List: [],
       TZJD_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       TZJD_List: [
         {
           title: "",
           content: "",
-          logo: "",
-        },
+          logo: ""
+        }
       ],
       SDDC_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: "",
+        logo: ""
       },
       SDDC_List: [],
       SYZG_p: 1,
@@ -181,7 +185,7 @@ export default {
       SDDC_p: 1,
       SYZG_total: 0,
       TZJD_total: 0,
-      SDDC_total: 0,
+      SDDC_total: 0
     };
   },
   watch: {
@@ -193,8 +197,8 @@ export default {
         }
       },
       immediate: true,
-      deep: true,
-    },
+      deep: true
+    }
   },
   mounted() {
     this.onClick("SYZG");
@@ -236,7 +240,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_Info`] = data.data;
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
       this.axios
@@ -244,7 +248,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_List`] = data.data;
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
     },
@@ -259,7 +263,7 @@ export default {
           }
           this.SYZG_total = parseInt(data.count);
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
     },
@@ -274,7 +278,7 @@ export default {
           }
           this.TZJD_total = parseInt(data.count);
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
     },
@@ -290,11 +294,11 @@ export default {
           console.log(this.SDDC_List);
           this.SDDC_total = parseInt(data.count);
         })
-        .catch((response) => {
+        .catch(response => {
           console.log(response);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -362,9 +366,9 @@ export default {
   ._part2,
   ._part3 {
     .part_top_box {
-      padding-bottom: px(20) !important;
+      padding-bottom: px(0) !important;
       ._top {
-        margin-bottom: px(60) !important;
+        margin-bottom: px(46) !important;
         ._line {
           bottom: px(-32) !important;
         }

@@ -26,13 +26,13 @@ const mainroutes = [
         component: _import("home/Home"),
         meta: {
           label: "关于晨曦",
-          title: "关于晨曦-晨曦基金",
+          title: "关于晨曦-旭辉晨曦",
         },
       },
     ],
     meta: {
       label: "首页",
-      title: "首页-晨曦基金",
+      title: "首页-旭辉晨曦",
     },
   },
   {
@@ -46,7 +46,7 @@ const mainroutes = [
         component: _import("about/Index"),
         meta: {
           label: "关于晨曦",
-          title: "关于晨曦-晨曦基金",
+          title: "关于晨曦-旭辉晨曦",
         },
       },
       {
@@ -80,7 +80,7 @@ const mainroutes = [
     ],
     meta: {
       label: "关于晨曦",
-      title: "关于晨曦-晨曦基金",
+      title: "关于晨曦-旭辉晨曦",
     },
   },
   {
@@ -94,7 +94,7 @@ const mainroutes = [
         component: _import("business/Index"),
         meta: {
           label: "战略蓝图",
-          title: "战略蓝图-晨曦基金",
+          title: "战略蓝图-旭辉晨曦",
         },
       },
       {
@@ -121,7 +121,7 @@ const mainroutes = [
     ],
     meta: {
       label: "战略蓝图",
-      title: "战略蓝图-晨曦基金",
+      title: "战略蓝图-旭辉晨曦",
     },
   },
   {
@@ -135,7 +135,7 @@ const mainroutes = [
         component: _import("news/Index"),
         meta: {
           label: "晨曦视界",
-          title: "晨曦视界-晨曦基金",
+          title: "晨曦视界-旭辉晨曦",
         },
       },
       {
@@ -144,7 +144,7 @@ const mainroutes = [
         component: _import("news/Item"),
         meta: {
           label: "晨曦视界",
-          title: "晨曦视界-晨曦基金",
+          title: "晨曦视界-旭辉晨曦",
           isntShow: true,
         },
       },
@@ -172,7 +172,7 @@ const mainroutes = [
     ],
     meta: {
       label: "晨曦视界",
-      title: "晨曦视界-晨曦基金",
+      title: "晨曦视界-旭辉晨曦",
     },
   },
   // {
@@ -186,13 +186,13 @@ const mainroutes = [
   //       component: _import("relation/Index"),
   //       meta: {
   //         label: "投资者关系",
-  //         title: "投资者关系-晨曦基金"
+  //         title: "投资者关系-旭辉晨曦"
   //       }
   //     }
   //   ],
   //   meta: {
   //     label: "投资者关系",
-  //     title: "投资者关系-晨曦基金"
+  //     title: "投资者关系-旭辉晨曦"
   //   }
   // },
   {
@@ -206,7 +206,14 @@ const mainroutes = [
         component: _import("service/Index"),
         meta: {
           label: "联系我们",
-          title: "联系我们-晨曦基金",
+          title: "联系我们-旭辉晨曦",
+        },
+      },
+      {
+        path: "LXWM",
+        name: "LXWM",
+        meta: {
+          label: "加入我们",
         },
       },
       {
@@ -216,17 +223,10 @@ const mainroutes = [
           label: "合作洽谈",
         },
       },
-      {
-        path: "LXWM",
-        name: "LXWM",
-        meta: {
-          label: "联系我们",
-        },
-      },
     ],
     meta: {
       label: "联系我们",
-      title: "联系我们-晨曦基金",
+      title: "联系我们-旭辉晨曦",
     },
   },
 ];

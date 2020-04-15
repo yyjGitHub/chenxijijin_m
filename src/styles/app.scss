@@ -23,6 +23,14 @@ p {
 .van-tabs--line .van-tabs__wrap {
   height: px(86);
   border-bottom: 1px solid rgba(151, 151, 151, 0.5);
+  width: 100%;
+  &.fixed {
+    position: fixed;
+    top: px(120);
+    left: 0;
+    z-index: 88;
+    background-color: #fff;
+  }
 }
 .van-hairline--top-bottom::after,
 .van-hairline-unset--top-bottom::after {
@@ -32,6 +40,7 @@ p {
   height: px(2);
 }
 .layout_content_box {
+  height: calc(100vh - 1.2rem);
   .page_top_box {
     position: relative;
     img {
@@ -50,9 +59,20 @@ p {
     }
   }
   .page_bottom_box {
-    padding-bottom: px(38);
+    height: calc(100vh - 1.2rem);
     .tab_box {
+      height: calc(100vh - 1.2rem);
       .van-tabs {
+        position: relative;
+        height: calc(100vh - 1.2rem);
+        &.fixed {
+          &::before {
+            content: "";
+            height: px(120);
+            width: 100%;
+            display: block;
+          }
+        }
         .van-tab {
           font-size: px(26);
           height: px(86);
@@ -68,6 +88,15 @@ p {
           }
         }
         .van-tabs__content {
+          height: calc(100% - 0.86rem);
+          overflow-y: hidden;
+          .van-tab__pane-wrapper {
+            overflow-y: auto;
+            overflow-x: hidden;
+          }
+          .van-tab__pane {
+            padding-bottom: px(38);
+          }
         }
         .van-tabs__line {
           background: #599ae5;
@@ -89,12 +118,12 @@ p {
             text-align: center;
             margin-bottom: px(126);
             &.iss {
-              margin-bottom: px(86) !important;
+              margin-bottom: px(46) !important;
             }
             ._title {
               height: px(54);
               font-size: px(60);
-              color: #666666;
+              color: #599ae5;
               line-height: px(54);
               letter-spacing: px(3);
               font-weight: bold;
@@ -122,6 +151,7 @@ p {
               bottom: px(-75);
               &.iss {
                 bottom: px(-40);
+                background-color: rgba(0, 0, 0, 0);
               }
               left: 50%;
               transform: translateX(-50%);
@@ -279,4 +309,8 @@ p {
 .el-pagination.is-background .btn-prev:disabled,
 .el-pagination.is-background .el-pager li.disabled {
   color: #cdcbcc;
+}
+.van-sticky--fixed {
+  top: 1.2rem;
+  z-index: 88;
 }

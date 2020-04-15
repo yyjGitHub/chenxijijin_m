@@ -2,15 +2,54 @@
   <div class="service_index_box layout_content_box">
     <div class="page_bottom_box">
       <div class="tab_box">
-        <van-tabs v-model="activeName" animated swipeable>
+        <van-tabs v-model="activeName" @change="onClick" animated swipeable>
           <van-tab :title="SHZP_Info.ctitle" name="LXWM">
-            <div class="part _part1">
+            <div class="part _part2">
               <div class="part_top_box">
                 <div class="_top">
                   <div class="_title">
                     {{ SHZP_Info.ctitle }}
                   </div>
-                  <div class="_line"></div>
+                </div>
+              </div>
+              <div class="part_bottom_box">
+                <div class="collapse_box">
+                  <van-collapse v-model="activeNames">
+                    <van-collapse-item
+                      v-for="(item, index) in SHZP_List"
+                      :key="index"
+                      :name="index + 1 + ' '"
+                    >
+                      <div slot="title">
+                        <div class="_left">
+                          <span class="_title"
+                            >{{ item.title }}（{{ item.name }}）</span
+                          >
+                          <span class="_into">
+                            <span>{{ item.attr }}</span>
+                            <span>资产数据部</span>
+                            <span>{{ item.time.split(" ")[0] }}</span>
+                          </span>
+                        </div>
+                        <span class="_more">查看详情</span>
+                      </div>
+                      <div class="_content" v-html="item.content"></div
+                    ></van-collapse-item>
+                  </van-collapse>
+                </div>
+                <div class="_morebtn" v-if="!get_more" @click="getMore">
+                  展开更多
+                </div>
+              </div>
+            </div>
+          </van-tab>
+          <van-tab :title="HZQT_Info.ctitle" name="SHZP">
+            <div class="part _part1">
+              <div class="part_top_box">
+                <div class="_top">
+                  <div class="_title">
+                    {{ HZQT_Info.ctitle }}
+                  </div>
                 </div>
               </div>
               <div class="part_bottom_box">
@@ -55,7 +94,7 @@
                   <span class="line"></span>
                   <div>
                     <img
-                      src="~@/assets/image/telphone_icon.png"
+                      src="~@/assets/image/chuanzhen_icon.png"
                       class="_icon"
                       alt=""
                       srcset=""
@@ -66,54 +105,13 @@
               </div>
             </div>
           </van-tab>
-          <van-tab :title="HZQT_Info.ctitle" name="SHZP">
-            <div class="part _part2">
-              <div class="part_top_box">
-                <div class="_top">
-                  <div class="_title">
-                    {{ HZQT_Info.ctitle }}
-                  </div>
-                  <div class="_line"></div>
-                </div>
-              </div>
-              <div class="part_bottom_box">
-                <div class="collapse_box">
-                  <van-collapse v-model="activeNames">
-                    <van-collapse-item
-                      v-for="(item, index) in SHZP_List"
-                      :key="index"
-                      :name="index + 1 + ' '"
-                    >
-                      <div slot="title">
-                        <div class="_left">
-                          <span class="_title"
-                            >{{ item.title }}（{{ item.name }}）</span
-                          >
-                          <span class="_into">
-                            <span>{{ item.attr }}</span>
-                            <span>资产数据部</span>
-                            <span>{{ item.time.split(" ")[0] }}</span>
-                          </span>
-                        </div>
-                        <span class="_more">查看详情</span>
-                      </div>
-                      <div class="_content" v-html="item.content"></div
-                    ></van-collapse-item>
-                  </van-collapse>
-                </div>
-                <div class="_morebtn" v-if="!get_more" @click="getMore">
-                  展开更多
-                </div>
-              </div>
-            </div>
-          </van-tab>
         </van-tabs>
       </div>
     </div>
     <div class="zz" v-if="showzz" @click="showzz = !showzz">
       <div class="_box" @click.stop="showzz = true">
         <img src="@/assets/m/qrcode_icon.png" alt="" srcset="" />
-        <span>长按二维码，关注晨曦基金官方账号</span>
+        <span>长按二维码，关注旭辉晨曦官方账号</span>
       </div>
     </div>
   </div>
@@ -133,8 +131,8 @@ export default {
       // center: [121.545101, 31.236498]
       showzz: false,
       amapManager,
-      zoom: 16,
-      center: [121.545101, 31.236498],
+      zoom: 17,
+      center: [121.554626, 31.242531],
       mapStyle: "fresh",
       name: "",
       contact: "",
@@ -249,14 +247,14 @@ export default {
 .service_index_box {
   .page_bottom_box {
     .van-tabs--line .van-tabs__wrap {
-      padding: 0 25%;
+      // padding: 0 25%;
     }
   }
   .part {
     .part_top_box {
-      padding-bottom: px(20) !important;
+      padding-bottom: px(0) !important;
       ._top {
-        margin-bottom: px(60) !important;
+        margin-bottom: px(46) !important;
         ._line {
           bottom: px(-32) !important;
         }
@@ -489,7 +487,8 @@ export default {
           .van-collapse-item__content {
             padding: px(24);
             & > ._content {
-              line-height: px(17);
+              line-height: px(36);
+              font-size: px(24);
               & > div {
                 margin-bottom: px(16);
                 // & > span {

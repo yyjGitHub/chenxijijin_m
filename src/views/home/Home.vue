@@ -70,7 +70,7 @@
               ]"
             >
               <div>
-                <span>忠于所托 成就价值</span>
+                <span style="font-weight:bold">忠于所托 成就价值</span>
               </div>
             </div>
             <!-- <img
@@ -125,7 +125,7 @@
                   </div>
                 </div>
                 <div class="bottom_box">
-                  <div class="_other" @click="toPage('/about?_=QYFC')">
+                  <div class="_other" @click="toPage('/about?_=QYJJ&b=1')">
                     <div>
                       <div class="_title">
                         企业荣誉
@@ -138,10 +138,10 @@
                       srcset=""
                     />
                   </div>
-                  <div class="_other" @click="toPage('/about?_=QYFC')">
+                  <div class="_other" @click="toPage('/about?_=QYFC&b=1')">
                     <div>
                       <div class="_title">
-                        企业愿景
+                        企业文化
                       </div>
                     </div>
                     <img
@@ -326,11 +326,27 @@
                     class="topic_img"
                     @click="
                       toNewItem(
-                        XWZX_List[subActiveIndex + 1].url,
-                        XWZX_List[subActiveIndex + 1].id
+                        XWZX_List[
+                          subActiveIndex + 1 === XWZX_List.length
+                            ? 0
+                            : subActiveIndex + 1
+                        ].url,
+                        XWZX_List[
+                          subActiveIndex + 1 === XWZX_List.length
+                            ? 0
+                            : subActiveIndex + 1
+                        ].id
                       )
                     "
-                    :src="`${$basePicUrl}${XWZX_List[subActiveIndex].logo}`"
+                    :src="
+                      `${$basePicUrl}${
+                        XWZX_List[
+                          subActiveIndex + 1 === XWZX_List.length
+                            ? 0
+                            : subActiveIndex + 1
+                        ].logo
+                      }`
+                    "
                     alt=""
                     srcset=""
                   />
@@ -338,16 +354,36 @@
                     class="topic_title"
                     @click="
                       toNewItem(
-                        XWZX_List[subActiveIndex + 1].url,
-                        XWZX_List[subActiveIndex + 1].id
+                        XWZX_List[
+                          subActiveIndex + 1 === XWZX_List.length
+                            ? 0
+                            : subActiveIndex + 1
+                        ].url,
+                        XWZX_List[
+                          subActiveIndex + 1 === XWZX_List.length
+                            ? 0
+                            : subActiveIndex + 1
+                        ].id
                       )
                     "
                   >
                     <div class="_title">
-                      {{ XWZX_List[subActiveIndex].title }}
+                      {{
+                        XWZX_List[
+                          subActiveIndex + 1 === XWZX_List.length
+                            ? 0
+                            : subActiveIndex + 1
+                        ].title
+                      }}
                     </div>
                     <div class="_time">
-                      {{ XWZX_List[subActiveIndex].time.split(" ")[0] }}
+                      {{
+                        XWZX_List[
+                          subActiveIndex + 1 === XWZX_List.length
+                            ? 0
+                            : subActiveIndex + 1
+                        ].time.split(" ")[0]
+                      }}
                     </div>
                   </div>
                 </div>
@@ -417,8 +453,8 @@ export default {
       subSwiperOption: {
         direction: "vertical",
         slidesPerView: 3,
-        // loop: true
-        // init: false,
+        loop: true,
+        init: false,
         simulateTouch: false,
         // centeredSlides: true
       },
@@ -471,6 +507,20 @@ export default {
       this.setActiveSlideIndex();
     });
   },
+  updated() {
+    let num = 0;
+    let interval = setInterval(() => {
+      num += 1000;
+      if (num < 2000) {
+        return;
+      }
+      this.$nextTick(() => {
+        this.subSwiper.init();
+        clearInterval(interval);
+        num = 0;
+      });
+    }, 1000);
+  },
   methods: {
     tobusiness(index) {
       if (index === 0) {
@@ -518,8 +568,6 @@ export default {
             }
           }
           this.XWZX_List = data.data;
-          this.subSwiper.update();
-          this.subSwiper.slideNext();
         })
         .catch((response) => {
           console.log(response);
@@ -1129,7 +1177,7 @@ export default {
             ._top {
               img {
                 display: block;
-                height: px(61);
+                height: px(45);
               }
             }
             ._center {
@@ -1384,7 +1432,7 @@ export default {
                     top: 0;
                     transition: all ease-in-out 0.3s;
                     display: block;
-                    width: 100%;
+                    width: px(458);
                     height: 100%;
                   }
                   .right_box {
