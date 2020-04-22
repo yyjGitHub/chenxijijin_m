@@ -33,7 +33,7 @@
                         {{ item.title }}
                       </span>
                       <span class="_date">
-                        {{ item.time.split(" ")[0] }}
+                        {{ item.date }}
                       </span>
                     </div>
                   </div>
@@ -74,7 +74,7 @@
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
                       <span class="_date">
-                        {{ item.entitle }}
+                        {{ item.date }}
                       </span>
                       <span class="_title">
                         {{ item.title }}
@@ -121,7 +121,7 @@
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
                       <span class="_date">
-                        {{ item.entitle }}
+                        {{ item.date }}
                       </span>
                       <span class="_title">
                         {{ item.title }}
@@ -163,33 +163,33 @@ export default {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       CXSJ_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       CXSJ_List: [],
       QYGG_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       QYGG_List: [
         {
           title: "",
           content: "",
-          logo: ""
-        }
+          logo: "",
+        },
       ],
       CEOTALK_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       CEOTALK_List: [],
       CXSJ_p: 1,
@@ -197,7 +197,7 @@ export default {
       CEOTALK_p: 1,
       CXSJ_total: 0,
       QYGG_total: 0,
-      CEOTALK_total: 0
+      CEOTALK_total: 0,
     };
   },
   watch: {
@@ -210,8 +210,8 @@ export default {
         }
       },
       immediate: true,
-      deep: true
-    }
+      deep: true,
+    },
   },
   mounted() {
     this.getData();
@@ -223,7 +223,7 @@ export default {
         .then(({ data }) => {
           this.topInfo = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
       this.onClick("CXSJ");
@@ -264,7 +264,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_Info`] = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
       this.axios
@@ -272,7 +272,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_List`] = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -287,7 +287,7 @@ export default {
           this.CXSJ_List = data.data;
           this.CXSJ_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -300,7 +300,7 @@ export default {
           this.QYGG_List = data.data;
           this.QYGG_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -313,11 +313,11 @@ export default {
           this.CEOTALK_List = data.data;
           this.CEOTALK_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

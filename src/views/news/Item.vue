@@ -5,7 +5,7 @@
         <div class="news_title">
           {{ page_Info.title }}
         </div>
-        <div class="news_date">{{ page_Info.time.split(" ")[0] }}</div>
+        <div class="news_date">{{ page_Info.date }}</div>
       </div>
       <div class="_bottom" v-html="page_Info.content"></div>
     </div>
@@ -19,8 +19,8 @@ export default {
       page_Info: {
         title: "",
         time: "",
-        content: ""
-      }
+        content: "",
+      },
     };
   },
   watch: {
@@ -32,14 +32,14 @@ export default {
           .then(({ data }) => {
             this.page_Info = data.data;
           })
-          .catch(response => {
+          .catch((response) => {
             console.log(response);
           });
       },
       deep: true,
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 };
 </script>
 

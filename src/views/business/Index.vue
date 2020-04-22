@@ -33,7 +33,7 @@
                         {{ item.title }}
                       </span>
                       <span class="_date">
-                        {{ item.time.split(" ")[0] }}
+                        {{ item.date }}
                       </span>
                     </div>
                   </div>
@@ -72,7 +72,7 @@
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
                       <span class="_date">
-                        {{ item.entitle }}
+                        {{ item.date }}
                       </span>
                       <span class="_title">
                         {{ item.title }}
@@ -117,7 +117,7 @@
                     <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                     <div>
                       <span class="_date">
-                        {{ item.entitle }}
+                        {{ item.date }}
                       </span>
                       <span class="_title">
                         {{ item.title }}
@@ -157,27 +157,27 @@ export default {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       SYZG_List: [],
       TZJD_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       TZJD_List: [
         {
           title: "",
           content: "",
-          logo: ""
-        }
+          logo: "",
+        },
       ],
       SDDC_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       SDDC_List: [],
       SYZG_p: 1,
@@ -185,7 +185,7 @@ export default {
       SDDC_p: 1,
       SYZG_total: 0,
       TZJD_total: 0,
-      SDDC_total: 0
+      SDDC_total: 0,
     };
   },
   watch: {
@@ -197,8 +197,8 @@ export default {
         }
       },
       immediate: true,
-      deep: true
-    }
+      deep: true,
+    },
   },
   mounted() {
     this.onClick("SYZG");
@@ -240,7 +240,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_Info`] = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
       this.axios
@@ -248,7 +248,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_List`] = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -263,7 +263,7 @@ export default {
           }
           this.SYZG_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -278,7 +278,7 @@ export default {
           }
           this.TZJD_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -294,11 +294,11 @@ export default {
           console.log(this.SDDC_List);
           this.SDDC_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
