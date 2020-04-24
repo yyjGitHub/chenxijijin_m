@@ -382,7 +382,7 @@
                           subActiveIndex + 1 === XWZX_List.length
                             ? 0
                             : subActiveIndex + 1
-                        ].time.split(" ")[0]
+                        ].date
                       }}
                     </div>
                   </div>
@@ -401,7 +401,7 @@
                     >
                       <div>
                         <div class="year">
-                          {{ item.time.split(" ")[0].substring(0, 10) }}
+                          {{ item.date }}
                         </div>
                         <div class="_title">
                           {{ item.title }}

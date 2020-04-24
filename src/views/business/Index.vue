@@ -222,15 +222,15 @@ export default {
       switch (name) {
         case "SYZG":
           info_url += `content/id/9`;
-          list_url += `contentext/id/9/p/1/count/6`;
+          list_url += `contentext/id/9/p/1/count/6/sortTime/desc`;
           break;
         case "TZJD":
           info_url += `content/id/10`;
-          list_url += `contentext/id/10/p/1/count/6`;
+          list_url += `contentext/id/10/p/1/count/6/sortTime/desc`;
           break;
         case "SDDC":
           info_url += `content/id/11`;
-          list_url += `contentext/id/11/p/1/count/6`;
+          list_url += `contentext/id/11/p/1/count/6/sortTime/desc`;
           break;
         default:
           break;

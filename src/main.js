@@ -20,6 +20,22 @@ import "swiper/dist/css/swiper.css";
 
 Vue.use(VueAwesomeSwiper /* { default global options } */);
 
+// let baseurl = "";
+// let basepicurl = "";
+// const ishttps = "https:" == document.location.protocol ? true : false;
+// if (ishttps) {
+//   // alert("这是一个https请求");
+//   baseurl = "https://47.100.31.173/Home/index/";
+//   basepicurl = "https://47.100.31.173/Public/Uploads/";
+// } else {
+//   //  alert("http");
+//   baseurl = "http://47.100.31.173/Home/index/";
+//   basepicurl = "https://47.100.31.173/Public/Uploads/";
+// }
+
+// Vue.prototype.$baseUrl = baseurl;
+// Vue.prototype.$basePicUrl = basepicurl;
+
 Vue.prototype.$baseUrl = "http://taomaidian.cn/Home/index/";
 Vue.prototype.$basePicUrl = "http://taomaidian.cn/Public/Uploads/";
 
@@ -36,7 +52,7 @@ VueAMap.initAMapApiLoader({
   plugin: ["AMap.Scale"],
   // 默认高德 sdk 版本为 1.4.4
   v: "1.4.4",
-  uiVersion: "1.0.11"
+  uiVersion: "1.0.11",
 });
 
 Vue.config.productionTip = false;
@@ -44,7 +60,7 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  render: h => h(App),
+  render: (h) => h(App),
   created() {
     if (this.IsPC()) {
       window.location.href =
@@ -75,7 +91,7 @@ new Vue({
         "SymbianOS",
         "Windows Phone",
         "iPad",
-        "iPod"
+        "iPod",
       ];
       var flag = true;
       for (var v = 0; v < Agents.length; v++) {
@@ -85,6 +101,6 @@ new Vue({
         }
       }
       return flag;
-    }
-  }
+    },
+  },
 }).$mount("#app");

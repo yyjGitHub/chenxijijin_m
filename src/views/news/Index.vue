@@ -246,15 +246,15 @@ export default {
       switch (name) {
         case "CXSJ":
           info_url += `content/id/23`;
-          list_url += `contentext/id/23/p/1/count/6`;
+          list_url += `contentext/id/23/p/1/count/6/sortTime/desc`;
           break;
         case "QYGG":
           info_url += `content/id/13`;
-          list_url += `contentext/id/13/p/1/count/6`;
+          list_url += `contentext/id/13/p/1/count/6/sortTime/desc`;
           break;
         case "CEOTALK":
           info_url += `content/id/14`;
-          list_url += `contentext/id/14/p/1/count/6`;
+          list_url += `contentext/id/14/p/1/count/6/sortTime/desc`;
           break;
         default:
           break;
