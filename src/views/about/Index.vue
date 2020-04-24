@@ -174,9 +174,7 @@
               </div>
               <div class="part_bottom_box">
                 <div v-for="(item, index) in HZHB_List" :key="index">
-                  <div class="_box">
-                    <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
-                  </div>
+                  <img :src="`${$basePicUrl}${item.file}`" alt="" srcset="" />
                 </div>
               </div>
               <el-pagination
@@ -207,62 +205,62 @@ export default {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       QYJJ_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       QYJJ_List: [],
       QYFC_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       QYFC_List: [
         {
           title: "",
           content: "",
-          logo: ""
-        }
+          logo: "",
+        },
       ],
       QYFCsub_List: [],
       TZCL_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       TZCL_List: [],
       TZLN__Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       TZLN__List: [],
       TZCL__Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       TZCL__List: [],
       FXKZ__Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       FXKZ__List: [],
       HZHB_Info: {
         title: "",
         entitle: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       HZHB_List: [],
       HZHB_total: 0,
@@ -270,21 +268,21 @@ export default {
       ZZJG_Info: {
         title: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       ZZJG_List: [],
       GLTD_Info: {
         title: "",
         content: "",
-        logo: ""
+        logo: "",
       },
       GLTD_List: [],
       QYWH_Info: {
         title: "",
         content: "",
-        logo: ""
+        logo: "",
       },
-      QYWH_List: []
+      QYWH_List: [],
     };
   },
   watch: {
@@ -296,8 +294,8 @@ export default {
         }
       },
       immediate: true,
-      deep: true
-    }
+      deep: true,
+    },
   },
   mounted() {
     this.getData();
@@ -315,7 +313,7 @@ export default {
         .then(({ data }) => {
           this.topInfo = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -330,7 +328,7 @@ export default {
           this.HZHB_List = data.data;
           this.HZHB_total = parseInt(data.count);
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
     },
@@ -365,7 +363,7 @@ export default {
         .then(({ data }) => {
           this.$data[`${name}_Info`] = data.data;
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
       this.axios
@@ -376,7 +374,7 @@ export default {
             this.HZHB_total = parseInt(data.count);
           }
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
       if (name === "QYFC") {
@@ -423,7 +421,7 @@ export default {
           .then(({ data }) => {
             this.TZLN__Info = data.data;
           })
-          .catch(response => {
+          .catch((response) => {
             console.log(response);
           });
         this.axios
@@ -431,7 +429,7 @@ export default {
           .then(({ data }) => {
             this.TZCL__Info = data.data;
           })
-          .catch(response => {
+          .catch((response) => {
             console.log(response);
           });
         this.axios
@@ -439,7 +437,7 @@ export default {
           .then(({ data }) => {
             this.FXKZ__Info = data.data;
           })
-          .catch(response => {
+          .catch((response) => {
             console.log(response);
           });
         this.axios
@@ -447,7 +445,7 @@ export default {
           .then(({ data }) => {
             this.TZLN__List = data.data;
           })
-          .catch(response => {
+          .catch((response) => {
             console.log(response);
           });
         this.axios
@@ -455,7 +453,7 @@ export default {
           .then(({ data }) => {
             this.TZCL__List = data.data;
           })
-          .catch(response => {
+          .catch((response) => {
             console.log(response);
           });
         this.axios
@@ -463,12 +461,12 @@ export default {
           .then(({ data }) => {
             this.FXKZ__List = data.data;
           })
-          .catch(response => {
+          .catch((response) => {
             console.log(response);
           });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -794,8 +792,8 @@ export default {
           & > div {
             margin-right: px(25);
             margin-top: px(29);
-            width: px(314);
-            height: px(208);
+            width: px(302);
+            height: px(200);
             box-sizing: border-box;
             display: flex;
             align-items: center;
@@ -808,17 +806,10 @@ export default {
             &:nth-child(2) {
               margin-top: 0;
             }
-            & > ._box {
-              position: relative;
-              overflow: hidden;
-
-              width: px(252);
-              height: px(167);
-              & > img {
-                display: block;
-                width: px(252);
-                height: px(167);
-              }
+            & > img {
+              display: block;
+              width: px(302);
+              height: px(200);
             }
           }
         }

@@ -456,6 +456,7 @@ export default {
         loop: true,
         init: false,
         simulateTouch: false,
+        centeredSlides: true,
         // centeredSlides: true
       },
       fz: 0,
@@ -1568,8 +1569,8 @@ export default {
                       color: #7f7f7f;
                       display: flex;
                       align-items: center;
-                      &.swiper-slide-next {
-                        // &.swiper-slide-active {
+                      // &.swiper-slide-next {
+                      &.swiper-slide-active {
                         // border: 1px #979797 solid;
                         border-left: none;
                         border-right: none;

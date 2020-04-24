@@ -1,6 +1,12 @@
 <template>
   <header>
-    <img class="logo" src="~@/assets/m/logo.png" alt="" srcset="" />
+    <img
+      class="logo"
+      @click="toHome"
+      src="~@/assets/m/logo.png"
+      alt=""
+      srcset=""
+    />
     <img
       class="caidan"
       @click.stop="show_menu = !show_menu"
@@ -101,6 +107,9 @@ export default {
     };
   },
   methods: {
+    toHome() {
+      this.$router.push("/home");
+    },
     toPage(path, index, params = "") {
       if (path) {
         if (params) {

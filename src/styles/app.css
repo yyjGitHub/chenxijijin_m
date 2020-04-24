@@ -238,6 +238,16 @@ p {
   content: "下一页";
 }
 
+.el-pagination.is-background .el-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.el-pagination.is-background .el-pager .number {
+  margin-top: px(10) !important;
+}
+
 .el-pagination.is-background .el-pager li:not(.disabled).active {
   background-color: #599ae5;
   border-color: #599ae5;
@@ -311,6 +321,7 @@ p {
 .el-pagination.is-background .el-pager li.btn-next,
 .el-pagination.is-background .el-pager li.btn-prev {
   padding: 0 px(45);
+  margin-top: px(10);
 }
 
 .el-pagination.is-background.el-pagination--small .btn-next,
@@ -333,6 +344,7 @@ p {
 .el-pagination.is-background.el-pagination--small .el-pager li.btn-next,
 .el-pagination.is-background.el-pagination--small .el-pager li.btn-prev {
   padding: 0 px(45);
+  margin-top: px(10);
 }
 
 .el-pagination.is-background .btn-next.disabled,

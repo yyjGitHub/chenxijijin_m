@@ -227,7 +227,14 @@ p {
 //   margin: 0 px(16);
 //   min-width: auto;
 // }
-
+.el-pagination.is-background .el-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .number {
+    margin-top: px(10) !important;
+  }
+}
 .el-pagination.is-background .el-pager li:not(.disabled).active {
   background-color: #599ae5;
   border-color: #599ae5;
@@ -282,6 +289,7 @@ p {
   &.btn-next,
   &.btn-prev {
     padding: 0 px(45);
+    margin-top: px(10);
   }
   line-height: px(48);
 }
@@ -300,6 +308,7 @@ p {
   &.btn-next,
   &.btn-prev {
     padding: 0 px(45);
+    margin-top: px(10);
   }
   line-height: px(48);
 }
