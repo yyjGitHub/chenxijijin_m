@@ -4,37 +4,29 @@
       <div class="swiper_box">
         <div class="op_box">
           <div class="page_index__box">
-            <div
-              class="page_index_box"
-              :class="[active_slide_index ? 'active' : '']"
-            >
+            <div class="page_index_box"
+                 :class="[active_slide_index ? 'active' : '']">
               <span class="active_index">
-                <div
-                  class="_box"
-                  :style="{
+                <div class="_box"
+                     :style="{
                     transform: `translateY(-${(parseInt(active_slide_indexnum) -
                       1) *
                       18}px)`,
-                  }"
-                >
+                  }">
                   <div>{{ active_slide_indexnum }}</div>
                   <div>02</div>
                   <div>03</div>
                   <div>04</div>
                   <div>05</div>
-                </div> </span
-              ><span class="total_index">/05</span>
+                </div>
+              </span><span class="total_index">/05</span>
             </div>
           </div>
-          <div
-            v-show="!active_slide_index"
-            class="main_swiper_pagination"
-            :class="[active_slide_index ? 'home_1st_slide' : '']"
-          >
-            <div
-              class="active"
-              :style="{ left: (active_slide_indexnum - 1) * (26.5 + 6) + 'px' }"
-            >
+          <div v-show="!active_slide_index"
+               class="main_swiper_pagination"
+               :class="[active_slide_index ? 'home_1st_slide' : '']">
+            <div class="active"
+                 :style="{ left: (active_slide_indexnum - 1) * (26.5 + 6) + 'px' }">
               <div>
                 <span :class="[!isTrans ? 's_active' : '']">
                   <div :class="[!isTrans ? 'a_active' : 'b_active']"></div>
@@ -52,23 +44,19 @@
           </div>
         </div>
 
-        <swiper
-          class="home_swiper"
-          ref="mySwiper"
-          :options="homeSwiperOption"
-          @slideChangeTransitionStart="homeSlideChangeStart"
-          @slideChangeTransitionEnd="homeSlideChangeEnd"
-        >
+        <swiper class="home_swiper"
+                ref="mySwiper"
+                :options="homeSwiperOption"
+                @slideChangeTransitionStart="homeSlideChangeStart"
+                @slideChangeTransitionEnd="homeSlideChangeEnd">
           <swiper-slide class="home_1st_slide">
-            <div
-              class="_box animated"
-              :class="[
+            <div class="_box animated"
+                 :class="[
                 active_slide_tonext && active_slide_indexnum !== '01'
                   ? 'fadeOutUp'
                   : '',
                 active_slide_indexnum === '01' ? 'fadeInUp' : '',
-              ]"
-            >
+              ]">
               <div>
                 <span style="font-weight:bold">忠于所托 成就价值</span>
               </div>
@@ -80,19 +68,18 @@
               srcset=""
             /> -->
             <div class="arrow_top">
-              <img src="~@/assets/m/arrow_top_icon.png" alt="" />
+              <img src="~@/assets/m/arrow_top_icon.png"
+                   alt="" />
             </div>
           </swiper-slide>
           <swiper-slide class="home_2nd_slide">
-            <div
-              class="_box animated"
-              :class="[
+            <div class="_box animated"
+                 :class="[
                 active_slide_tonext && active_slide_indexnum !== '02'
                   ? 'fadeOutUp'
                   : '',
                 active_slide_indexnum === '02' ? 'fadeInUp' : '',
-              ]"
-            >
+              ]">
               <div class="left_box">
                 <div class="top_box">
                   <div class="_box">
@@ -100,22 +87,19 @@
                       <div class="_top">
                         <div class="title">
                           <div class="top_">
-                            <img
-                              src="~@/assets/m/half_icon.png"
-                              alt=""
-                              srcset=""
-                            />
+                            <img src="~@/assets/m/half_icon.png"
+                                 alt=""
+                                 srcset="" />
                             <span class="_t">企业简介</span>
                           </div>
                         </div>
-                        <div @click="toPage('/about?_=QYJJ')" class="more">
+                        <div @click="toPage('/about?_=QYJJ')"
+                             class="more">
                           <span>了解更多</span>
-                          <img
-                            src="~@/assets/image/arrow_right_active.png"
-                            class="arrow_right"
-                            alt=""
-                            srcset=""
-                          />
+                          <img src="~@/assets/image/arrow_right_active.png"
+                               class="arrow_right"
+                               alt=""
+                               srcset="" />
                         </div>
                       </div>
                       <div class="_center">
@@ -125,31 +109,29 @@
                   </div>
                 </div>
                 <div class="bottom_box">
-                  <div class="_other" @click="toPage('/about?_=QYJJ&b=1')">
+                  <div class="_other"
+                       @click="toPage('/about?_=QYJJ&b=1')">
                     <div>
                       <div class="_title">
                         企业荣誉
                       </div>
                     </div>
-                    <img
-                      class="_img"
-                      src="~@/assets/image/home_3rd_slide_pic1.png"
-                      alt=""
-                      srcset=""
-                    />
+                    <img class="_img"
+                         src="~@/assets/image/home_3rd_slide_pic1.png"
+                         alt=""
+                         srcset="" />
                   </div>
-                  <div class="_other" @click="toPage('/about?_=QYFC&b=1')">
+                  <div class="_other"
+                       @click="toPage('/about?_=QYFC&b=1')">
                     <div>
                       <div class="_title">
                         企业文化
                       </div>
                     </div>
-                    <img
-                      class="_img"
-                      src="~@/assets/image/home_3rd_slide_pic2.png"
-                      alt=""
-                      srcset=""
-                    />
+                    <img class="_img"
+                         src="~@/assets/image/home_3rd_slide_pic2.png"
+                         alt=""
+                         srcset="" />
                   </div>
                 </div>
               </div>
@@ -157,21 +139,17 @@
             </div>
           </swiper-slide>
           <swiper-slide class="home_3rd_slide">
-            <div
-              class="_box animated"
-              :class="[
+            <div class="_box animated"
+                 :class="[
                 active_slide_tonext && active_slide_indexnum !== '03'
                   ? 'fadeOutUp'
                   : '',
                 active_slide_indexnum === '03' ? 'fadeInUp' : '',
-              ]"
-            >
+              ]">
               <div class="_top">
-                <img
-                  src="~@/assets/image/home_2nd_slide_pic.png"
-                  alt=""
-                  srcset=""
-                />
+                <img src="~@/assets/image/home_2nd_slide_pic.png"
+                     alt=""
+                     srcset="" />
               </div>
               <div class="_center">
                 <div class="active1">
@@ -233,21 +211,19 @@
                 <div class="active6"></div>
               </div>
               <div class="_bottom">
-                <div
-                  class="active1"
-                  v-for="(item, index) in ZYGLR_List"
-                  :key="index"
-                >
+                <div class="active1"
+                     v-for="(item, index) in ZYGLR_List"
+                     :key="index">
                   <div class="img_box">
-                    <img :src="`${$basePicUrl}${item.logo}`" alt="" srcset="" />
+                    <img :src="`${$basePicUrl}${item.logo}`"
+                         alt=""
+                         srcset="" />
                   </div>
                   <div class="_content">
                     <div class="_title">
-                      <img
-                        src="~@/assets/image/half_circle_icon.png"
-                        alt=""
-                        srcset=""
-                      />
+                      <img src="~@/assets/image/half_circle_icon.png"
+                           alt=""
+                           srcset="" />
                       <span>{{ index + 1 }}</span>
                     </div>
                     <div class="_into">
@@ -259,45 +235,39 @@
             </div>
           </swiper-slide>
           <swiper-slide class="home_4th_slide">
-            <div
-              class="_box animated"
-              :class="[
+            <div class="_box animated"
+                 :class="[
                 active_slide_tonext && active_slide_indexnum !== '04'
                   ? 'fadeOutUp'
                   : '',
                 active_slide_indexnum === '04' ? 'fadeInUp' : '',
-              ]"
-            >
+              ]">
               <div class="_top">
                 <div class="title">
-                  <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
+                  <img src="~@/assets/m/half_icon.png"
+                       alt=""
+                       srcset="" />
                   <span class="_t">战略蓝图</span>
                 </div>
               </div>
               <div class="_bottom">
-                <div
-                  v-for="(item, index) in YWLY_List"
-                  @click="tobusiness(index)"
-                  :key="index"
-                >
+                <div v-for="(item, index) in YWLY_List"
+                     @click="tobusiness(index)"
+                     :key="index">
                   <div class="_top">
                     <div class="title">
                       {{ item.title }}
                     </div>
                   </div>
                   <div class="pic_box">
-                    <img
-                      class="_pic"
-                      :src="`${$basePicUrl}${item.file}`"
-                      alt=""
-                      srcset=""
-                    />
+                    <img class="_pic"
+                         :src="`${$basePicUrl}${item.file}`"
+                         alt=""
+                         srcset="" />
                     <div class="right_box">
-                      <img
-                        src="~@/assets/m/arrow_right_active_white.png"
-                        alt=""
-                        srcset=""
-                      />
+                      <img src="~@/assets/m/arrow_right_active_white.png"
+                           alt=""
+                           srcset="" />
                     </div>
                   </div>
                 </div>
@@ -305,100 +275,92 @@
             </div>
           </swiper-slide>
           <swiper-slide class="home_5th_slide">
-            <div
-              class="_box animated"
-              :class="[
+            <div class="_box animated"
+                 :class="[
                 active_slide_tonext && active_slide_indexnum !== '05'
                   ? 'fadeOutUp'
                   : '',
                 active_slide_indexnum === '05' ? 'fadeInUp' : '',
-              ]"
-            >
+              ]">
               <div class="_top">
                 <div class="title">
-                  <img src="~@/assets/m/half_icon.png" alt="" srcset="" />
+                  <img src="~@/assets/m/half_icon.png"
+                       alt=""
+                       srcset="" />
                   <span class="_t">新闻动态</span>
                 </div>
               </div>
               <div class="_bottom">
                 <div class="_top">
-                  <img
-                    class="topic_img"
-                    @click="
+                  <img class="topic_img"
+                       @click="
                       toNewItem(
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex  === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex 
                         ].url,
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex  === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex 
                         ].id
                       )
                     "
-                    :src="
+                       :src="
                       `${$basePicUrl}${
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex  === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex 
                         ].logo
                       }`
                     "
-                    alt=""
-                    srcset=""
-                  />
-                  <div
-                    class="topic_title"
-                    @click="
+                       alt=""
+                       srcset="" />
+                  <div class="topic_title"
+                       @click="
                       toNewItem(
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex 
                         ].url,
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex  === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex 
                         ].id
                       )
-                    "
-                  >
+                    ">
                     <div class="_title">
                       {{
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex 
                         ].title
                       }}
                     </div>
                     <div class="_time">
                       {{
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex 
                         ].date
                       }}
                     </div>
                   </div>
                 </div>
                 <div class="_bottom">
-                  <swiper
-                    class="sub_swiper"
-                    ref="subSwiper"
-                    :options="subSwiperOption"
-                    @slideChangeTransitionStart="subSlideChange"
-                  >
-                    <swiper-slide
-                      v-for="(item, index) in XWZX_List"
-                      :key="index"
-                      @click.stop.native="toNewItem(item.url, item.id, $event)"
-                    >
+                  <swiper class="sub_swiper"
+                          ref="subSwiper"
+                          :options="subSwiperOption"
+                          @slideChangeTransitionStart="subSlideChange">
+                    <swiper-slide v-for="(item, index) in XWZX_List"
+                                  :key="index"
+                                  @click.stop.native="toNewItem(item.url, item.id, $event)">
                       <div>
                         <div class="year">
                           {{ item.date }}
@@ -409,19 +371,17 @@
                       </div>
                     </swiper-slide>
                   </swiper>
-                  <div @click="subswiperPrev" class="own_swiper_btn_prev">
-                    <img
-                      src="~@/assets/image/own_swiper_btn.png"
-                      alt=""
-                      srcset=""
-                    />
+                  <div @click="subswiperPrev"
+                       class="own_swiper_btn_prev">
+                    <img src="~@/assets/image/own_swiper_btn.png"
+                         alt=""
+                         srcset="" />
                   </div>
-                  <div @click="subswiperNext" class="own_swiper_btn_next">
-                    <img
-                      src="~@/assets/image/own_swiper_btn.png"
-                      alt=""
-                      srcset=""
-                    />
+                  <div @click="subswiperNext"
+                       class="own_swiper_btn_next">
+                    <img src="~@/assets/image/own_swiper_btn.png"
+                         alt=""
+                         srcset="" />
                   </div>
                 </div>
               </div>
@@ -435,7 +395,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       homeSwiperOption: {
         direction: "vertical",
@@ -488,14 +448,14 @@ export default {
   //   }
   // },
   computed: {
-    swiper() {
+    swiper () {
       return this.$refs.mySwiper.swiper;
     },
-    subSwiper() {
+    subSwiper () {
       return this.$refs.subSwiper.swiper;
     },
   },
-  mounted() {
+  mounted () {
     let _this = this;
     this.resetFontsize();
     window.onresize = () => {
@@ -508,7 +468,7 @@ export default {
       this.setActiveSlideIndex();
     });
   },
-  updated() {
+  updated () {
     let num = 0;
     let interval = setInterval(() => {
       num += 1000;
@@ -523,7 +483,7 @@ export default {
     }, 1000);
   },
   methods: {
-    tobusiness(index) {
+    tobusiness (index) {
       if (index === 0) {
         this.$router.push({ path: "/business?_=SYZG" });
       }
@@ -534,7 +494,7 @@ export default {
         this.$router.push({ path: "/business?_=SDDC" });
       }
     },
-    getData() {
+    getData () {
       // 专业私募管理人
       this.axios
         .get(`${this.$baseUrl}contentext/id/24`)
@@ -574,20 +534,20 @@ export default {
           console.log(response);
         });
     },
-    toPage(url) {
+    toPage (url) {
       this.$router.push(url);
     },
-    resetFontsize() {
+    resetFontsize () {
       let rootHtml = document.documentElement;
       let deviceWidth =
         rootHtml.clientWidth > 1920
           ? 1920
           : rootHtml.clientWidth < 1024
-          ? 1024
-          : rootHtml.clientWidth;
+            ? 1024
+            : rootHtml.clientWidth;
       this.fz = (deviceWidth * 100) / 1920;
     },
-    homeSlideChangeStart() {
+    homeSlideChangeStart () {
       this.active_slide_tonext = true;
       this.isTrans = true;
       this.setActiveSlideIndex();
@@ -598,8 +558,8 @@ export default {
         this.active_slide_tonext = false;
       }, 500);
     },
-    homeSlideChangeEnd() {},
-    setActiveSlideIndex() {
+    homeSlideChangeEnd () { },
+    setActiveSlideIndex () {
       this.active_slide_indexnum = "0" + (this.swiper.activeIndex + 1);
       if (this.swiper.activeIndex === 0) {
         this.active_slide_index = true;
@@ -607,18 +567,18 @@ export default {
         this.active_slide_index = false;
       }
     },
-    subSlideChange() {
+    subSlideChange () {
       this.subActiveIndex = this.subSwiper.realIndex;
     },
-    toSlide(index) {
+    toSlide (index) {
       this.swiper.slideTo(index);
     },
-    hasClass(elem, cls) {
+    hasClass (elem, cls) {
       cls = cls || "";
       if (cls.replace(/\s/g, "").length == 0) return false;
       return new RegExp(" " + cls + " ").test(" " + elem.className + " ");
     },
-    toNewItem(url, id, e = "") {
+    toNewItem (url, id, e = "") {
       if (url) {
         window.open(url);
         return;
@@ -627,10 +587,10 @@ export default {
         this.$router.push(`/news/${id}`);
       }
     },
-    subswiperNext() {
+    subswiperNext () {
       this.subSwiper.slideNext();
     },
-    subswiperPrev() {
+    subswiperPrev () {
       this.subSwiper.slidePrev();
     },
   },
