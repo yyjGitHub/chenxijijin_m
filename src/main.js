@@ -30,7 +30,7 @@ if (ishttps) {
 } else {
   //  alert("http");
   baseurl = "http://chenxifunds.com/Home/index/";
-  basepicurl = "https://chenxifunds.com/Public/Uploads/";
+  basepicurl = "http://chenxifunds.com/Public/Uploads/";
 }
 
 Vue.prototype.$baseUrl = baseurl;
