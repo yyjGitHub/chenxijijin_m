@@ -327,23 +327,23 @@
                     @click="
                       toNewItem(
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex
                         ].url,
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex
                         ].id
                       )
                     "
                     :src="
                       `${$basePicUrl}${
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex
                         ].logo
                       }`
                     "
@@ -355,14 +355,14 @@
                     @click="
                       toNewItem(
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex
                         ].url,
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex
                         ].id
                       )
                     "
@@ -370,18 +370,18 @@
                     <div class="_title">
                       {{
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex
                         ].title
                       }}
                     </div>
                     <div class="_time">
                       {{
                         XWZX_List[
-                          subActiveIndex + 1 === XWZX_List.length
+                          subActiveIndex === XWZX_List.length
                             ? 0
-                            : subActiveIndex + 1
+                            : subActiveIndex
                         ].date
                       }}
                     </div>

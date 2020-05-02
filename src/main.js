@@ -20,24 +20,24 @@ import "swiper/dist/css/swiper.css";
 
 Vue.use(VueAwesomeSwiper /* { default global options } */);
 
-// let baseurl = "";
-// let basepicurl = "";
-// const ishttps = "https:" == document.location.protocol ? true : false;
-// if (ishttps) {
-//   // alert("这是一个https请求");
-//   baseurl = "https://47.100.31.173/Home/index/";
-//   basepicurl = "https://47.100.31.173/Public/Uploads/";
-// } else {
-//   //  alert("http");
-//   baseurl = "http://47.100.31.173/Home/index/";
-//   basepicurl = "https://47.100.31.173/Public/Uploads/";
-// }
+let baseurl = "";
+let basepicurl = "";
+const ishttps = "https:" == document.location.protocol ? true : false;
+if (ishttps) {
+  // alert("这是一个https请求");
+  baseurl = "https://chenxifunds.com/Home/index/";
+  basepicurl = "https://chenxifunds.com/Public/Uploads/";
+} else {
+  //  alert("http");
+  baseurl = "http://chenxifunds.com/Home/index/";
+  basepicurl = "https://chenxifunds.com/Public/Uploads/";
+}
 
-// Vue.prototype.$baseUrl = baseurl;
-// Vue.prototype.$basePicUrl = basepicurl;
+Vue.prototype.$baseUrl = baseurl;
+Vue.prototype.$basePicUrl = basepicurl;
 
-Vue.prototype.$baseUrl = "http://taomaidian.cn/Home/index/";
-Vue.prototype.$basePicUrl = "http://taomaidian.cn/Public/Uploads/";
+// Vue.prototype.$baseUrl = "http://taomaidian.cn/Home/index/";
+// Vue.prototype.$basePicUrl = "http://taomaidian.cn/Public/Uploads/";
 
 Vue.use(VueAMap);
 Vue.use(Icon);

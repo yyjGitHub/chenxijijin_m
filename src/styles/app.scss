@@ -227,6 +227,9 @@ p {
 //   margin: 0 px(16);
 //   min-width: auto;
 // }
+.el-pagination.is-background {
+  display: flex;
+}
 .el-pagination.is-background .el-pager {
   display: flex;
   align-items: center;
