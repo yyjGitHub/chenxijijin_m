@@ -1041,6 +1041,8 @@ export default {
                       font-family: Helvetica;
                       color: rgba(0, 0, 0, 1);
                       line-height: px(42);
+                      text-align: justify !important;
+                      word-break: break-all !important;
                       height: px(124);
                     }
                   }
