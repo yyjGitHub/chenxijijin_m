@@ -66,12 +66,14 @@ p {
 .layout_content_box .page_top_box ._title {
   position: absolute;
   top: 50%;
-  left: px(48);
+  left: 50%;
   font-size: px(40);
   color: white;
   letter-spacing: px(4);
   font-weight: bold;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
 }
 
 .layout_content_box .page_bottom_box {

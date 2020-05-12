@@ -20,17 +20,18 @@ import "swiper/dist/css/swiper.css";
 
 Vue.use(VueAwesomeSwiper /* { default global options } */);
 
+console.log(document.location.protocol);
 let baseurl = "";
 let basepicurl = "";
 const ishttps = "https:" == document.location.protocol ? true : false;
 if (ishttps) {
   // alert("这是一个https请求");
-  baseurl = "https://chenxifunds.com/Home/index/";
-  basepicurl = "https://chenxifunds.com/Public/Uploads/";
+  baseurl = "https://admin.chenxifunds.com/Home/index/";
+  basepicurl = "https://admin.chenxifunds.com/Public/Uploads/";
 } else {
   //  alert("http");
-  baseurl = "http://chenxifunds.com/Home/index/";
-  basepicurl = "http://chenxifunds.com/Public/Uploads/";
+  baseurl = "http://admin.chenxifunds.com/Home/index/";
+  basepicurl = "http://admin.chenxifunds.com/Public/Uploads/";
 }
 
 Vue.prototype.$baseUrl = baseurl;

@@ -1332,6 +1332,7 @@ export default {
                   // flex-direction: column;
                   justify-content: center;
                   ._title {
+                    margin-right: px(14);
                     display: flex;
                     align-items: center;
                     img {
@@ -1517,7 +1518,7 @@ export default {
                 }
               }
               & > ._bottom {
-                width: px(660);
+                width: px(654);
                 padding: px(23) 0;
                 position: relative;
                 .own_swiper_btn_prev,

@@ -2,7 +2,7 @@
   <div class="service_index_box layout_content_box">
     <div class="page_bottom_box">
       <div class="tab_box">
-        <van-tabs v-model="activeName" @change="onClick" animated swipeable>
+        <van-tabs v-model="activeName" animated swipeable>
           <van-tab :title="SHZP_Info.ctitle" name="LXWM">
             <div class="part _part2">
               <div class="part_top_box">
@@ -22,9 +22,7 @@
                     >
                       <div slot="title">
                         <div class="_left">
-                          <span class="_title"
-                            >{{ item.title }}（{{ item.name }}）</span
-                          >
+                          <span class="_title">{{ item.title }}</span>
                           <span class="_into">
                             <span>{{ item.attr }}</span>
                             <span>资产数据部</span>
